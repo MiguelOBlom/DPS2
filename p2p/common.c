@@ -4,7 +4,7 @@ struct message_header init_message_header (enum message_type type, size_t len) {
 	struct message_header message_header;
 	memset(&message_header, 0, sizeof(message_header));
 	message_header.type = type;
-	message_header.len = sizeof(message_header);
+	message_header.len = len;
 
 	// TODO: create hash for checksum
 	message_header.header_checksum = 42;

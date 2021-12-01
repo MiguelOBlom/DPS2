@@ -9,6 +9,15 @@ void handle_acknowledgement() {
 
 }
 
+void* init_network_info(void* peer_info_elements, size_t data_len, size_t* network_info_len) {
+	*network_info_len = sizeof(struct message_header) + data_len;
+	void * network_info = malloc(*network_info_len);
+	struct message_header message_header = init_message_header(NETWORKINFO, *network_info_len);
+	memcpy(network_info, &message_header, sizeof(message_header));
+	memcpy(network_info + sizeof(message_header), peer_info_elements, data_len);
+	return network_info;
+}
+
 void handle_join(const int * sockfd, struct list * peer_infos) {
 	void * elements;
 	size_t data_len;
@@ -23,20 +32,14 @@ void handle_join(const int * sockfd, struct list * peer_infos) {
 	peer_info = init_peer_info(join_header.peer_info.port);
 	peer_info_ptr = malloc(sizeof(peer_info));
 
-	//printf("init_peer_info.port: %d\n", init_peer_info.port);
 	memcpy(peer_info_ptr, &peer_info, sizeof(peer_info));
-	//printf("peer_info_ptr->port: %d\n", peer_info_ptr->port);
 	list_add_element(peer_infos, join_header.peer_info.port, peer_info_ptr);
 
-	
 	elements = list_list_elements(peer_infos, &data_len);
 
-	//printf("first: %p\n", peer_infos->first);
-	//printf("first->data: %p\n", peer_infos->first->data);
-	//printf("*(first->data): %d\n", *((int*)(peer_infos->first->data)));
-	//for (size_t i = 0; i < peer_infos->n_elements; ++i) {
-	//	printf("%p: port = %d\n", (elements + i * peer_infos->element_size), ((struct peer_info *)(elements + i * peer_infos->element_size))->port);
-	//}
+	size_t network_info_len;
+	void * network_info = init_network_info(elements, data_len, &network_info_len);
+	send_message(sockfd, network_info, network_info_len, MSG_CONFIRM, &clntaddr);
 
 }
 

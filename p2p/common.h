@@ -11,7 +11,8 @@
 
 enum message_type {
 	ACKNOWLEDGEMENT,
-	JOIN
+	JOIN,
+	NETWORKINFO
 };
 
 struct peer_info {
@@ -25,6 +26,7 @@ struct message_header {
 	uint32_t header_checksum;
 	size_t len;
 };
+
 
 struct message_header init_message_header (enum message_type type, size_t len);
 
