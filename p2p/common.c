@@ -12,6 +12,7 @@ void _create_udp_socket(int* sockfd, const int* domain) {
 	}
 }
 
+// Binds address to socket using the socket file descriptor and socket address
 void _bind_socket(const int* sockfd, const struct sockaddr_in* sockaddr) {
 	if (bind(*sockfd, (const struct sockaddr *) sockaddr, sizeof(*sockaddr))) {
 		perror("Failed binding address to socket.");
@@ -23,7 +24,7 @@ void _bind_socket(const int* sockfd, const struct sockaddr_in* sockaddr) {
 }
 
 // Create and initialize a sockaddr_in structure
-struct sockaddr_in create_sockaddr_in (const int* domain, const int* port, const uint32_t* address) {
+struct sockaddr_in _create_sockaddr_in (const int* domain, const int* port, const uint32_t* address) {
 	struct sockaddr_in sockaddr;
 	memset(&sockaddr, 0, sizeof(sockaddr));
 	// Use the address family specified by domain
@@ -34,7 +35,10 @@ struct sockaddr_in create_sockaddr_in (const int* domain, const int* port, const
 	sockaddr.sin_addr.s_addr = *address;
 }
 
-void initialize(int* sockfd, const int* domain, const struct sockaddr_in* sockaddr) {
+// Initialize a socket, will create a socket file descriptor
+// Requires a domain and initialized socket address
+void initialize(int* sockfd, const int* domain, const int* port, const uint32_t* address) {
+	struct sockaddr_in sockaddr = _create_sockaddr_in(domain, port, address);
 	_create_udp_socket(sockfd, domain);
-	_bind_socket(sockfd, sockaddr);
+	_bind_socket(sockfd, &sockaddr);
 }

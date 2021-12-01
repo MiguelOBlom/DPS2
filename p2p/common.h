@@ -11,9 +11,7 @@
 
 
 
-struct sockaddr_in create_sockaddr_in (const int* domain, const int* port, const uint32_t* address);
-void initialize(int* sockfd, const int* domain, const struct sockaddr_in* sockaddr);
-
+void initialize(int* sockfd, const int* domain, const int* port, const uint32_t* address);
 
 
 #endif // COMMON_H_
