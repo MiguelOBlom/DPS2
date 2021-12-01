@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=
+CFLAGS=-ggdb
 
 all: peer tracker
 
