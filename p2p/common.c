@@ -1,5 +1,30 @@
 #include "common.h"
 
+struct message_header init_message_header (enum message_type type, size_t len) {
+	struct message_header message_header;
+	memset(&message_header, 0, sizeof(message_header));
+	message_header.type = type;
+	message_header.len = sizeof(message_header);
+
+	// TODO: create hash for checksum
+	message_header.header_checksum = 42;
+	return message_header;
+}
+
+struct peer_info init_peer_info(int port) {
+	struct peer_info peer_info;
+	peer_info.port = port;
+	return peer_info;
+}
+
+struct join_header init_join_header (int port) {
+	struct join_header join_header;
+	join_header.message_header = init_message_header(JOIN, sizeof(join_header));
+	join_header.peer_info = init_peer_info(port);
+	return join_header;
+}
+
+
 // Create a socket and store the file descriptor in server_fd
 // We will work with UDP, thus the socket type is set to SOCK_DGRAM
 // Automatically assign the best protocol
@@ -57,20 +82,16 @@ void initialize_clnt(int* sockfd, const int* domain, const int* port, const uint
 	_create_udp_socket(sockfd, domain);
 }
 
-void _get_message(const int* sockfd, void* data, const size_t* data_len, const int flags, struct sockaddr_in* sockaddr) {
+void recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in* sockaddr) {
 	socklen_t sockaddr_len = sizeof(*sockaddr);
-	ssize_t msg_len = recvfrom(*sockfd, data, *data_len, flags, (struct sockaddr*) sockaddr, &sockaddr_len);
+	ssize_t msg_len = recvfrom(*sockfd, data, data_len, flags, (struct sockaddr*) sockaddr, &sockaddr_len);
 	perror("Received message.");
 	// TODO Do something with msglen
 	// What if clntaddr_len changed?
 }
 
-void wait_message(const int* sockfd, void* data, const size_t* data_len, struct sockaddr_in* sockaddr) {
-	_get_message(sockfd, data, data_len, MSG_WAITALL, sockaddr);
-}
-
-void send_message(const int* sockfd, const void* data, const size_t* data_len, int flags, const struct sockaddr_in* sockaddr) {
-	if (sendto(*sockfd, data, *data_len, flags, (const struct sockaddr*) sockaddr, sizeof(*sockaddr)) < 0) {
+void send_message(const int* sockfd, const void* data, const size_t data_len, int flags, const struct sockaddr_in* sockaddr) {
+	if (sendto(*sockfd, data, data_len, flags, (const struct sockaddr*) sockaddr, sizeof(*sockaddr)) < 0) {
 		perror("Failed sending message.");
 	} else {
 		perror("Successfully sent message.");

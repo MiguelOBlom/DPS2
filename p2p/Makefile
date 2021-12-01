@@ -1,5 +1,6 @@
 CC=gcc
 CFLAGS=-ggdb
+DEPS=common.h list.h
 
 all: peer tracker
 
@@ -11,10 +12,10 @@ all: peer tracker
 peer: peer.c common.o
 	$(CC) -o $@ $^ $(CFLAGS)
 
-tracker: tracker.c common.o
+tracker: tracker.c common.o list.o
 	$(CC) -o $@ $^ $(CFLAGS)
 
 
 
 clean:
-	rm -f peer tracker common.o
+	rm -f peer tracker common.o list.o
