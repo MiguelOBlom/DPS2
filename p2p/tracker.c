@@ -12,7 +12,7 @@ int main(int argc, char ** argv) {
 	
 	initialize_srvr(&sockfd, &domain, &port, &address);
 	wait_message(&sockfd, (void*) buf, &buf_len, &clntaddr);
-
+	send_message(&sockfd, buf, &buf_len, MSG_CONFIRM, &clntaddr);
 
 	return 0;
 }
