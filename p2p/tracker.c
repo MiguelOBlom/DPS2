@@ -2,7 +2,7 @@
 #include "list.h"
 
 const int domain = AF_INET;
-const int port = 8080;
+const uint16_t port = 8080;
 const uint32_t address = INADDR_ANY;
 
 void handle_acknowledgement() {

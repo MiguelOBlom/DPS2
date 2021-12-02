@@ -1,5 +1,8 @@
 #include "list.h"
 
+// Find a way to make a binary search tree using the IP and PORT
+// also interpret returned data as an array of datatypes
+
 struct element {
 	size_t id;
 	struct element* next;

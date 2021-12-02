@@ -11,13 +11,13 @@ struct message_header init_message_header (enum message_type type, size_t len) {
 	return message_header;
 }
 
-struct peer_info init_peer_info(int port) {
+struct peer_info init_peer_info(uint16_t port) {
 	struct peer_info peer_info;
 	peer_info.port = port;
 	return peer_info;
 }
 
-struct join_header init_join_header (int port) {
+struct join_header init_join_header (uint16_t port) {
 	struct join_header join_header;
 	join_header.message_header = init_message_header(JOIN, sizeof(join_header));
 	join_header.peer_info = init_peer_info(port);
@@ -31,10 +31,10 @@ struct join_header init_join_header (int port) {
 void _create_udp_socket(int* sockfd, const int* domain) {
 	printf("Domain used: %d, AF_INET: %d\n", *domain, AF_INET);
 	if ((*sockfd = socket(*domain, SOCK_DGRAM, 0)) == 0) {
-		perror("Failed creating socket.");
+		perror("Failed creating socket");
 		exit(EXIT_FAILURE);
 	} else {
-		perror("Successfully created socket.");
+		perror("Successfully created socket");
 	}
 	printf("Socket file descriptor: %d\n", *sockfd);
 }
@@ -45,16 +45,16 @@ void _bind_socket(const int* sockfd, const struct sockaddr_in* sockaddr) {
 	printf("Socket file descriptor: %d\n", *sockfd);
 	printf("sin_family: %u, sin_port: %u, s_addr: %u\n", sockaddr->sin_family, sockaddr->sin_port, sockaddr->sin_addr.s_addr);
 	if (bind(*sockfd, (const struct sockaddr*) sockaddr, sizeof(*sockaddr)) < 0) {
-		perror("Failed binding address to socket.");
+		perror("Failed binding address to socket");
 		exit(EXIT_FAILURE);
 	} else {
-		perror("Successfully bound address to socket.");
+		perror("Successfully bound address to socket");
 	}
 
 }
 
 // Create and initialize a sockaddr_in structure
-struct sockaddr_in _create_sockaddr_in (const int* domain, const int* port, const uint32_t* address) {
+struct sockaddr_in _create_sockaddr_in (const int* domain, const uint16_t* port, const uint32_t* address) {
 	struct sockaddr_in sockaddr;
 	memset(&sockaddr, 0, sizeof(sockaddr));
 	// Use the address family specified by domain
@@ -69,7 +69,7 @@ struct sockaddr_in _create_sockaddr_in (const int* domain, const int* port, cons
 
 // Initialize a socket, will create a socket file descriptor
 // Requires a domain and initialized socket address
-void initialize_srvr(int* sockfd, const int* domain, const int* port, const uint32_t* address) {
+void initialize_srvr(int* sockfd, const int* domain, const uint16_t* port, const uint32_t* address) {
 	struct sockaddr_in sockaddr = _create_sockaddr_in(domain, port, address);
 	_create_udp_socket(sockfd, domain);
 	_bind_socket(sockfd, &sockaddr);
@@ -77,7 +77,7 @@ void initialize_srvr(int* sockfd, const int* domain, const int* port, const uint
 
 // Initialize a socket, will create a socket file descriptor
 // Requires a domain and initialized socket address
-void initialize_clnt(int* sockfd, const int* domain, const int* port, const uint32_t* address, struct sockaddr_in* sockaddr) {
+void initialize_clnt(int* sockfd, const int* domain, const uint16_t* port, const uint32_t* address, struct sockaddr_in* sockaddr) {
 	*sockaddr = _create_sockaddr_in(domain, port, address);
 	_create_udp_socket(sockfd, domain);
 }
@@ -85,16 +85,16 @@ void initialize_clnt(int* sockfd, const int* domain, const int* port, const uint
 void recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in* sockaddr) {
 	socklen_t sockaddr_len = sizeof(*sockaddr);
 	ssize_t msg_len = recvfrom(*sockfd, data, data_len, flags, (struct sockaddr*) sockaddr, &sockaddr_len);
-	perror("Received message.");
+	perror("Received message");
 	// TODO Do something with msglen
 	// What if clntaddr_len changed?
 }
 
 void send_message(const int* sockfd, const void* data, const size_t data_len, int flags, const struct sockaddr_in* sockaddr) {
 	if (sendto(*sockfd, data, data_len, flags, (const struct sockaddr*) sockaddr, sizeof(*sockaddr)) < 0) {
-		perror("Failed sending message.");
+		perror("Failed sending message");
 	} else {
-		perror("Successfully sent message.");
+		perror("Successfully sent message");
 	}
 
 }
