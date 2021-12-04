@@ -1,3 +1,8 @@
+Use SQLite for storing tracking data with adapter
+
 Create message header with checksum
+
 Add acknowledgements to protocol
-Send variable type data
+
+Heartbeat protocol with acknowledgement
+

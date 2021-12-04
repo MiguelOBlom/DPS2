@@ -28,7 +28,7 @@ struct join_header init_join_header (uint16_t port) {
 // Create a socket and store the file descriptor in server_fd
 // We will work with UDP, thus the socket type is set to SOCK_DGRAM
 // Automatically assign the best protocol
-void _create_udp_socket(int* sockfd, const int* domain) {
+void _create_udp_socket(int* sockfd, const short* domain) {
 	printf("Domain used: %d, AF_INET: %d\n", *domain, AF_INET);
 	if ((*sockfd = socket(*domain, SOCK_DGRAM, 0)) == 0) {
 		perror("Failed creating socket");
@@ -54,7 +54,7 @@ void _bind_socket(const int* sockfd, const struct sockaddr_in* sockaddr) {
 }
 
 // Create and initialize a sockaddr_in structure
-struct sockaddr_in _create_sockaddr_in (const int* domain, const uint16_t* port, const uint32_t* address) {
+struct sockaddr_in _create_sockaddr_in (const short* domain, const uint16_t* port, const uint32_t* address) {
 	struct sockaddr_in sockaddr;
 	memset(&sockaddr, 0, sizeof(sockaddr));
 	// Use the address family specified by domain
@@ -69,7 +69,7 @@ struct sockaddr_in _create_sockaddr_in (const int* domain, const uint16_t* port,
 
 // Initialize a socket, will create a socket file descriptor
 // Requires a domain and initialized socket address
-void initialize_srvr(int* sockfd, const int* domain, const uint16_t* port, const uint32_t* address) {
+void initialize_srvr(int* sockfd, const short* domain, const uint16_t* port, const uint32_t* address) {
 	struct sockaddr_in sockaddr = _create_sockaddr_in(domain, port, address);
 	_create_udp_socket(sockfd, domain);
 	_bind_socket(sockfd, &sockaddr);
@@ -77,7 +77,7 @@ void initialize_srvr(int* sockfd, const int* domain, const uint16_t* port, const
 
 // Initialize a socket, will create a socket file descriptor
 // Requires a domain and initialized socket address
-void initialize_clnt(int* sockfd, const int* domain, const uint16_t* port, const uint32_t* address, struct sockaddr_in* sockaddr) {
+void initialize_clnt(int* sockfd, const short* domain, const uint16_t* port, const uint32_t* address, struct sockaddr_in* sockaddr) {
 	*sockaddr = _create_sockaddr_in(domain, port, address);
 	_create_udp_socket(sockfd, domain);
 }

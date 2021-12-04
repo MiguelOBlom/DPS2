@@ -1,11 +1,11 @@
 #include "common.h"
 #include <errno.h>
 
-const int domain = AF_INET;
+const short domain = AF_INET;
 const uint16_t tracker_port = 8080;
-const uint32_t address = INADDR_ANY;
 
-void join_network(const int* sockfd, struct sockaddr_in* srvraddr, uint16_t port) {
+
+void join_network(const int* sockfd, struct sockaddr_in* srvraddr, const uint16_t port, const uint32_t address) {
 	void* network_info;
 	struct message_header message_header;
 	struct join_header join_header = init_join_header(port);
@@ -46,19 +46,24 @@ int convert_port(char* chport, uint16_t* port){
 	return 0;
 }
 
+void test (in_port_t x) {
+
+}
+
 
 int main(int argc, char ** argv) {
 	uint16_t port;
 	int tracker_sockfd;
 	struct sockaddr_in srvraddr;
-	
-	printf("%d\n", ntohs(htons(4711)));
+	uint32_t address;
 
 	int sockfd;
+	test(&(srvraddr.sin_port));
 
 
-	if (argc != 2) {
-		printf("Usage: %s <port>\n", argv[0]);
+
+	if (argc != 3) {
+		printf("Usage: %s <port> <ip>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 
@@ -66,8 +71,10 @@ int main(int argc, char ** argv) {
 		exit(EXIT_FAILURE);
 	}
 
+	address = inet_addr(argv[2]);
+
 	initialize_clnt(&tracker_sockfd, &domain, &tracker_port, &address, &srvraddr);
-	join_network(&tracker_sockfd, &srvraddr, port);
+	join_network(&tracker_sockfd, &srvraddr, port, address);
 
 	
 

@@ -1,9 +1,8 @@
 #include "common.h"
 #include "list.h"
 
-const int domain = AF_INET;
+const short domain = AF_INET;
 const uint16_t port = 8080;
-const uint32_t address = INADDR_ANY;
 
 void handle_acknowledgement() {
 
@@ -69,6 +68,9 @@ void handle_requests (const int* sockfd, struct list* peer_infos) {
 
 int main(int argc, char ** argv) {
 	int sockfd;
+
+	uint32_t address = inet_addr("192.168.2.123");
+
 	struct list peer_infos = create_list(sizeof(struct peer_info));
 
 	initialize_srvr(&sockfd, &domain, &port, &address);

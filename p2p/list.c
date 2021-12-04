@@ -2,6 +2,8 @@
 
 // Find a way to make a binary search tree using the IP and PORT
 // also interpret returned data as an array of datatypes
+// Either collect data on ip and ports for sharing with other peers
+// Or collect all data, including heartbeats etc.
 
 struct element {
 	size_t id;
