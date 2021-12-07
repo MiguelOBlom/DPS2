@@ -1,50 +1,89 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include "sha256.h"
+
+/*
+datastructuur
+hashfunctie crypto.h?
+referenties in code
+proof of work: computing
+alles wat je test laat je staan
+*/
+
+// create problem
+
+// solve problem
+
+// checken problem
+
+// template <class T>
+// struct DataHash {
+// 	T data;
+// 	std::string hash;
+// };
+
+// template <class T>
+// struct simpleHash
+// {
+//     std::string operator()(DataHash const& DH) const noexcept
+//     {
+//         std::size_t h1 = std::hash<T>{}(DH.data);
+//         std::string h2 = sha256(DH.hash);
+// 		return sha256(std::to_string(h1) + h2);
+//     }
+// };
 
 template <class T>
-char * simpleHash(void * data) {
-	char * bytes = data;
-	// Compute simple hash 
+std::string simpleHash(T data, std::string hash)
+{
+	std::size_t h1 = std::hash<T>{}(data);
+	std::string h2 = sha256(hash);
+	return sha256(std::to_string(h1) + h2);
 }
+
 
 template <class T>
 class Block {
 public:
-	Block<T>(T data, char * prev_hash /*hashing function*/);
+	Block<T>(T data, std::string prev_hash, std::string (* hash_func) (T, std::string));
 	T data;
-	char * hash;
-	char * prev_hash;
+	std::string hash;
+	std::string prev_hash;
 };
 
 template <class T>
-Block<T>::Block(T data_, char * prev_hash_, char (*hash_funct) (T, char*))  {
+Block<T>::Block(T data_, std::string prev_hash_, std::string (* hash_func) (T, std::string)) {
 	data = data_;
 	prev_hash = prev_hash_;
-	hash = hash_funct (data, prev_hash);
+	hash = hash_func(data, prev_hash);
 }
 
+// ============================================
 
 template <class T>
 class Blockchain {
 public:
-	Blockchain<T>(/*hashing function*/);
+	Blockchain<T>(std::string (*hash_func_) (T, std::string));
 
 	void addBlock(T data);
 	Block<T> * getBlock(size_t index);
 	const std::vector<Block<T> > getBlocks() const;
 
-	char * getHash(size_t index);
-	char * getHash(Block<T> * blockptr);
+	std::string * getHash(size_t index);
+	std::string * getHash(Block<T> * blockptr);
 
 private:
+	std::string (*hash_func) (T, std::string);
 	void setGenesisBlock();
-	std::vector<Block<T> > blocks;
+	std::vector<Block<T>> blocks;
 
 };
 
 template <class T>
-Blockchain<T>::Blockchain() {
-	blocks = std::vector<Block<T> >();
+Blockchain<T>::Blockchain(std::string (*hash_func_) (T, std::string)) {
+	blocks = std::vector<Block<T>>();
+	hash_func = hash_func_;
 	setGenesisBlock();
 }
 
@@ -56,11 +95,11 @@ void Blockchain<T>::setGenesisBlock() {
 
 template <class T>
 void Blockchain<T>::addBlock(T data) {
-	char * prev_hash = (blocks.size() > 0)? blocks.back().prev_hash: "\0";
+	std::string prev_hash = (blocks.size() > 0) ? blocks.back().prev_hash : "\0";
 
-	Block <T> b(data, prev_hash);
+	Block<T> b(data, prev_hash, hash_func);
 
-	blocks.push_back(block);
+	blocks.push_back(b);
 }
 
 template <class T>
@@ -72,10 +111,22 @@ Block<T> * Blockchain<T>::getBlock(size_t index) {
 }
 
 template <class T>
-const std::vector<Block<T> > Blockchain<T>::getBlocks() const {
+const std::vector<Block<T>> Blockchain<T>::getBlocks() const {
 	return blocks;
 }
 
+template <class T>
+std::string * Blockchain<T>::getHash(size_t index) {
+	Block<T> * b = getBlock(index);
+	if (b) {
+		return * b->hash;
+	}
+}
+
+template <class T>
+std::string * Blockchain<T>::getHash(Block<T> * blockptr) {
+	return * blockptr->hash;
+}
 
 int main () {
 
@@ -103,4 +154,8 @@ int test1(){
 	bp = bc.getBlock(0);
 	return bp->data; 
 	*/
+}
+
+int test2() {
+	Blockchain<int> bc(simpleHash);
 }
