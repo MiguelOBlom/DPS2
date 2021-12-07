@@ -9,17 +9,22 @@
 
 */
 
+#include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#include "db.h"
 #include <string.h>
+#include <errno.h>
+
+#include "db.h"
 
 #ifndef COMMON_H_
 #define COMMON_H_
+
+const short unsigned int domain;
 
 // ************************ //
 // Peer address definitions //
@@ -31,9 +36,10 @@ struct peer_address init_peer_address(short unsigned int family, short unsigned 
 // ************************** //
 enum message_type {
 	HEARTBEAT,
-	ACKNOWLEDGEMENT,
-	JOIN,
-	NETWORKINFO,
+	NETINFO,
+	//ACKNOWLEDGEMENT,
+	//JOIN,
+	//NETWORKINFO,
 	HELLO
 };
 
@@ -57,20 +63,22 @@ struct heartbeat_header {
 
 struct heartbeat_header init_heartbeat_header (const struct peer_address* pa);
 
-// *********************** //
-// Data header definitions //
-// *********************** //
-struct data_header {
-	uint32_t data_checksum;
-};
+// ******************************* //
+// Network information definitions //
+// ******************************* //
+void* init_network_information (const void * data, size_t* data_len); 
+
 
 // **************** //
 // Global functions //
 // **************** //
+int convert_port(char* chport, short unsigned int* port);
 void initialize_srvr(int* sockfd, const struct peer_address* pa);
 void initialize_clnt(int* sockfd, const struct peer_address* pa, struct sockaddr_in* sockaddr);
-ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in** sockaddr, socklen_t* sockaddr_len);
+ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in* sockaddr, socklen_t* sockaddr_len);
 ssize_t send_message(const int* sockfd, const void* data, const size_t data_len, int flags, const struct sockaddr_in* sockaddr);
 
+
+void print_bytes(void * data, size_t data_len);
 
 #endif // COMMON_H_

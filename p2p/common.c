@@ -1,5 +1,7 @@
 #include "common.h"
 
+const short unsigned int domain = AF_INET;
+
 // Constructs a message_header with the type and length of the full dataframe
 // NOTE: the message_header_checksum depends on the data_checksum
 struct message_header init_message_header (enum message_type type, size_t len, uint32_t data_checksum) {
@@ -22,6 +24,7 @@ struct peer_address init_peer_address(short unsigned int family, short unsigned 
 	peer_address.family = family;
 	peer_address.port = port;
 	peer_address.addr = addr;
+	return peer_address;
 }
 
 // Create a heartbeat header, the header the peer sends to the tracker to
@@ -35,12 +38,30 @@ struct heartbeat_header init_heartbeat_header (const struct peer_address* pa) {
 	return heartbeat_header;
 }
 
+// Create a pointer to a data object consisting of a configured message header 
+// and attached data of size data_len
+// Updates data_len with the data of the full frame
+void* init_network_information (const void * data, size_t* data_len) {
+	uint32_t data_checksum = 0; // TODO
+	struct message_header message_header;
+	// The size of the message header + data
+	size_t total_len = sizeof(message_header) + *data_len;
+	// Initialize the message header
+	message_header = init_message_header(NETINFO, total_len, data_checksum);
+	// Allocate memory for the whole frame, copy the header and data
+	void * frame = malloc(total_len);
+	memcpy(frame, &message_header, sizeof(message_header));
+	memcpy(frame + sizeof(message_header), data, *data_len);
+
+	*data_len = total_len;
+	return frame;
+}
 
 // Create a socket and store the file descriptor in server_fd
 // We will work with UDP, thus the socket type is set to SOCK_DGRAM
 // Automatically assign the best protocol
 void _create_udp_socket(int* sockfd, const short unsigned int family) {
-	if ((*sockfd = socket(family, SOCK_DGRAM, 0)) == 0) {
+	if ((*sockfd = socket(family, SOCK_DGRAM, 0)) < 0) {
 		perror("Failed creating socket");
 		exit(EXIT_FAILURE);
 	} else {
@@ -67,6 +88,23 @@ struct sockaddr_in _create_sockaddr_in (const struct peer_address* pa) {
 	return sockaddr;
 }
 
+// Converts a port coded in string format to a short unsigned int,
+// which is used in the peer address
+// We apply htons on the port to configure it
+// Returns -1 on error, on success 0
+int convert_port(char* chport, short unsigned int* port) {
+	unsigned long int uliport = strtoul(chport, NULL, 10);
+	// Check if conversion was successful	
+	if (uliport == 0 && (errno == EINVAL || errno == ERANGE)) {
+		perror("Could not convert port");
+		*port = 0;
+		return -1;
+	}
+
+	*port = htons(uliport);
+	return 0;
+}
+
 // Initialize a socket, will create a socket file descriptor
 // Requires a domain and initialized socket address
 void initialize_srvr(int* sockfd, const struct peer_address* pa) {
@@ -87,8 +125,8 @@ void initialize_clnt(int* sockfd, const struct peer_address* pa, struct sockaddr
 // Flags flags are passed through to the socket recvfrom call
 // Furthermore, a sockaddr should be passed, an uninitialized sockaddr_len can be passed
 // in these values the information about the sender is stored
-ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in** sockaddr, socklen_t* sockaddr_len) {
-	*sockaddr_len = sizeof(**sockaddr);
+ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in* sockaddr, socklen_t* sockaddr_len) {
+	*sockaddr_len = sizeof(*sockaddr);
 	ssize_t msg_len = recvfrom(*sockfd, data, data_len, flags, (struct sockaddr*) sockaddr, sockaddr_len);
 	if (msg_len < 0) {
 		perror("Failed receiving message");
@@ -112,4 +150,17 @@ ssize_t send_message(const int* sockfd, const void* data, const size_t data_len,
 		perror("Successfully sent message");
 	}
 	return msg_len;
+}
+
+
+void print_bytes(void * data, size_t data_len) {
+	printf("Printing %lu bytes from %p.\n", data_len, data);
+	printf("--- start bytes ---");
+	for (size_t i = 0; i < data_len; i += 1) {
+		if (i % 16 == 0) {
+			printf("\n");
+		}
+		printf("%02x ", 0xff & (unsigned int) ((char*)data)[i]);
+	}
+	printf("\n--- end bytes ---\n");
 }

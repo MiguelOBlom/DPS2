@@ -9,6 +9,7 @@
 
 */
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -28,6 +29,8 @@ struct peer_info {
 	struct peer_address sockaddr;
 	uint64_t heartbeat; // Moment of last recorded heartbeat (long unsigned int)
 };
+
+int comp_peer_address(const struct peer_address* pa1, const struct peer_address* pa2);
 
 /*
 	SQLite can only store one of the five classes:

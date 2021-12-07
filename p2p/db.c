@@ -70,6 +70,7 @@ void _report_sqlite3_err (sqlite3 * db, char * msg) {
 void _create_sqlite3_table (sqlite3* db) {
 	char * errmsg;
 
+	perror("b4?");
 	int sqlite3_retval = sqlite3_exec(db, 
 		"CREATE TABLE IF NOT EXISTS PeerInfo ("
 			"peer_family BLOB NOT NULL,"
@@ -79,13 +80,16 @@ void _create_sqlite3_table (sqlite3* db) {
 			"PRIMARY KEY(peer_family, peer_port, peer_addr)"
 		")", NULL, NULL, &errmsg);
 
+	perror("exec?");
+
 	if (sqlite3_retval != SQLITE_OK) {
 		printf("Error creating table: %s", errmsg);
 		sqlite3_close(db);
 		free(errmsg);
 		exit(EXIT_FAILURE);
 	}
-	
+
+	errno = 0;
 	free(errmsg);
 }
 
@@ -102,6 +106,7 @@ void _bind_sqlite3_peeraddress(sqlite3* db, char * partial_stmt, const struct pe
 			if (sqlite3_retval == SQLITE_OK) {
 				sqlite3_retval = sqlite3_bind_blob(*stmt, 3, &(pa->addr), sizeof(pa->addr), SQLITE_STATIC);
 				if (sqlite3_retval == SQLITE_OK) {
+					errno = 0;
 					return;
 				}
 			}
@@ -125,7 +130,7 @@ size_t _get_number_of_peers (sqlite3* db) {
 		sqlite3_close(db);
 		exit(EXIT_FAILURE);
 	}
-
+	errno = 0;
 	free(errmsg);
 	return n_items;
 }
@@ -135,8 +140,15 @@ size_t _get_number_of_peers (sqlite3* db) {
 // Global functions //
 // **************** //
 
+// Compares two peer_address objects
+// Returns 1 if equal, otherwise 0;
+int comp_peer_address(const struct peer_address* pa1, const struct peer_address* pa2) {
+	return pa1->family == pa2->family && pa1->port == pa2->port && pa1->addr == pa2->addr;
+}
+
 // Open the database
 void db_open (sqlite3 ** db, char * dbname) {
+	printf("SQLite version: %s\n", sqlite3_libversion());
 	int sqlite3_retval = sqlite3_open(dbname, db);
 
 	if (sqlite3_retval != SQLITE_OK) {
@@ -144,6 +156,9 @@ void db_open (sqlite3 ** db, char * dbname) {
 		sqlite3_close(*db);
 		exit(EXIT_FAILURE);
 	}
+
+	_create_sqlite3_table(*db);
+	errno = 0;
 }
 
 // Close the database
@@ -164,6 +179,7 @@ int db_peer_exists(sqlite3 * db, const struct peer_address* pa) {
 	if (sqlite3_retval == SQLITE_ROW) {
 		retval = sqlite3_column_int(stmt, 0);
 		sqlite3_finalize(stmt);	
+		errno = 0;
 		return retval;
 	}
 
@@ -184,6 +200,7 @@ void db_insert_peer (sqlite3* db, const struct peer_address* pa) {
 	sqlite3_retval = sqlite3_step(stmt);
 	if (sqlite3_retval == SQLITE_DONE) {
 		sqlite3_finalize(stmt);	
+		errno = 0;
 		return;
 	}
 
@@ -201,7 +218,8 @@ void db_update_peer_heartbeat(sqlite3 * db, const struct peer_address* pa) {
 
 	sqlite3_retval = sqlite3_step(stmt);
 	if (sqlite3_retval == SQLITE_DONE) {
-		sqlite3_finalize(stmt);	
+		sqlite3_finalize(stmt);
+		errno = 0;
 		return;
 	}
 
@@ -221,6 +239,7 @@ void db_remove_outdated_peers (sqlite3* db, int timeout_threshold) {
 			sqlite3_retval = sqlite3_step(stmt); // Executes the statement
 			if (sqlite3_retval == SQLITE_DONE) {
 				sqlite3_finalize(stmt); // Cleans up the statement
+				errno = 0;
 				return;
 			}
 		}
@@ -249,6 +268,7 @@ void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t*
 		exit(EXIT_FAILURE);
 	}
 
+	errno = 0;
 	free(errmsg);
 }
 
@@ -270,7 +290,8 @@ void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items
 		sqlite3_close(db);
 		exit(EXIT_FAILURE);
 	}
-
+	
+	errno = 0;
 	free(errmsg);
 }
 
@@ -301,7 +322,6 @@ int main (int argc, char ** argv) {
 
 	// Open the database and create a table if not exists
 	db_open(&db, dbname);
-	_create_sqlite3_table(db);
 
 	// Define peer address information
 	pa.family = AF_INET;

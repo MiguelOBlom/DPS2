@@ -1,25 +1,38 @@
 #include "common.h"
-#include <errno.h>
-
-const short domain = AF_INET;
-const uint16_t tracker_port = 8080;
 
 
-void join_network(const int* sockfd, struct sockaddr_in* srvraddr, const uint16_t port, const uint32_t address) {
-	void* network_info;
+void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa, struct peer_address ** network_info, size_t * n_peers) {
+	size_t data_len;
+	void * message;
+	socklen_t srvraddr_len;
 	struct message_header message_header;
-	struct join_header join_header = init_join_header(port);
-	send_message(sockfd, &join_header, sizeof(join_header), MSG_CONFIRM, srvraddr);
-	recv_message(sockfd, &message_header, sizeof(message_header), MSG_WAITALL | MSG_PEEK, srvraddr);
-	if (message_header.type != NETWORKINFO) {
+	struct heartbeat_header heartbeat_header = init_heartbeat_header(pa);
+	send_message(sockfd, &heartbeat_header, sizeof(heartbeat_header), MSG_CONFIRM, srvraddr);
+	recv_message(sockfd, &message_header, sizeof(message_header), MSG_WAITALL | MSG_PEEK, srvraddr, &srvraddr_len);
+	if (message_header.type != NETINFO) {
 		printf("Expected network info, but got something else...\n");
 	} else {
-		network_info = malloc(message_header.len);
-		recv_message(sockfd, network_info, message_header.len, MSG_WAITALL, srvraddr);
-		struct peer_info* i = network_info + sizeof(message_header);
+		message = malloc(message_header.len);
+		recv_message(sockfd, message, message_header.len, MSG_WAITALL, srvraddr, &srvraddr_len);
 
-		printf("start: %p, end: %p, len:%lu\n", i, (struct peer_info*)(network_info + message_header.len), message_header.len);
+		data_len = message_header.len - sizeof(message_header);
 
+		print_bytes(message, message_header.len );
+
+		*network_info = malloc(data_len);
+		memcpy(*network_info, message + sizeof(message_header), data_len);
+		free(message);
+
+		*n_peers = data_len / sizeof(struct peer_address);
+		for (size_t i = 0; i < *n_peers; ++i) {
+			print_bytes(&(*network_info)[i], sizeof(struct peer_address));	
+		}
+	}
+
+}
+
+
+/*
 		for (; i < (struct peer_info*)(network_info + message_header.len); i ++) {
 			printf("%d\n", ((struct peer_info*) i)->port);
 
@@ -32,52 +45,85 @@ void join_network(const int* sockfd, struct sockaddr_in* srvraddr, const uint16_
 			send_message(&sockfd_, &message_header_, sizeof(message_header_), MSG_CONFIRM, &srvraddr_);
 
 		}
-	}
-
-}
-
-int convert_port(char* chport, uint16_t* port){
-	*port = strtoul(chport, NULL, 10);
-	// Check if conversion was successful	
-	if (port == 0 && (errno == EINVAL || errno == ERANGE)) {
-		perror("Could not convert port");
-		return -1;
-	}
-	return 0;
-}
-
-void test (in_port_t x) {
-
-}
+*/
 
 
 int main(int argc, char ** argv) {
-	uint16_t port;
+	struct sockaddr_in tracker_sockaddr;
 	int tracker_sockfd;
-	struct sockaddr_in srvraddr;
-	uint32_t address;
-
-	int sockfd;
-	test(&(srvraddr.sin_port));
+	struct peer_address tracker_pa;
+	short unsigned int tracker_port;
+	uint32_t tracker_addr;
 
 
+	struct peer_address own_pa;
+	short unsigned int own_port;
+	uint32_t own_addr;
 
-	if (argc != 3) {
-		printf("Usage: %s <port> <ip>\n", argv[0]);
+	struct peer_address * network_info;
+	size_t n_peers;
+
+	int own_sockfd;
+
+
+
+	if (argc != 5) {
+		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 
-	if (convert_port(argv[1], &port) < 0) {
+	tracker_addr = inet_addr(argv[1]);
+	if (convert_port(argv[2], &tracker_port) < 0) {
 		exit(EXIT_FAILURE);
 	}
+	tracker_pa = init_peer_address(domain, tracker_port, tracker_addr);
 
-	address = inet_addr(argv[2]);
+	own_addr = inet_addr(argv[3]);
+	if (convert_port(argv[4], &own_port) < 0) {
+		exit(EXIT_FAILURE);
+	}
+	own_pa = init_peer_address(domain, own_port, own_addr);
 
-	initialize_clnt(&tracker_sockfd, &domain, &tracker_port, &address, &srvraddr);
-	join_network(&tracker_sockfd, &srvraddr, port, address);
+	initialize_clnt(&tracker_sockfd, &tracker_pa, &tracker_sockaddr);
+
+	printf("family: %d, port: %d, addr: %d\n", own_pa.family, own_pa.port, own_pa.addr);
+
+
+	send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &network_info, &n_peers);
+
+
+	for (size_t i = 0; i < n_peers; i++) {
+		int sockfd;
+		struct sockaddr_in sa;
+		initialize_clnt(&sockfd, &network_info[i], &sa);
+		struct message_header mh = init_message_header(HELLO, sizeof(struct message_header), 0);
+		send_message(&sockfd, &mh, sizeof(struct message_header), MSG_CONFIRM, &sa);	 
+	}
+
+
+	initialize_srvr(&own_sockfd, &own_pa);
+
+	while(1) {
+		socklen_t clntaddr_len;
+		struct sockaddr_in clntaddr;
+		struct message_header * mh;
+		recv_message(&own_sockfd, mh, sizeof(struct message_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
+		printf("Got a message!\n");
+	}
+
+
+	free(network_info);
+//	join_network(&tracker_sockfd, &srvraddr, port, address);
+
+/*
+	Stress testing example
+	for (int i = 0; i < 1000; i++) {
+		send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa);
+	}
+*/
 
 	
-
+/*
 	initialize_srvr(&sockfd, &domain, &port, &address);
 	
 	struct message_header message_header_;
@@ -86,7 +132,7 @@ int main(int argc, char ** argv) {
 		recv_message(&sockfd, &message_header_, sizeof(message_header_), MSG_WAITALL, &clntaddr);
 		printf("Got a message!\n");
 	}
-
+*/
 	//send_message(&sockfd, buf, &buf_len, MSG_CONFIRM, &srvraddr);
 	//wait_message(&sockfd, (void*) buf, &buf_len, MSG_WAITALL, &srvraddr);
 

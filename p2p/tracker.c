@@ -1,82 +1,171 @@
 #include "common.h"
-#include "list.h"
 
-const short domain = AF_INET;
-const uint16_t port = 8080;
 
+// If no heartbeat is obtained from a peer after 60 seconds, 
+// it is considered dead.
+const int timeout_threshold = 60; 
+
+/*
 void handle_acknowledgement() {
 
 }
 
-void* init_network_info(void* peer_info_elements, size_t data_len, size_t* network_info_len) {
-	*network_info_len = sizeof(struct message_header) + data_len;
-	void * network_info = malloc(*network_info_len);
-	struct message_header message_header = init_message_header(NETWORKINFO, *network_info_len);
-	memcpy(network_info, &message_header, sizeof(message_header));
-	memcpy(network_info + sizeof(message_header), peer_info_elements, data_len);
-	return network_info;
-}
+*/
 
-void handle_join(const int * sockfd, struct list * peer_infos) {
-	void * elements;
-	size_t data_len;
+
+
+
+
+void handle_heartbeat(const int* sockfd, sqlite3* db) {
+	static int calls = 0;
+	calls++;
+	printf("%d\n", calls);
+
+	struct heartbeat_header heartbeat_header;
 	struct sockaddr_in clntaddr;
-	struct join_header join_header;
-	struct peer_info peer_info;
-	struct peer_info* peer_info_ptr;
+	socklen_t clntaddr_len;
 
-	recv_message(sockfd, (void*) &join_header, sizeof(join_header), MSG_WAITALL, &clntaddr);
-	printf("Peer wants to join on port: %d\n", join_header.peer_info.port);
+	struct peer_address * network_information;
+	size_t n_peers;
 
-	peer_info = init_peer_info(join_header.peer_info.port);
-	peer_info_ptr = malloc(sizeof(peer_info));
+	void * message;
+	size_t message_len;
 
-	memcpy(peer_info_ptr, &peer_info, sizeof(peer_info));
-	list_add_element(peer_infos, join_header.peer_info.port, peer_info_ptr);
+	// Receive the message
+	recv_message(sockfd, (void*) &heartbeat_header, sizeof(heartbeat_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
 
-	elements = list_list_elements(peer_infos, &data_len);
+	// Check checksum
+	if (heartbeat_header.message_header.type != HEARTBEAT) {
+		printf("Not a heartbeat...\n");
+		return;
+	}
 
-	size_t network_info_len;
-	void * network_info = init_network_info(elements, data_len, &network_info_len);
-	send_message(sockfd, network_info, network_info_len, MSG_CONFIRM, &clntaddr);
+	// The order of updating the peer and adding it to our database is important.
+	// If the server gets overloaded, then heartbeats may not be registered in time.
+	// Effectively leading to clients being "kicked" out of the list of alive peers.
+	// Thus, first kicking all peers, then when a heartbeat is registered of a peer
+	// which is not in the network, and sending the list of known peers prior to adding
+	// it to the list, would show that it had been offline or joins as a new peer.
+	// The latter two are mainly the same when it comes to reliability of the data
+	// of the peer, it is not considered up-to-date anymore.
 
+	// We could use ioctl to check whether there are any messages and THEN kicking
+	// dead peers from the list of known alive peers, however, this would only
+	// move the problem. If a heartbeat would appear just when we are removing
+	// the corresponding peer, it would have to be registered again.
+	// Any changes in the data of the peers (e.g. the blockchain) would then
+	// not get sent to the kicked peer by the others in the meantime.
+
+	// When a peer is not up-to-date, it has to retrieve the data from all other 
+	// peers, by a consensus algorithm. However, overloading the server too much 
+	// could leave only a single peer, if it is spamming heartbeats.
+	// This means that it has full regime over the state of the blockchain.
+	// Thus, the reliability of the data is dependent on the throughput of the tracker.
+
+	// Send back a list of peer_address objects
+	db_get_all_peer_addresses(db, &network_information, &n_peers);
+
+	for (size_t i = 0; i < n_peers; ++i) {
+		printf("family: %d, port: %d, addr: %d\n", network_information[i].family, network_information[i].port, network_information[i].addr);
+	}
+
+	printf("There are %lu peers online!\n", n_peers);
+	message_len = n_peers * sizeof(struct peer_address);
+	message = init_network_information(network_information, &message_len);
+
+	print_bytes(message, message_len);
+	send_message(sockfd, message, message_len, MSG_CONFIRM, &clntaddr);
+
+	/*
+	for (size_t j = 0; j < message_len; j++) {
+		printf("%02x ",((char*)&message)[j]);
+	}
+	printf("\n");
+	*/
+	free(message);
+	free(network_information);
+
+	/*
+	for (size_t j = 0; j < sizeof(heartbeat_header.peer_address); j++) {
+		printf("%02x ",((char*)&heartbeat_header.peer_address)[j]);
+	}
+	*/
+
+	// Update the database with this new information
+	if (db_peer_exists(db, &heartbeat_header.peer_address)) {
+		// Only have to update the heartbeat if the peer exists
+		db_update_peer_heartbeat(db, &heartbeat_header.peer_address);
+	} else {
+		// Otherwise we need to add it to our list
+		db_insert_peer(db, &heartbeat_header.peer_address);
+	}
 }
 
+int is_data_available(const int* sockfd) {
+	int size;
+	int ret = ioctl(*sockfd, FIONREAD, &size);
+	if (ret == 0) {
+		printf("%d %d\n", ret, size);
+		return size > 0;
+	}
+	
+	return 0;
+}
 
-void handle_requests (const int* sockfd, struct list* peer_infos) {
+void handle_requests (const int* sockfd, sqlite3* db) {
 	struct message_header header;
 	struct sockaddr_in clntaddr;
+	socklen_t clntaddr_len;
 
 	while(1) {
-		// Receive a message header
-		recv_message(sockfd, (void*) &header, sizeof(header), MSG_WAITALL | MSG_PEEK, &clntaddr);
-		printf("%d %u %lu\n", header.type, header.header_checksum, header.len);
+		db_remove_outdated_peers(db, timeout_threshold);
 
-		switch(header.type) {
-			case ACKNOWLEDGEMENT:
-				break;
-			case JOIN:
-				handle_join(sockfd, peer_infos);
-				break;
-			default:
-				break;
+		if (!is_data_available(sockfd)) {
+			sleep(1);
+		} else {
+			// Receive a message header
+			recv_message(sockfd, (void*) &header, sizeof(header), MSG_WAITALL | MSG_PEEK, &clntaddr, &clntaddr_len);
+			printf("type: %d, message_header_checksum: %u, message_data_checksum: %u, len: %lu\n", header.type, header.message_header_checksum, header.message_data_checksum, header.len);
+
+			switch(header.type) {
+				case HEARTBEAT:
+					handle_heartbeat(sockfd, db);
+					break;
+				default:
+					break;
+			}
 		}
-
 	}
 }
 
 
 int main(int argc, char ** argv) {
+	struct sockaddr_in sockaddr;
 	int sockfd;
+	struct peer_address pa;
+	short unsigned int port;
+	uint32_t addr;
+	sqlite3 * db;
 
-	uint32_t address = inet_addr("192.168.2.123");
+	if (argc != 4) {
+		printf("Usage: %s <addr> <port> <db_name>\n", argv[0]);
+		exit(EXIT_FAILURE);
+	}
 
-	struct list peer_infos = create_list(sizeof(struct peer_info));
+	addr = inet_addr(argv[1]);
+	if (convert_port(argv[2], &port) < 0) {
+		exit(EXIT_FAILURE);
+	}
+	pa = init_peer_address(domain, port, addr);
+	initialize_srvr(&sockfd, &pa);
+	perror("huh?");
+	db_open(&db, argv[3]);
+	perror("What?");
 
-	initialize_srvr(&sockfd, &domain, &port, &address);
+	handle_requests(&sockfd, db);
 
-	handle_requests(&sockfd, &peer_infos);
-
+	db_close(db);
+	
 
 	
 	/*
