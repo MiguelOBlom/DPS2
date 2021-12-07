@@ -7,11 +7,11 @@ DEPS=sha256.h
 
 all:	blockchain
 
-blockchain: main.o sha256.o $(DEPS)
-	$(CXX) $(CFLAGS) $(LIBS) -o $@ $^
+blockchain: main.o sha256.o
+	$(CXX) -o $@ $^ $(CFLAGS) $(LIBS)
 
 %.o:	%.cc $(DEPS)
-	$(CXX) $(CXXFLAGS) $(LIBS) -c $<
+	$(CXX) -c $< $(CXXFLAGS) $(LIBS)
 
 clean:
 	rm -f blockchain *.o
