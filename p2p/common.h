@@ -19,6 +19,8 @@
 #include <string.h>
 #include <errno.h>
 
+#include <pthread.h>
+
 #include "db.h"
 
 #ifndef COMMON_H_
@@ -64,6 +66,14 @@ struct heartbeat_header init_heartbeat_header (const struct peer_address* pa);
 // ******************************* //
 // Network information definitions //
 // ******************************* //
+struct netinfo_lock {
+	struct peer_address** network_info;
+	size_t n_peers*;
+	pthread_mutex_t* mutex;
+}
+
+struct netinfo_lock init_netinfo_lock(struct peer_address** network_info, size_t* n_peers);
+
 void* init_network_information (const void * data, size_t* data_len); 
 
 

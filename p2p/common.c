@@ -38,6 +38,13 @@ struct heartbeat_header init_heartbeat_header (const struct peer_address* pa) {
 	return heartbeat_header;
 }
 
+struct netinfo_lock init_netinfo_lock(struct peer_address** network_info, size_t * n_peers) {
+	struct netinfo_lock nl;
+	nl.peer_address = peer_address;
+	nl.n_peers = n_peers;
+	nl.lock = 0;
+}
+
 // Create a pointer to a data object consisting of a configured message header 
 // and attached data of size data_len
 // Updates data_len with the data of the full frame
