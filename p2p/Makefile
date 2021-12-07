@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-ggdb
-LIBS=-lsqlite3
+LIBS=-lsqlite3 -pthread
 DEPS=common.h db.h
 
 all: peer tracker

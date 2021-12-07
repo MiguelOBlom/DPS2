@@ -47,7 +47,7 @@ void receive(const int* sockfd) {
 	}
 }
 
-void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa, struct peer_address ** network_info, size_t * n_peers) {
+void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa, struct netinfo_lock* netinfo_lock) {
 	size_t data_len;
 	void * message;
 	socklen_t srvraddr_len;
@@ -63,7 +63,11 @@ void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struc
 
 		data_len = message_header.len - sizeof(message_header);
 
-		print_bytes(message, message_header.len );
+		//print_bytes(message, message_header.len );
+
+		while ((*netinfo_lock).lock > 1) {
+			sleep(1);
+		}
 
 		if (*network_info) {
 			free(*network_info);
@@ -109,6 +113,11 @@ void* threadproc(void * arg) {
 	while(1) {
 		sleep(5);
 		printf("%p\n", *((struct peer_address**) arg));
+
+		for (size_t i = 0; i < *n_peers; ++i) {
+			print_bytes(&(*network_info)[i], sizeof(struct peer_address));	
+		}
+
 	}
 }
 
@@ -131,7 +140,7 @@ int main(int argc, char ** argv) {
 
 	int own_sockfd;
 
-
+	pthread_t thread_id;
 
 	if (argc != 5) {
 		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port>\n", argv[0]);
@@ -152,10 +161,13 @@ int main(int argc, char ** argv) {
 
 	initialize_clnt(&tracker_sockfd, &tracker_pa, &tracker_sockaddr);
 
-	printf("family: %d, port: %d, addr: %d\n", own_pa.family, own_pa.port, own_pa.addr);
+	//printf("family: %d, port: %d, addr: %d\n", own_pa.family, own_pa.port, own_pa.addr);
 
+	struct netinfo_lock netinfo_lock = init_netinfo_lock(&network_info, &n_peers);
 
-	send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &network_info, &n_peers);
+	send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &netinfo_lock);
+	
+	pthread_create(&thread_id, NULL, threadproc, &network_info);
 
 
 	/*
@@ -173,15 +185,15 @@ int main(int argc, char ** argv) {
 	initialize_srvr(&own_sockfd, &own_pa);
 
 
-/*
+
 	while(1) {
 		broadcast(network_info, &own_pa, n_peers, NULL, 0);
 		receive(&own_sockfd);
-		send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &network_info, &n_peers);
-		sleep(2);
+		//send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &network_info, &n_peers);
+		sleep(10);
 	}
 	free(network_info);
-*/
+
 	
 
 
