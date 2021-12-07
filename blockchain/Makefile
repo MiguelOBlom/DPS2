@@ -1,6 +1,6 @@
 CC=gcc
 CXX=g++
-CFLAGS = -Wall -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-unused-but-set-variable -O3 -lsha
+CFLAGS = -Wall -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-unused-but-set-variable -O3
 CXXFLAGS = $(CFLAGS) -std=c++11
 
 all:	blockchain

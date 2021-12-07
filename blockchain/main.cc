@@ -128,8 +128,16 @@ std::string * Blockchain<T>::getHash(Block<T> * blockptr) {
 	return * blockptr->hash;
 }
 
-int main () {
+int test2() {
+	Blockchain<int> bc(simpleHash);
+	bc.addBlock(42);
+	bc.addBlock(12);
+	bc.addBlock(23);
+	return 0;
+}
 
+int main () {
+	test2();
 	return 0;
 }
 
@@ -156,6 +164,3 @@ int test1(){
 	*/
 }
 
-int test2() {
-	Blockchain<int> bc(simpleHash);
-}
