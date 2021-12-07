@@ -129,7 +129,8 @@ ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int f
 	*sockaddr_len = sizeof(*sockaddr);
 	ssize_t msg_len = recvfrom(*sockfd, data, data_len, flags, (struct sockaddr*) sockaddr, sockaddr_len);
 	if (msg_len < 0) {
-		perror("Failed receiving message");
+		// TODO: uncomment
+		//perror("Failed receiving message");
 	} else {
 		perror("Successfully received message");
 	}
@@ -152,6 +153,17 @@ ssize_t send_message(const int* sockfd, const void* data, const size_t data_len,
 	return msg_len;
 }
 
+int is_data_available(const int* sockfd) {
+	int size;
+	int ret = ioctl(*sockfd, FIONREAD, &size);
+	if (ret == 0) {
+		printf("%d %d\n", ret, size);
+		return size > 0;
+	}
+	
+	return 0;
+}
+
 
 void print_bytes(void * data, size_t data_len) {
 	printf("Printing %lu bytes from %p.\n", data_len, data);
@@ -164,3 +176,4 @@ void print_bytes(void * data, size_t data_len) {
 	}
 	printf("\n--- end bytes ---\n");
 }
+

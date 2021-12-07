@@ -1,3 +1,5 @@
+// rm p2p.db; ./tracker 192.168.178.73 8080 p2p.db
+
 #include "common.h"
 
 
@@ -99,17 +101,6 @@ void handle_heartbeat(const int* sockfd, sqlite3* db) {
 		// Otherwise we need to add it to our list
 		db_insert_peer(db, &heartbeat_header.peer_address);
 	}
-}
-
-int is_data_available(const int* sockfd) {
-	int size;
-	int ret = ioctl(*sockfd, FIONREAD, &size);
-	if (ret == 0) {
-		printf("%d %d\n", ret, size);
-		return size > 0;
-	}
-	
-	return 0;
 }
 
 void handle_requests (const int* sockfd, sqlite3* db) {

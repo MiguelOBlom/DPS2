@@ -1,5 +1,51 @@
+// ./peer 192.168.178.73 8080 192.168.178.73 1234
 #include "common.h"
 
+void broadcast(const struct peer_address* network_info, const struct peer_address* own_pa, size_t n_peers, void * data, size_t data_len) {
+	uint32_t data_checksum = 0; // TODO
+	struct message_header message_header = init_message_header(BROADCAST, sizeof(struct message_header) + data_len, data_checksum);
+	void * message = malloc(message_header.len);
+	
+	memcpy(message, &message_header, sizeof(struct message_header));
+
+	if (data) {
+		memcpy(message, data, data_len);
+	}
+
+	int sockfd;
+	struct sockaddr_in sockaddr;
+
+	for (size_t i = 0; i < n_peers; ++i) {
+		initialize_clnt(&sockfd, &network_info[i], &sockaddr);
+
+		if(!cmp_peer_address(&network_info[i], own_pa)) {
+			send_message(&sockfd, message, message_header.len, MSG_CONFIRM, &sockaddr);	
+		}
+	}
+}
+
+void handle_broadcast(const int* sockfd) {
+	static unsigned int handled = 0;
+	handled++;
+	printf("%u\n", handled);
+}
+
+void receive(const int* sockfd) {
+	struct message_header header;
+	struct sockaddr_in clntaddr;
+	socklen_t clntaddr_len;
+	if (is_data_available(sockfd)) {
+		recv_message(sockfd, &header, sizeof(struct message_header), MSG_WAITALL | MSG_PEEK, &clntaddr, &clntaddr_len);
+		switch (header.type) {
+			case BROADCAST:
+				handle_broadcast(sockfd);
+				break;
+
+			default:
+				break;
+		}
+	}
+}
 
 void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa, struct peer_address ** network_info, size_t * n_peers) {
 	size_t data_len;
@@ -19,18 +65,30 @@ void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struc
 
 		print_bytes(message, message_header.len );
 
+		if (*network_info) {
+			free(*network_info);
+		}
+
 		*network_info = malloc(data_len);
 		memcpy(*network_info, message + sizeof(message_header), data_len);
 		free(message);
 
 		*n_peers = data_len / sizeof(struct peer_address);
-		for (size_t i = 0; i < *n_peers; ++i) {
+		/*for (size_t i = 0; i < *n_peers; ++i) {
 			print_bytes(&(*network_info)[i], sizeof(struct peer_address));	
-		}
+		}*/
 	}
 
 }
 
+int is_present(const struct peer_address* network_info, const struct peer_address* own_pa, size_t n_peers) {
+	for (size_t i = 0; i < n_peers; ++i) {
+		if(cmp_peer_address(&network_info[i], own_pa)) {
+			return 1;
+		}
+	}
+	return 0;
+}
 
 /*
 		for (; i < (struct peer_info*)(network_info + message_header.len); i ++) {
@@ -47,8 +105,16 @@ void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struc
 		}
 */
 
+void* threadproc(void * arg) {
+	while(1) {
+		sleep(5);
+		printf("%p\n", *((struct peer_address**) arg));
+	}
+}
+
 
 int main(int argc, char ** argv) {
+
 	struct sockaddr_in tracker_sockaddr;
 	int tracker_sockfd;
 	struct peer_address tracker_pa;
@@ -60,7 +126,7 @@ int main(int argc, char ** argv) {
 	short unsigned int own_port;
 	uint32_t own_addr;
 
-	struct peer_address * network_info;
+	struct peer_address * network_info = NULL;
 	size_t n_peers;
 
 	int own_sockfd;
@@ -92,6 +158,7 @@ int main(int argc, char ** argv) {
 	send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &network_info, &n_peers);
 
 
+	/*
 	for (size_t i = 0; i < n_peers; i++) {
 		int sockfd;
 		struct sockaddr_in sa;
@@ -102,17 +169,23 @@ int main(int argc, char ** argv) {
 
 
 	initialize_srvr(&own_sockfd, &own_pa);
+	*/
+	initialize_srvr(&own_sockfd, &own_pa);
 
+
+/*
 	while(1) {
-		socklen_t clntaddr_len;
-		struct sockaddr_in clntaddr;
-		struct message_header * mh;
-		recv_message(&own_sockfd, mh, sizeof(struct message_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
-		printf("Got a message!\n");
+		broadcast(network_info, &own_pa, n_peers, NULL, 0);
+		receive(&own_sockfd);
+		send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &network_info, &n_peers);
+		sleep(2);
 	}
-
-
 	free(network_info);
+*/
+	
+
+
+	
 //	join_network(&tracker_sockfd, &srvraddr, port, address);
 
 /*

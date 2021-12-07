@@ -142,7 +142,7 @@ size_t _get_number_of_peers (sqlite3* db) {
 
 // Compares two peer_address objects
 // Returns 1 if equal, otherwise 0;
-int comp_peer_address(const struct peer_address* pa1, const struct peer_address* pa2) {
+int cmp_peer_address(const struct peer_address* pa1, const struct peer_address* pa2) {
 	return pa1->family == pa2->family && pa1->port == pa2->port && pa1->addr == pa2->addr;
 }
 

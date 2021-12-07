@@ -37,10 +37,8 @@ struct peer_address init_peer_address(short unsigned int family, short unsigned 
 enum message_type {
 	HEARTBEAT,
 	NETINFO,
-	//ACKNOWLEDGEMENT,
-	//JOIN,
-	//NETWORKINFO,
-	HELLO
+	BROADCAST,
+
 };
 
 struct message_header {

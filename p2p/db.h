@@ -30,7 +30,7 @@ struct peer_info {
 	uint64_t heartbeat; // Moment of last recorded heartbeat (long unsigned int)
 };
 
-int comp_peer_address(const struct peer_address* pa1, const struct peer_address* pa2);
+int cmp_peer_address(const struct peer_address* pa1, const struct peer_address* pa2);
 
 /*
 	SQLite can only store one of the five classes:
@@ -76,3 +76,4 @@ void db_update_peer_heartbeat (sqlite3 * db, const struct peer_address* pa);
 void db_remove_outdated_peers (sqlite3* db, int timeout_threshold);
 void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t* n_items);
 void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items);
+int  is_data_available(const int* sockfd);
