@@ -68,15 +68,16 @@ public:
 
 	void addBlock(T data);
 	Block<T> * getBlock(size_t index);
-	const std::vector<Block<T> > getBlocks() const;
+	const std::vector<Block<T>> getBlocks() const;
 
-	std::string * getHash(size_t index);
-	std::string * getHash(Block<T> * blockptr);
+	std::string getHash_index(size_t index);
+	std::string getHash_block(Block<T> * blockptr);
 
 private:
 	std::string (*hash_func) (T, std::string);
-	void setGenesisBlock();
 	std::vector<Block<T>> blocks;
+
+	// void setGenesisBlock();
 
 };
 
@@ -84,18 +85,18 @@ template <class T>
 Blockchain<T>::Blockchain(std::string (*hash_func_) (T, std::string)) {
 	blocks = std::vector<Block<T>>();
 	hash_func = hash_func_;
-	setGenesisBlock();
 }
 
-template <class T>
-void Blockchain<T>::setGenesisBlock() {
-	addBlock(0);
-}
+// First block added must contain data so this function is not necessary (?)
+// template <class T>
+// void Blockchain<T>::setGenesisBlock() {
+// 	addBlock(0);
+// }
 
 
 template <class T>
 void Blockchain<T>::addBlock(T data) {
-	std::string prev_hash = (blocks.size() > 0) ? blocks.back().prev_hash : "\0";
+	std::string prev_hash = (blocks.size() > 0) ? blocks.back().hash : "\0";
 
 	Block<T> b(data, prev_hash, hash_func);
 
@@ -116,28 +117,43 @@ const std::vector<Block<T>> Blockchain<T>::getBlocks() const {
 }
 
 template <class T>
-std::string * Blockchain<T>::getHash(size_t index) {
+std::string Blockchain<T>::getHash_index(size_t index) {
 	Block<T> * b = getBlock(index);
 	if (b) {
-		return * b->hash;
+		return b->hash;
 	}
 }
 
 template <class T>
-std::string * Blockchain<T>::getHash(Block<T> * blockptr) {
-	return * blockptr->hash;
+std::string Blockchain<T>::getHash_block(Block<T> * blockptr) {
+	return blockptr->hash;
 }
 
-int test2() {
+int blockchaintest1() {
 	Blockchain<int> bc(simpleHash);
-	bc.addBlock(42);
+	bc.addBlock(12);
 	bc.addBlock(12);
 	bc.addBlock(23);
+	std::cout << bc.getBlock(0)->data << std::endl;
+	std::cout << bc.getHash_index(1) << std::endl;
+	std::cout << bc.getBlock(1)->data << std::endl;
+	std::cout << bc.getHash_index(2) << std::endl;
+	std::cout << bc.getBlock(2)->data << std::endl;
+	std::cout << bc.getHash_index(3) << std::endl;
+
+	Blockchain<std::string> bc2(simpleHash);
+	bc2.addBlock("I receive 10 bitcoins from you.");
+	bc2.addBlock("I receive 10 bitcoins from you.");
+	std::cout << "yo" << std::endl;
+	std::cout << bc2.getBlock(0)->data << std::endl;
+	std::cout << bc2.getHash_index(0) << std::endl;
+	std::cout << bc2.getBlock(1)->data << std::endl;
+	std::cout << bc2.getHash_index(1) << std::endl;
 	return 0;
 }
 
 int main () {
-	test2();
+	blockchaintest1();
 	return 0;
 }
 
