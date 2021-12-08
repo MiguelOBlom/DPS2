@@ -3,15 +3,15 @@ CXX=g++
 CFLAGS = -Wall -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-unused-but-set-variable -O3
 CXXFLAGS = $(CFLAGS) -std=c++11
 LIBS=
-DEPS=sha256.h
+DEPS=sha256.h blockchain.h
 
-all:	blockchain
+all:	application
 
-blockchain: main.o sha256.o
+application: application.o sha256.o
 	$(CXX) -o $@ $^ $(CFLAGS) $(LIBS)
 
 %.o:	%.cc $(DEPS)
 	$(CXX) -c $< $(CXXFLAGS) $(LIBS)
 
 clean:
-	rm -f blockchain *.o
+	rm -f application *.o
