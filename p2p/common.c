@@ -40,9 +40,17 @@ struct heartbeat_header init_heartbeat_header (const struct peer_address* pa) {
 
 struct netinfo_lock init_netinfo_lock(struct peer_address** network_info, size_t * n_peers) {
 	struct netinfo_lock nl;
-	nl.peer_address = peer_address;
+	nl.network_info = network_info;
+	printf("n_peers %p\n", n_peers);
 	nl.n_peers = n_peers;
-	nl.lock = 0;
+	printf("nl.n_peers %p\n", nl.n_peers);
+
+
+	if (pthread_mutex_init(&nl.lock, 0) != 0) {
+		perror("Cannot initialize mutex lock");
+		exit(EXIT_FAILURE);
+	}
+	return nl;
 }
 
 // Create a pointer to a data object consisting of a configured message header 

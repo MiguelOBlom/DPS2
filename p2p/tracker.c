@@ -1,5 +1,9 @@
 // rm p2p.db; ./tracker 192.168.178.73 8080 p2p.db
 
+// TODO: If the tracker is adding the peer to the db, it needs 
+// a confirmation, from the peer after sending the list, so that
+// we know it registered itself as "new"
+
 #include "common.h"
 
 
@@ -149,9 +153,7 @@ int main(int argc, char ** argv) {
 	}
 	pa = init_peer_address(domain, port, addr);
 	initialize_srvr(&sockfd, &pa);
-	perror("huh?");
 	db_open(&db, argv[3]);
-	perror("What?");
 
 	handle_requests(&sockfd, db);
 

@@ -15,4 +15,4 @@ tracker: tracker.c common.o db.o
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 clean:
-	rm -f peer tracker *.o
+	rm -f peer tracker *.o *.db

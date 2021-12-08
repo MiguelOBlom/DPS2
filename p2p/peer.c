@@ -1,7 +1,7 @@
 // ./peer 192.168.178.73 8080 192.168.178.73 1234
 #include "common.h"
 
-void broadcast(const struct peer_address* network_info, const struct peer_address* own_pa, size_t n_peers, void * data, size_t data_len) {
+void broadcast(struct netinfo_lock* netinfo_lock, const struct peer_address* own_pa, size_t n_peers, void * data, size_t data_len) {
 	uint32_t data_checksum = 0; // TODO
 	struct message_header message_header = init_message_header(BROADCAST, sizeof(struct message_header) + data_len, data_checksum);
 	void * message = malloc(message_header.len);
@@ -14,13 +14,22 @@ void broadcast(const struct peer_address* network_info, const struct peer_addres
 
 	int sockfd;
 	struct sockaddr_in sockaddr;
-
-	for (size_t i = 0; i < n_peers; ++i) {
-		initialize_clnt(&sockfd, &network_info[i], &sockaddr);
-
-		if(!cmp_peer_address(&network_info[i], own_pa)) {
-			send_message(&sockfd, message, message_header.len, MSG_CONFIRM, &sockaddr);	
+	
+	if (pthread_mutex_lock(&netinfo_lock->lock) == 0) {
+		for (size_t i = 0; i < n_peers; ++i) {
+			if(!cmp_peer_address(&(*(netinfo_lock->network_info))[i], own_pa)) {
+				initialize_clnt(&sockfd, &(*(netinfo_lock->network_info))[i], &sockaddr);
+				send_message(&sockfd, message, message_header.len, MSG_CONFIRM, &sockaddr);	
+			}
 		}
+
+		if (pthread_mutex_unlock(&netinfo_lock->lock) != 0) {
+			perror("Error unlocking lock in thread process");
+			exit(EXIT_FAILURE);
+		}
+	} else {
+		perror("Error locking lock in thread process");
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -47,7 +56,7 @@ void receive(const int* sockfd) {
 	}
 }
 
-void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa, struct netinfo_lock* netinfo_lock) {
+void send_heartbeat(struct netinfo_lock* netinfo_lock, const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa) {
 	size_t data_len;
 	void * message;
 	socklen_t srvraddr_len;
@@ -65,19 +74,29 @@ void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struc
 
 		//print_bytes(message, message_header.len );
 
-		while ((*netinfo_lock).lock > 1) {
-			sleep(1);
-		}
+		//printf("Trylock: %d\n", pthread_mutex_trylock(&netinfo_lock->lock));
 
-		if (*network_info) {
-			free(*network_info);
+		printf("Locking mutex!\n");
+		if(pthread_mutex_lock(&netinfo_lock->lock) == 0) {
+			printf("Locked mutex!\n");
+			if (*(netinfo_lock->network_info)) {
+				free(*(netinfo_lock->network_info));
+			}
+			*(netinfo_lock->network_info) = malloc(data_len);
+			memcpy(*(netinfo_lock->network_info), message + sizeof(message_header), data_len);
+			if (pthread_mutex_unlock(&netinfo_lock->lock) != 0) {
+				perror("Error unlocking mutex");
+				exit(EXIT_FAILURE);
+			}
+		} else {
+			perror("Error while locking the netinfo lock");
+			exit(EXIT_FAILURE);
 		}
+		printf("Exit critical section!\n");
 
-		*network_info = malloc(data_len);
-		memcpy(*network_info, message + sizeof(message_header), data_len);
 		free(message);
 
-		*n_peers = data_len / sizeof(struct peer_address);
+		*(netinfo_lock->n_peers) = data_len / sizeof(struct peer_address);
 		/*for (size_t i = 0; i < *n_peers; ++i) {
 			print_bytes(&(*network_info)[i], sizeof(struct peer_address));	
 		}*/
@@ -109,13 +128,28 @@ int is_present(const struct peer_address* network_info, const struct peer_addres
 		}
 */
 
-void* threadproc(void * arg) {
-	while(1) {
-		sleep(5);
-		printf("%p\n", *((struct peer_address**) arg));
+struct send_heartbeat_thread_args {
+	struct netinfo_lock* netinfo_lock;
+	int* sockfd;
+	struct sockaddr_in* srvraddr;
+	struct peer_address* pa;
+};
 
-		for (size_t i = 0; i < *n_peers; ++i) {
-			print_bytes(&(*network_info)[i], sizeof(struct peer_address));	
+void* threadproc(void * args) {
+	struct netinfo_lock* netinfo_lock = ((struct send_heartbeat_thread_args*)args)->netinfo_lock;
+	int* tracker_sockfd = ((struct send_heartbeat_thread_args*)args)->sockfd;
+	struct sockaddr_in* tracker_sockaddr = ((struct send_heartbeat_thread_args*)args)->srvraddr;
+	struct peer_address* own_pa = ((struct send_heartbeat_thread_args*)args)->pa;
+
+	printf("Thread started!\n");
+ 	while(1) {
+		printf("netinfo_lock inside %p\n", netinfo_lock);
+		printf("%p\n", netinfo_lock->n_peers);
+		sleep(5);
+
+		send_heartbeat(netinfo_lock, tracker_sockfd, tracker_sockaddr, own_pa);
+		for (size_t i = 0; i < *(netinfo_lock->n_peers); ++i) {
+			print_bytes(&(*(netinfo_lock->network_info))[i], sizeof(struct peer_address));	
 		}
 
 	}
@@ -162,12 +196,37 @@ int main(int argc, char ** argv) {
 	initialize_clnt(&tracker_sockfd, &tracker_pa, &tracker_sockaddr);
 
 	//printf("family: %d, port: %d, addr: %d\n", own_pa.family, own_pa.port, own_pa.addr);
+	printf("Initializing!\n");
 
-	struct netinfo_lock netinfo_lock = init_netinfo_lock(&network_info, &n_peers);
-
-	send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &netinfo_lock);
 	
-	pthread_create(&thread_id, NULL, threadproc, &network_info);
+	struct netinfo_lock netinfo_lock = init_netinfo_lock(&network_info, &n_peers);
+	printf("netinfo_lock.n_peers before %p\n", netinfo_lock.n_peers);
+	printf("Done initializing!\n");
+	/*printf("Trylock: %d\n", pthread_mutex_trylock(&netinfo_lock.lock));
+
+	if (pthread_mutex_init(&netinfo_lock.lock, 0) != 0) {
+		perror("Cannot initialize mutex lock");
+		exit(EXIT_FAILURE);
+	}
+	*/
+
+	//printf("Trylock: %d\n", pthread_mutex_trylock(&netinfo_lock.lock));
+	
+	printf("&netinfo_lock outside %p\n", &netinfo_lock);
+	send_heartbeat(&netinfo_lock, &tracker_sockfd, &tracker_sockaddr, &own_pa);
+
+	struct send_heartbeat_thread_args sht_args;
+	sht_args.netinfo_lock = &netinfo_lock;
+	sht_args.sockfd = &tracker_sockfd;
+	sht_args.srvraddr = &tracker_sockaddr;
+	sht_args.pa = &own_pa;
+
+	if(pthread_create(&thread_id, NULL, threadproc, &sht_args) != 0) {
+		perror("Could not start pthread");
+		exit(EXIT_FAILURE);
+	} else {
+		printf("Started proc!\n");
+	}
 
 
 	/*
@@ -187,10 +246,11 @@ int main(int argc, char ** argv) {
 
 
 	while(1) {
-		broadcast(network_info, &own_pa, n_peers, NULL, 0);
+		printf("Broadcasting!\n");
+		broadcast(&netinfo_lock, &own_pa, n_peers, NULL, 0);
 		receive(&own_sockfd);
 		//send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &network_info, &n_peers);
-		sleep(10);
+		sleep(2);
 	}
 	free(network_info);
 
@@ -220,6 +280,9 @@ int main(int argc, char ** argv) {
 */
 	//send_message(&sockfd, buf, &buf_len, MSG_CONFIRM, &srvraddr);
 	//wait_message(&sockfd, (void*) buf, &buf_len, MSG_WAITALL, &srvraddr);
+
+	pthread_join(thread_id, NULL);
+	pthread_mutex_destroy(&netinfo_lock.lock);
 
 	return 0;
 }

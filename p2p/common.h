@@ -68,9 +68,9 @@ struct heartbeat_header init_heartbeat_header (const struct peer_address* pa);
 // ******************************* //
 struct netinfo_lock {
 	struct peer_address** network_info;
-	size_t n_peers*;
-	pthread_mutex_t* mutex;
-}
+	size_t* n_peers;
+	pthread_mutex_t lock;
+};
 
 struct netinfo_lock init_netinfo_lock(struct peer_address** network_info, size_t* n_peers);
 
