@@ -18,8 +18,25 @@ void handle_acknowledgement() {
 
 */
 
+// Removes peer from the database
+// may have no effect when messages arrive out-of-order and a heartbeat is received after exit
+// however it is still nice to clean up after yourself :)
+void handle_exit(const int* sockfd, sqlite3* db) {
+	struct peer_address_header peer_address_header;
+	struct sockaddr_in clntaddr;
+	socklen_t clntaddr_len;
+	recv_message(sockfd, (void*) &peer_address_header, sizeof(peer_address_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
 
+	if (peer_address_header.message_header.type != EXIT) {
+		printf("Not an exit...\n");
+		return;
+	}
 
+	//if (db_peer_exists(db, &peer_address_header.peer_address)) {
+		db_remove_peer(db, &peer_address_header.peer_address);
+	//}
+
+}
 
 
 void handle_heartbeat(const int* sockfd, sqlite3* db) {
@@ -27,7 +44,7 @@ void handle_heartbeat(const int* sockfd, sqlite3* db) {
 	calls++;
 	printf("%d\n", calls);
 
-	struct heartbeat_header heartbeat_header;
+	struct peer_address_header peer_address_header;
 	struct sockaddr_in clntaddr;
 	socklen_t clntaddr_len;
 
@@ -38,10 +55,10 @@ void handle_heartbeat(const int* sockfd, sqlite3* db) {
 	size_t message_len;
 
 	// Receive the message
-	recv_message(sockfd, (void*) &heartbeat_header, sizeof(heartbeat_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
+	recv_message(sockfd, (void*) &peer_address_header, sizeof(peer_address_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
 
 	// Check checksum
-	if (heartbeat_header.message_header.type != HEARTBEAT) {
+	if (peer_address_header.message_header.type != HEARTBEAT) {
 		printf("Not a heartbeat...\n");
 		return;
 	}
@@ -92,18 +109,18 @@ void handle_heartbeat(const int* sockfd, sqlite3* db) {
 	free(network_information);
 
 	/*
-	for (size_t j = 0; j < sizeof(heartbeat_header.peer_address); j++) {
-		printf("%02x ",((char*)&heartbeat_header.peer_address)[j]);
+	for (size_t j = 0; j < sizeof(peer_address_header.peer_address); j++) {
+		printf("%02x ",((char*)&peer_address_header.peer_address)[j]);
 	}
 	*/
 
 	// Update the database with this new information
-	if (db_peer_exists(db, &heartbeat_header.peer_address)) {
+	if (db_peer_exists(db, &peer_address_header.peer_address)) {
 		// Only have to update the heartbeat if the peer exists
-		db_update_peer_heartbeat(db, &heartbeat_header.peer_address);
+		db_update_peer_heartbeat(db, &peer_address_header.peer_address);
 	} else {
 		// Otherwise we need to add it to our list
-		db_insert_peer(db, &heartbeat_header.peer_address);
+		db_insert_peer(db, &peer_address_header.peer_address);
 	}
 }
 
@@ -125,6 +142,9 @@ void handle_requests (const int* sockfd, sqlite3* db) {
 			switch(header.type) {
 				case HEARTBEAT:
 					handle_heartbeat(sockfd, db);
+					break;
+				case EXIT:
+					handle_exit(sockfd, db);
 					break;
 				default:
 					break;

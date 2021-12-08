@@ -44,6 +44,7 @@ void receive(const int* sockfd) {
 	struct sockaddr_in clntaddr;
 	socklen_t clntaddr_len;
 	if (is_data_available(sockfd)) {
+		printf("YAY! Data is available!!!!!!!!!!!!!!!!!!!!!!!!!\n");
 		recv_message(sockfd, &header, sizeof(struct message_header), MSG_WAITALL | MSG_PEEK, &clntaddr, &clntaddr_len);
 		switch (header.type) {
 			case BROADCAST:
@@ -56,13 +57,19 @@ void receive(const int* sockfd) {
 	}
 }
 
+void exit_network(const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa) {
+	uint32_t data_checksum = 0; // TODO
+	struct peer_address_header peer_address_header = init_peer_address_header(pa, 1);
+	send_message(sockfd, &peer_address_header, sizeof(peer_address_header), MSG_CONFIRM, srvraddr);
+}
+
 void send_heartbeat(struct netinfo_lock* netinfo_lock, const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa) {
 	size_t data_len;
 	void * message;
 	socklen_t srvraddr_len;
 	struct message_header message_header;
-	struct heartbeat_header heartbeat_header = init_heartbeat_header(pa);
-	send_message(sockfd, &heartbeat_header, sizeof(heartbeat_header), MSG_CONFIRM, srvraddr);
+	struct peer_address_header peer_address_header = init_peer_address_header(pa, 0);
+	send_message(sockfd, &peer_address_header, sizeof(peer_address_header), MSG_CONFIRM, srvraddr);
 	recv_message(sockfd, &message_header, sizeof(message_header), MSG_WAITALL | MSG_PEEK, srvraddr, &srvraddr_len);
 	if (message_header.type != NETINFO) {
 		printf("Expected network info, but got something else...\n");
@@ -244,7 +251,7 @@ int main(int argc, char ** argv) {
 	initialize_srvr(&own_sockfd, &own_pa);
 
 
-
+/*
 	while(1) {
 		printf("Broadcasting!\n");
 		broadcast(&netinfo_lock, &own_pa, n_peers, NULL, 0);
@@ -252,9 +259,13 @@ int main(int argc, char ** argv) {
 		//send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa, &network_info, &n_peers);
 		sleep(2);
 	}
-	free(network_info);
-
 	
+*/
+	broadcast(&netinfo_lock, &own_pa, n_peers, NULL, 0);
+		
+	sleep(3);
+
+	receive(&own_sockfd);
 
 
 	
@@ -280,9 +291,14 @@ int main(int argc, char ** argv) {
 */
 	//send_message(&sockfd, buf, &buf_len, MSG_CONFIRM, &srvraddr);
 	//wait_message(&sockfd, (void*) buf, &buf_len, MSG_WAITALL, &srvraddr);
-
-	pthread_join(thread_id, NULL);
+	printf("Exiting...\n");
+	if(network_info) {
+		free(network_info);
+	}
+	pthread_cancel(thread_id);
 	pthread_mutex_destroy(&netinfo_lock.lock);
+
+	exit_network(&tracker_sockfd, &tracker_sockaddr, &own_pa);
 
 	return 0;
 }

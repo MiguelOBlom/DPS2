@@ -249,6 +249,24 @@ void db_remove_outdated_peers (sqlite3* db, int timeout_threshold) {
 	_report_sqlite3_err(db, "Error removing outdated peers");
 }
 
+// Remove a specific peer from the database
+void db_remove_peer (sqlite3 * db, const struct peer_address* pa) {
+	char * partial_stmt = "DELETE FROM PeerInfo WHERE peer_family = ? AND peer_port = ? AND peer_addr = ?";
+	sqlite3_stmt* stmt;
+
+	_bind_sqlite3_peeraddress(db, partial_stmt, pa, &stmt);
+
+	int sqlite3_retval = sqlite3_step(stmt);
+	if (sqlite3_retval == SQLITE_DONE) {
+		sqlite3_finalize(stmt);
+		errno = 0;
+		return;
+	}
+
+	sqlite3_finalize(stmt);
+	_report_sqlite3_err(db, "Error removing peer");
+}
+
 // Provide a list of all peer addresses in data, the size is provided in n_items
 void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t* n_items) {
 	char * errmsg;

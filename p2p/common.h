@@ -40,6 +40,7 @@ enum message_type {
 	HEARTBEAT,
 	NETINFO,
 	BROADCAST,
+	EXIT,
 
 };
 
@@ -56,12 +57,12 @@ struct message_header init_message_header (enum message_type type, size_t len, u
 // **************************** //
 // Heartbeat header definitions //
 // **************************** //
-struct heartbeat_header {
+struct peer_address_header {
 	struct message_header message_header;
 	struct peer_address peer_address;
 };
 
-struct heartbeat_header init_heartbeat_header (const struct peer_address* pa);
+struct peer_address_header init_peer_address_header (const struct peer_address* pa, int exit);
 
 // ******************************* //
 // Network information definitions //
