@@ -1,11 +1,7 @@
-Use SQLite for storing tracking data with adapter
-
-Create message header with checksum
-
-Add acknowledgements to protocol
-
 Heartbeat protocol with acknowledgement
 
 Make queue for data
 
 Checksums
+
+Let tracker handle requests in seperate pthreads
