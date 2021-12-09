@@ -4,15 +4,13 @@ const short unsigned int domain = AF_INET;
 
 // Constructs a message_header with the type and length of the full dataframe
 // NOTE: the message_header_checksum depends on the data_checksum
-struct message_header init_message_header (enum message_type type, size_t len, uint32_t data_checksum) {
+struct message_header init_message_header (enum message_type type, size_t len, POLY_TYPE data_checksum) {
 	struct message_header message_header;
 	memset(&message_header, 0, sizeof(message_header));
 	message_header.type = type;
 	message_header.len = len;
 	message_header.message_data_checksum = data_checksum;
-
-	// TODO: create hash for checksum
-	message_header.message_header_checksum = 42;
+	message_header.message_header_checksum = get_crc(&message_header, sizeof(message_header) - sizeof(message_header.message_header_checksum));
 	return message_header;
 }
 
@@ -30,10 +28,10 @@ struct peer_address init_peer_address(short unsigned int family, short unsigned 
 // Create a heartbeat header, the header the peer sends to the tracker to
 // register itself and tell it is alive.
 struct peer_address_header init_peer_address_header (const struct peer_address* pa, int exit) {
-	uint32_t data_checksum;
+	POLY_TYPE data_checksum;
 	struct peer_address_header peer_address_header;
 	peer_address_header.peer_address = *pa;
-	data_checksum = 0; // TODO
+	data_checksum = get_crc(pa, sizeof(struct peer_address));
 	enum message_type message_type = HEARTBEAT;
 	if (exit) {
 		message_type = EXIT;
@@ -61,7 +59,7 @@ struct netinfo_lock init_netinfo_lock(struct peer_address** network_info, size_t
 // and attached data of size data_len
 // Updates data_len with the data of the full frame
 void* init_network_information (const void * data, size_t* data_len) {
-	uint32_t data_checksum = 0; // TODO
+	POLY_TYPE data_checksum = get_crc(data, *data_len);
 	struct message_header message_header;
 	// The size of the message header + data
 	size_t total_len = sizeof(message_header) + *data_len;
@@ -148,8 +146,7 @@ ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int f
 	*sockaddr_len = sizeof(*sockaddr);
 	ssize_t msg_len = recvfrom(*sockfd, data, data_len, flags, (struct sockaddr*) sockaddr, sockaddr_len);
 	if (msg_len < 0) {
-		// TODO: uncomment
-		//perror("Failed receiving message");
+		perror("Failed receiving message");
 	} else {
 		perror("Successfully received message");
 	}

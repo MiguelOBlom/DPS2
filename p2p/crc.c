@@ -1,18 +1,7 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdint.h>
-#include <stdlib.h>
-
-#define POLY_TYPE uint16_t
+#include "crc.h"
 
 const POLY_TYPE POLY = 0b1011101011010101;
 
-struct dpoly {
-	POLY_TYPE h;
-	POLY_TYPE l;
-};
-
-/*
 void print_bits_of_byte(const unsigned char* c) {
 	unsigned char m = 128;
 	for (unsigned int i = 0; i < 8; ++i) {
@@ -27,7 +16,6 @@ void print_bits(void * data, size_t len) {
 		printf(" ");
 	}
 }
-*/
 
 // Calculate the length of the polynomial
 // i.e. index of highest bit
@@ -80,12 +68,20 @@ void sr(struct dpoly* dp, size_t n) {
 }
 
 // Compute the crc using polynom dp and data of size data_len 
-POLY_TYPE get_crc(struct dpoly dp, void * data, size_t data_len) {
+POLY_TYPE calc_crc(struct dpoly dp, void * data, size_t data_len, size_t n_blocks) {
 	size_t poly_len = calc_poly_len(dp);
 	sl(&dp, sizeof(dp) * 8 - poly_len);
 
-	for (size_t q = 0; q < data_len/sizeof(POLY_TYPE) - 1; ++q) {
+	for (size_t q = 0; q < n_blocks - 1; ++q) {
 		for (size_t i = sizeof(dp.l) * 8; i > 0; i--) {
+
+			// for (size_t b = n_blocks; b > 0; --b) {
+			// 	printf("[%lu] %p: ", b, &((POLY_TYPE*)data)[b - 1]);
+			// 	print_bits(&((POLY_TYPE*)data)[b - 1], sizeof(POLY_TYPE));
+			// 	printf("\n");
+			// }
+			// printf("\n");
+
 			if (((POLY_TYPE*)data)[q] & 1 << (i - 1)) {
 				((POLY_TYPE*)data)[q + 1] ^= dp.l;
 				((POLY_TYPE*)data)[q] ^= dp.h;
@@ -94,11 +90,54 @@ POLY_TYPE get_crc(struct dpoly dp, void * data, size_t data_len) {
 		}
 		sl(&dp, sizeof(dp.l) * 8);
 	}
+
+	// for (size_t b = n_blocks; b > 0; --b) {
+	// 	printf("[%lu] %p: ", b, &((POLY_TYPE*)data)[b - 1]);
+	// 	print_bits(&((POLY_TYPE*)data)[b - 1], sizeof(POLY_TYPE));
+	// 	printf("\n");
+	// }
 	
-	return ((POLY_TYPE*)data)[data_len/sizeof(POLY_TYPE) - 1];
+	return ((POLY_TYPE*)data)[n_blocks - 1];
 }
 
+POLY_TYPE get_crc(const void * data, size_t data_len) {
+	size_t n_blocks = (data_len + sizeof(POLY_TYPE) - 1) / sizeof(POLY_TYPE) + 1; // We need an extra block for our CRC
+	//printf("Data is size %lu, we have blocks of size %lu, so we need %lu block(s) for the data.\n", data_len, sizeof(POLY_TYPE), n_blocks);
 
+	size_t temp_len = n_blocks * sizeof(POLY_TYPE);
+	void * temp = malloc(temp_len);
+	
+	memset(temp, 0, temp_len);
+	memcpy(temp, (POLY_TYPE*) data, data_len);
+	//printf("temp is at: %p with size %lu\n", temp, temp_len);
+
+	struct dpoly dp;
+	dp.h = POLY;
+	dp.l = 0;
+
+	POLY_TYPE ret = calc_crc(dp, temp, temp_len, n_blocks);
+
+	free(temp);
+
+	return ret;
+}
+
+int check_crc(const void * data, size_t data_len, POLY_TYPE crc) {
+	POLY_TYPE res;
+	size_t temp_len = data_len + sizeof(crc);
+	void * temp = malloc(temp_len);
+	memcpy(temp, data, data_len);
+	memcpy(temp + data_len, &crc, sizeof(crc));
+
+
+	res = get_crc(temp, temp_len);
+
+	free(temp);
+
+	return !res;
+}
+
+/*
 int main() {
 	char * x = "Hi!!!\0";
 	size_t len = strlen(x);
@@ -118,15 +157,11 @@ int main() {
 	sr(&dp, sizeof(dp) * 8 - poly_len);
 
 	printf("%u\n", get_crc(dp, data, data_len));
+
+	free(data);
 }
 
 
-
-
-
-
-
-/*
 uint16_t rotate(struct dpoly dp, void * data, size_t data_len) {
 	size_t poly_len = calc_poly_len(dp);
 	// printf("size: %lu\n", sizeof(dp) * 8  - poly_len);

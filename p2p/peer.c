@@ -1,8 +1,8 @@
 // ./peer 192.168.178.73 8080 192.168.178.73 1234
 #include "common.h"
 
-void broadcast(struct netinfo_lock* netinfo_lock, const struct peer_address* own_pa, size_t n_peers, void * data, size_t data_len) {
-	uint32_t data_checksum = 0; // TODO
+void broadcast(struct netinfo_lock* netinfo_lock, const struct peer_address* own_pa, void * data, size_t data_len) {
+	POLY_TYPE data_checksum = get_crc(data, data_len);
 	struct message_header message_header = init_message_header(BROADCAST, sizeof(struct message_header) + data_len, data_checksum);
 	void * message = malloc(message_header.len);
 	
@@ -16,7 +16,7 @@ void broadcast(struct netinfo_lock* netinfo_lock, const struct peer_address* own
 	struct sockaddr_in sockaddr;
 	
 	if (pthread_mutex_lock(&netinfo_lock->lock) == 0) {
-		for (size_t i = 0; i < n_peers; ++i) {
+		for (size_t i = 0; i < *(netinfo_lock->n_peers); ++i) {
 			if(!cmp_peer_address(&(*(netinfo_lock->network_info))[i], own_pa)) {
 				initialize_clnt(&sockfd, &(*(netinfo_lock->network_info))[i], &sockaddr);
 				send_message(&sockfd, message, message_header.len, MSG_CONFIRM, &sockaddr);	
@@ -34,6 +34,8 @@ void broadcast(struct netinfo_lock* netinfo_lock, const struct peer_address* own
 }
 
 void handle_broadcast(const int* sockfd) {
+	// TODO
+	//recv_message(sockfd, &header, sizeof(struct message_header), MSG_WAITALL | MSG_PEEK, &clntaddr, &clntaddr_len);
 	static unsigned int handled = 0;
 	handled++;
 	printf("%u\n", handled);
@@ -58,7 +60,7 @@ void receive(const int* sockfd) {
 }
 
 void exit_network(const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa) {
-	uint32_t data_checksum = 0; // TODO
+	POLY_TYPE data_checksum = 0;
 	struct peer_address_header peer_address_header = init_peer_address_header(pa, 1);
 	send_message(sockfd, &peer_address_header, sizeof(peer_address_header), MSG_CONFIRM, srvraddr);
 }
@@ -70,43 +72,58 @@ void send_heartbeat(struct netinfo_lock* netinfo_lock, const int* sockfd, struct
 	struct message_header message_header;
 	struct peer_address_header peer_address_header = init_peer_address_header(pa, 0);
 	send_message(sockfd, &peer_address_header, sizeof(peer_address_header), MSG_CONFIRM, srvraddr);
+
+
+	// TODO: timeout
 	recv_message(sockfd, &message_header, sizeof(message_header), MSG_WAITALL | MSG_PEEK, srvraddr, &srvraddr_len);
 	if (message_header.type != NETINFO) {
 		printf("Expected network info, but got something else...\n");
 	} else {
 		message = malloc(message_header.len);
+
+		// TODO: timeout
+		printf("Receiving netinfo\n");
 		recv_message(sockfd, message, message_header.len, MSG_WAITALL, srvraddr, &srvraddr_len);
+		printf("Checking CRC heartbeat!\n");
 
-		data_len = message_header.len - sizeof(message_header);
+		POLY_TYPE crc = message_header.message_header_checksum;
+		((struct message_header*)message)->message_header_checksum = 0;
+		if (   check_crc(message, sizeof(message_header) - sizeof(message_header.message_header_checksum), crc)
+			&& check_crc(message + sizeof(message_header), message_header.len - sizeof(message_header), message_header.message_data_checksum)) {
+			printf("Checked CRC heartbeat!\n");
+			data_len = message_header.len - sizeof(message_header);
 
-		//print_bytes(message, message_header.len );
+			//print_bytes(message, message_header.len );
 
-		//printf("Trylock: %d\n", pthread_mutex_trylock(&netinfo_lock->lock));
+			//printf("Trylock: %d\n", pthread_mutex_trylock(&netinfo_lock->lock));
 
-		printf("Locking mutex!\n");
-		if(pthread_mutex_lock(&netinfo_lock->lock) == 0) {
-			printf("Locked mutex!\n");
-			if (*(netinfo_lock->network_info)) {
-				free(*(netinfo_lock->network_info));
-			}
-			*(netinfo_lock->network_info) = malloc(data_len);
-			memcpy(*(netinfo_lock->network_info), message + sizeof(message_header), data_len);
-			if (pthread_mutex_unlock(&netinfo_lock->lock) != 0) {
-				perror("Error unlocking mutex");
+			printf("Locking mutex!\n");
+			if(pthread_mutex_lock(&netinfo_lock->lock) == 0) {
+				printf("Locked mutex!\n");
+				if (*(netinfo_lock->network_info)) {
+					free(*(netinfo_lock->network_info));
+				}
+				*(netinfo_lock->network_info) = malloc(data_len);
+				memcpy(*(netinfo_lock->network_info), message + sizeof(message_header), data_len);
+				if (pthread_mutex_unlock(&netinfo_lock->lock) != 0) {
+					perror("Error unlocking mutex");
+					exit(EXIT_FAILURE);
+				}
+			} else {
+				perror("Error while locking the netinfo lock");
 				exit(EXIT_FAILURE);
 			}
+			printf("Exit critical section!\n");
+
+			free(message);
+
+			*(netinfo_lock->n_peers) = data_len / sizeof(struct peer_address);
+			/*for (size_t i = 0; i < *n_peers; ++i) {
+				print_bytes(&(*network_info)[i], sizeof(struct peer_address));	
+			}*/
 		} else {
-			perror("Error while locking the netinfo lock");
-			exit(EXIT_FAILURE);
+			printf("The CRC did not match for your received netinfo data!\n");
 		}
-		printf("Exit critical section!\n");
-
-		free(message);
-
-		*(netinfo_lock->n_peers) = data_len / sizeof(struct peer_address);
-		/*for (size_t i = 0; i < *n_peers; ++i) {
-			print_bytes(&(*network_info)[i], sizeof(struct peer_address));	
-		}*/
 	}
 
 }
@@ -177,7 +194,7 @@ int main(int argc, char ** argv) {
 	uint32_t own_addr;
 
 	struct peer_address * network_info = NULL;
-	size_t n_peers;
+	size_t n_peers = 0;
 
 	int own_sockfd;
 
@@ -261,7 +278,7 @@ int main(int argc, char ** argv) {
 	}
 	
 */
-	broadcast(&netinfo_lock, &own_pa, n_peers, NULL, 0);
+	broadcast(&netinfo_lock, &own_pa, NULL, 0);
 		
 	sleep(3);
 

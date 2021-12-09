@@ -1,17 +1,17 @@
 CC=gcc
 CFLAGS=-ggdb
 LIBS=-lsqlite3 -pthread
-DEPS=common.h db.h
+DEPS=common.h db.h crc.h
 
 all: peer tracker
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS) $(LIBS)
 
-peer: peer.c common.o db.o
+peer: peer.c common.o db.o crc.o
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
-tracker: tracker.c common.o db.o
+tracker: tracker.c common.o db.o crc.o
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 clean:

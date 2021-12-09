@@ -21,10 +21,11 @@
 
 #include <pthread.h>
 
+#include "crc.h"
 #include "db.h"
 
-#ifndef COMMON_H_
-#define COMMON_H_
+#ifndef _COMMON_H_
+#define _COMMON_H_
 
 const short unsigned int domain;
 
@@ -47,12 +48,11 @@ enum message_type {
 struct message_header {
 	enum message_type type;
 	size_t len;
-	uint32_t message_header_checksum;
-	uint32_t message_data_checksum;
-	
+	POLY_TYPE message_data_checksum;
+	POLY_TYPE message_header_checksum;
 };
 
-struct message_header init_message_header (enum message_type type, size_t len, uint32_t data_checksum);
+struct message_header init_message_header (enum message_type type, size_t len, POLY_TYPE data_checksum);
 
 // **************************** //
 // Heartbeat header definitions //
@@ -90,4 +90,4 @@ ssize_t send_message(const int* sockfd, const void* data, const size_t data_len,
 
 void print_bytes(void * data, size_t data_len);
 
-#endif // COMMON_H_
+#endif // _COMMON_H_

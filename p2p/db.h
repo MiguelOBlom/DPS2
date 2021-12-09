@@ -17,6 +17,9 @@
 #include <sqlite3.h>
 #include <stdint.h>
 
+#ifndef _DB_
+#define _DB_
+
 // Structure for the peer address, consisting of the ip, port and connection family
 struct peer_address{
 	short unsigned int family; // sockaddr_in::sin_family is of type sa_family_t {aka short unsigned int}
@@ -78,3 +81,5 @@ void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t*
 void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items);
 int  is_data_available(const int* sockfd);
 void db_remove_peer (sqlite3 * db, const struct peer_address* pa);
+
+#endif
