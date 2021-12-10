@@ -7,7 +7,7 @@
 #define DIFFICULTY 3
 #define MAX_TRANSACTIONS 5
 #define ID_TYPE char
-
+/*
 template <class ID>
 struct Transaction {
 	ID sender;
@@ -35,12 +35,13 @@ std::string simpleHash(T data, std::string hash)
 
 
 int blockchaintest1() {
-    Blockchain<int> bc(simpleHash);
+    Blockchain<int, std::string> bc(simpleHash);
 	// Blockchain<Transaction<ID_TYPE> > bc(simpleHash);
 	return 0;
 }
+*/
 
 int main () {
-	blockchaintest1();
+//	blockchaintest1();
 	return 0;
 }

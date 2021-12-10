@@ -1,91 +1,68 @@
-#ifndef BLOCKCHAIN_H
-#define BLOCKCHAIN_H
+#ifndef _BLOCKCHAIN_
+#define _BLOCKCHAIN_
 
 #include <iostream>
 #include <vector>
 #include <string>
 #include "sha256.h"
+#include "block.h"
 
-
-
-template <class T>
-class Block {
-public:
-	Block<T>(T * data, std::string prev_hash, std::string (* hash_func) (T, std::string));
-	T data;
-	std::string hash;
-	std::string prev_hash;
-	//int nonce; 
-	// Is nonce standard for blockchain? if not then please do not use nonce
-	// the data should be as generic as possible
-	// This includes that we can define a struct {nonce, data} for this purpose
-	// Besides, can't we use hash for nonce?
-};
-
-template <class T>
+template <typename T, typename H>
 class Blockchain {
 public:
-	Blockchain<T>(std::string (*hash_func_) (T, std::string));
-
-	void addBlock(T * data);
-	Block<T> * getBlock(size_t index);
-	const std::vector<Block<T> > getBlocks() const;
-
-	std::string getHash_index(size_t index);
-	std::string getHash_block(Block<T> * blockptr);
+	Blockchain<T, H>(H (* hash_func_) (T, H));
+	void add_block(const T* data);
+	Block<T, H>* GetBlockFromIndex(const size_t index) const;
+	const std::vector<Block<T, H> > GetBlocks() const;
+	H GetHashAtIndex(const size_t index) const;
+	H GetHashFromBlock(const Block<T, H>* blockptr) const;
 
 private:
-	std::string (*hash_func) (T, std::string);
-	std::vector<Block<T>> blocks;
+	H (* hash_func) (T, H);
+	std::vector<Block<T, H> > blocks;
 };
 
-template <class T>
-Block<T>::Block(T * data_, std::string prev_hash_, std::string (* hash_func) (T, std::string)) {
-	memcpy(&data, data_, sizeof(T));
-	prev_hash = prev_hash_;
-	hash = hash_func(data, prev_hash);
+template <typename T, typename H>
+Blockchain<T, H>::Blockchain(H (* _hash_func) (T, H)) {
+	blocks = std::vector<Block<T, H> >();
+	hash_func = _hash_func;
+
+	Block<T, H> genesis();
+	T data = genesis.get_data();
+	H prev_hash = genesis.get_prev_hash();
+	genesis.set_hash(hash_func(data, prev_hash));
+	delete data;
+
+	blocks.push_back(genesis);
 }
 
-
-template <class T>
-Blockchain<T>::Blockchain(std::string (*hash_func_) (T, std::string)) {
-	blocks = std::vector<Block<T> >();
-	hash_func = hash_func_;
-}
-
-
-template <class T>
-void Blockchain<T>::addBlock(T * data) {
-	std::string prev_hash = (blocks.size() > 0) ? blocks.back().hash : "\0";
-
-	Block<T> b(data, prev_hash, hash_func);
-
+template <typename T, typename H>
+void Blockchain<T, H>::add_block(const T* data) {
+	std::string prev_hash = blocks.back().hash;
+	Block<T, H> b(data, prev_hash, hash_func);
 	blocks.push_back(b);
 }
 
-template <class T>
-Block<T> * Blockchain<T>::getBlock(size_t index) {
-	if (index < blocks.size()) {
-		return &(blocks[index]);
-	}
-	return NULL;
+template <typename T, typename H>
+Block<T, H>* Blockchain<T, H>::GetBlockFromIndex(const size_t index) const {
+	return (index < blocks.size())? &blocks[index] : NULL;
 }
 
-template <class T>
-const std::vector<Block<T> > Blockchain<T>::getBlocks() const {
+template <typename T, typename H>
+const std::vector<Block<T, H> > Blockchain<T, H>::GetBlocks() const {
 	return blocks;
 }
 
-template <class T>
-std::string Blockchain<T>::getHash_index(size_t index) {
-	Block<T> * b = getBlock(index);
+template <typename T, typename H>
+H Blockchain<T, H>::GetHashAtIndex(const size_t index) const {
+	Block<T, H>* b = GetBlockFromIndex(index);
 	if (b) {
 		return b->hash;
 	}
 }
 
-template <class T>
-std::string Blockchain<T>::getHash_block(Block<T> * blockptr) {
+template <typename T, typename H>
+H Blockchain<T, H>::GetHashFromBlock(const Block<T, H>* blockptr) const {
 	return blockptr->hash;
 }
 
