@@ -86,7 +86,7 @@ void initialize_srvr(int* sockfd, const struct peer_address* pa);
 void initialize_clnt(int* sockfd, const struct peer_address* pa, struct sockaddr_in* sockaddr);
 ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in* sockaddr, socklen_t* sockaddr_len);
 ssize_t send_message(const int* sockfd, const void* data, const size_t data_len, int flags, const struct sockaddr_in* sockaddr);
-
+int is_data_available(const int* sockfd);
 
 void print_bytes(void * data, size_t data_len);
 

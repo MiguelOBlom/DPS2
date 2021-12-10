@@ -1,9 +1,5 @@
 Heartbeat protocol with acknowledgement
 
-Timeout
-
 Make queue for data
-
-Checksums
 
 Let tracker handle requests in seperate pthreads
