@@ -195,6 +195,7 @@ void* handle_request_thread (void * args) {
 	free(args);
 	free(queue_item->message);
 	free(queue_item);
+	pthread_detach(pthread_self());
 	//free args, message, queueitem
 }
 
@@ -205,7 +206,7 @@ void handle_requests (const int* sockfd, sqlite3* db, struct queue_lock* ql) {
 	pthread_t handle_request_thread_id;
 	struct queue_item* queue_item;
 	struct handle_request_thread_args* hrt_args;
-	while(1) {
+	for(int i = 0; i < 50; i++) {
 		if(queue_is_empty(ql)) {
 			sleep(1);
 		} else {
@@ -256,16 +257,15 @@ void* handle_mailbox(void * args) {
 			queue_item->message = malloc(header.len);
 			recv_message(sockfd, queue_item->message, header.len, MSG_WAITALL, &queue_item->clntaddr, &queue_item->clntaddr_len);
 			
-			// Check for spamming
-			found = 0;
-
+			// Check for spamming heartbeat
 			if (header.type == HEARTBEAT) {
 				if(pthread_mutex_lock(&ql->lock) == 0) {
+					found = 0;
 					for(size_t i = 1; i <= ql->size; ++i) {
 						//printf("own: %p, other: %p\n", own_pa, &((struct peer_address_header*)(queue_item->message))->peer_address);
-						if(cmp_peer_address(&((struct peer_address_header*)((struct queue_item*)(ql->data[(ql->top - i + ql->max_size) % ql->max_size]))->message)->peer_address, 
-							&((struct peer_address_header*)(queue_item->message))->peer_address )) {
-							printf("\n\n\nFound!\n\n\n");
+						struct peer_address_header* other = ((struct queue_item*)(ql->data[(ql->top - i + ql->max_size) % ql->max_size]))->message;
+						if(other->message_header.type == HEARTBEAT && cmp_peer_address(&other->peer_address, &((struct peer_address_header*)(queue_item->message))->peer_address )) {
+							printf("Found!\n");
 							found = 1;
 							break;
 						}
@@ -348,7 +348,7 @@ int main(int argc, char ** argv) {
 	pthread_cancel(receive_thread_id);
 	queue_delete(&ql);
 	db_close(db);
-	
+	pthread_join(receive_thread_id, NULL);
 
 	
 	/*
