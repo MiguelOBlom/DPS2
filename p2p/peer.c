@@ -148,7 +148,7 @@ struct send_heartbeat_thread_args {
 	struct peer_address* pa;
 };
 
-const int heartbeat_period = 1;
+const int heartbeat_period = 0;
 
 void* tracker_communication(void * args) {
 	struct netinfo_lock* netinfo_lock = ((struct send_heartbeat_thread_args*)args)->netinfo_lock;
@@ -169,12 +169,12 @@ void* tracker_communication(void * args) {
 			sleep(1);
 			while(is_data_available (tracker_sockfd)) {
 	 			receive_netinfo(netinfo_lock, tracker_sockfd, tracker_sockaddr);
-	 			if (!is_present(netinfo_lock, own_pa)) {
+	 			if (!is_present(netinfo_lock, own_pa)) { // If the peer can't find itself, it means that it has been offline
 	 				// send acknowledgement
 	 				printf("Sending acknowledgement\n");
 	 				send_netinfo(tracker_sockfd, tracker_sockaddr, own_pa, ACKNOWLEDGENETINFO);
 
-	 				was_offline = 1; // We have been online for some time
+	 				was_offline = 1; // We are online now!
 	 				i = 0;
 	 			} else if (was_offline) { // we went from offline -> online
 	 				// Here we know that the peer has been offline
