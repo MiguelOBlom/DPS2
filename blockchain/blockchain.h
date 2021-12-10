@@ -15,7 +15,11 @@ public:
 	T data;
 	std::string hash;
 	std::string prev_hash;
-	int nonce;
+	//int nonce; 
+	// Is nonce standard for blockchain? if not then please do not use nonce
+	// the data should be as generic as possible
+	// This includes that we can define a struct {nonce, data} for this purpose
+	// Besides, can't we use hash for nonce?
 };
 
 template <class T>
