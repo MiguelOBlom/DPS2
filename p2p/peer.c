@@ -148,7 +148,7 @@ struct send_heartbeat_thread_args {
 	struct peer_address* pa;
 };
 
-const int heartbeat_period = 5;
+const int heartbeat_period = 1;
 
 void* tracker_communication(void * args) {
 	struct netinfo_lock* netinfo_lock = ((struct send_heartbeat_thread_args*)args)->netinfo_lock;

@@ -10,13 +10,7 @@
 // If no heartbeat is obtained from a peer after 60 seconds, 
 // it is considered dead.
 const int timeout_threshold = 60; 
-
-/*
-void handle_acknowledgement() {
-
-}
-
-*/
+const int tracker_queue_maxsize = 20;
 
 int receive_peer_address_header(const int* sockfd, struct peer_address_header* peer_address_header, struct sockaddr_in* clntaddr, socklen_t* clntaddr_len) {
 	recv_message(sockfd, (void*) peer_address_header, sizeof(*peer_address_header), MSG_WAITALL, clntaddr, clntaddr_len);
@@ -169,7 +163,7 @@ void handle_acknowledge_netinfo (const int* sockfd, sqlite3* db) {
 	}
 }
 
-
+/*
 void handle_requests (const int* sockfd, sqlite3* db) {
 	struct message_header header;
 	struct sockaddr_in clntaddr;
@@ -202,6 +196,136 @@ void handle_requests (const int* sockfd, sqlite3* db) {
 		}
 	}
 }
+*/
+
+
+struct handle_request_thread_args {
+	const int * sockfd;
+	sqlite3* db;
+	struct queue_item* queue_item;
+};
+
+void* handle_request_thread (void * args) {
+	const int* sockfd = ((struct handle_request_thread_args*)args)->sockfd;
+	sqlite3* db = ((struct handle_request_thread_args*)args)->db;
+	struct queue_item* queue_item = ((struct handle_request_thread_args*)args)->queue_item;
+	
+	switch(((struct message_header*)queue_item->message)->type){
+		case HEARTBEAT:
+			printf("handle_heartbeat(sockfd, db);\n");
+			//handle_heartbeat(sockfd, db);
+			break;
+		case EXIT:
+			printf("handle_exit(sockfd, db);\n");
+			handle_exit(sockfd, db);
+			break;
+		case ACKNOWLEDGENETINFO:
+			//printf("Handling acknowledgement\n");
+			printf("handle_acknowledge_netinfo(sockfd, db);\n");
+			break;
+		default:
+			break;
+	}
+	free(args);
+	free(queue_item->message);
+	free(queue_item);
+	//free args, message, queueitem
+}
+
+void handle_requests (const int* sockfd, sqlite3* db, struct queue_lock* ql) {
+	struct message_header header;
+	struct sockaddr_in clntaddr;
+	socklen_t clntaddr_len;
+	pthread_t handle_request_thread_id;
+	struct queue_item* queue_item;
+	struct handle_request_thread_args* hrt_args;
+	while(1) {
+		if(queue_is_empty(ql)) {
+			sleep(1);
+		} else {
+			queue_item = queue_dequeue(ql);
+			hrt_args = malloc(sizeof(struct handle_request_thread_args));
+			hrt_args->sockfd = sockfd;
+			hrt_args->db = db;
+			hrt_args->queue_item = queue_item;
+			// Start seperate process to handle the data
+			if(pthread_create(&handle_request_thread_id, NULL, handle_request_thread, hrt_args) != 0) {
+				perror("Could not start mailbox pthread");
+				exit(EXIT_FAILURE);
+			} else {
+				printf("Started proc!\n");
+			}
+
+		}
+
+
+		/*
+		db_remove_outdated_peers(db, timeout_threshold);
+
+		if (!is_data_available(sockfd)) {
+			sleep(1);
+		} else {
+			// Receive a message header
+			recv_message(sockfd, (void*) &header, sizeof(header), MSG_WAITALL | MSG_PEEK, &clntaddr, &clntaddr_len);
+			printf("type: %d, message_header_checksum: %u, message_data_checksum: %u, len: %lu\n", header.type, header.message_header_checksum, header.message_data_checksum, header.len);
+
+			switch(header.type) {
+				case HEARTBEAT:
+					handle_heartbeat(sockfd, db);
+					break;
+				case EXIT:
+					handle_exit(sockfd, db);
+					break;
+				case ACKNOWLEDGENETINFO:
+					printf("Handling acknowledgement\n");
+					handle_acknowledge_netinfo(sockfd, db);
+					break;
+				default:
+					break;
+			}
+		}
+		*/
+	}
+}
+
+
+struct handle_mailbox_args {
+	struct queue_lock* ql;
+	int * sockfd;
+
+};
+
+void* handle_mailbox(void * args) {
+	struct queue_lock* ql = ((struct handle_mailbox_args*)args)->ql;
+	int* sockfd = ((struct handle_mailbox_args*)args)->sockfd;
+	printf("sockfd: %p\n", sockfd);
+	struct message_header header;
+	struct sockaddr_in clntaddr;
+	socklen_t clntaddr_len;
+	struct queue_item* queue_item;
+
+	while(1) {
+		if (!is_data_available(sockfd)) {
+			sleep(1);
+		} else {
+			recv_message(sockfd, (void*) &header, sizeof(header), MSG_WAITALL | MSG_PEEK, &clntaddr, &clntaddr_len);
+			// Allocate queue item of size (sizeof(void*) + sizeof(socklen_t) + socklen_t)
+			// We do so, to take into account the variable length of the sockaddr_in
+			queue_item = malloc(sizeof(void*) + sizeof(socklen_t) + clntaddr_len);
+			// Allocate buffer for the whole message
+			queue_item->message = malloc(header.len);
+			recv_message(sockfd, queue_item->message, header.len, MSG_WAITALL, &queue_item->clntaddr, &queue_item->clntaddr_len);
+			// Push queue item to queue
+			if (!queue_is_full(ql)) {
+				queue_enqueue(ql, queue_item);
+			} else {
+				printf("Queue is full!\n");
+				free(queue_item->message);
+				free(queue_item);
+			}
+		}
+	}
+}
 
 
 int main(int argc, char ** argv) {
@@ -211,6 +335,9 @@ int main(int argc, char ** argv) {
 	short unsigned int port;
 	uint32_t addr;
 	sqlite3 * db;
+	pthread_t receive_thread_id;
+	struct queue_lock ql;
+	struct handle_mailbox_args hm_args;
 
 	if (argc != 4) {
 		printf("Usage: %s <addr> <port> <db_name>\n", argv[0]);
@@ -225,8 +352,30 @@ int main(int argc, char ** argv) {
 	initialize_srvr(&sockfd, &pa);
 	db_open(&db, argv[3]);
 
-	handle_requests(&sockfd, db);
+	queue_init(&ql, tracker_queue_maxsize);
 
+	hm_args.ql = &ql;
+	hm_args.sockfd = &sockfd;
+	printf("&sockfd: %p\n", &sockfd);
+	printf("hm_args.sockfd : %p\n", hm_args.sockfd);
+
+	if(pthread_create(&receive_thread_id, NULL, handle_mailbox, &hm_args) != 0) {
+		perror("Could not start mailbox pthread");
+		exit(EXIT_FAILURE);
+	} else {
+		printf("Started proc!\n");
+	}
+
+	handle_requests(&sockfd, db, &ql);
+
+	void * tmp;
+	while(tmp = queue_dequeue(&ql)) {
+		free(((struct queue_item*)tmp)->message);
+		free(tmp);
+	}
+
+	pthread_cancel(receive_thread_id);
+	queue_delete(&ql);
 	db_close(db);
 	
 

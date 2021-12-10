@@ -21,6 +21,7 @@
 
 #include <pthread.h>
 
+#include "queue.h"
 #include "crc.h"
 #include "db.h"
 
@@ -28,6 +29,15 @@
 #define _COMMON_H_
 
 const short unsigned int domain;
+
+
+
+struct queue_item {
+	void* message;
+	socklen_t clntaddr_len;
+	struct sockaddr_in clntaddr;
+};
+
 
 // ************************ //
 // Peer address definitions //
