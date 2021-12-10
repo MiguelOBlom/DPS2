@@ -110,7 +110,7 @@ void receive_netinfo(struct netinfo_lock* netinfo_lock, const int* sockfd, struc
 				}
 
 			} else {
-				perror("Error while locking the netinfo lock");
+				perror("Error while locking the netinfo mutex");
 				exit(EXIT_FAILURE);
 			}
 			printf("Exit critical section!\n");
