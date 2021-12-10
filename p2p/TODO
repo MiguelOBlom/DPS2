@@ -1,3 +1,2 @@
-Make queue for data
-Use ACID for sql updates
+Integrate queue in peer and tracker for receiving and handling messages
 Let tracker handle requests in seperate pthreads

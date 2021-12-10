@@ -9,6 +9,9 @@
 
 */
 
+// We do not need ACID since we never really have transactions 
+// where we perform multiple writes to the system
+
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
