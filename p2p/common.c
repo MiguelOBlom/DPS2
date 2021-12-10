@@ -27,16 +27,12 @@ struct peer_address init_peer_address(short unsigned int family, short unsigned 
 
 // Create a heartbeat header, the header the peer sends to the tracker to
 // register itself and tell it is alive.
-struct peer_address_header init_peer_address_header (const struct peer_address* pa, int exit) {
+struct peer_address_header init_peer_address_header (const struct peer_address* pa, enum message_type mtype) {
 	POLY_TYPE data_checksum;
 	struct peer_address_header peer_address_header;
 	peer_address_header.peer_address = *pa;
 	data_checksum = get_crc(pa, sizeof(struct peer_address));
-	enum message_type message_type = HEARTBEAT;
-	if (exit) {
-		message_type = EXIT;
-	}
-	peer_address_header.message_header = init_message_header(message_type, sizeof(peer_address_header), data_checksum);
+	peer_address_header.message_header = init_message_header(mtype, sizeof(peer_address_header), data_checksum);
 	return peer_address_header;
 }
 

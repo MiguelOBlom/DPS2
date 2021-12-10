@@ -18,6 +18,18 @@ void handle_acknowledgement() {
 
 */
 
+int receive_peer_address_header(const int* sockfd, struct peer_address_header* peer_address_header, struct sockaddr_in* clntaddr, socklen_t* clntaddr_len) {
+	recv_message(sockfd, (void*) peer_address_header, sizeof(*peer_address_header), MSG_WAITALL, clntaddr, clntaddr_len);
+	
+	POLY_TYPE crc = peer_address_header->message_header.message_header_checksum;
+	peer_address_header->message_header.message_header_checksum = 0;
+	if (   check_crc(&peer_address_header->message_header, sizeof(peer_address_header->message_header) - sizeof(peer_address_header->message_header.message_header_checksum), crc)
+		&& check_crc(&peer_address_header->peer_address, sizeof(peer_address_header->peer_address), peer_address_header->message_header.message_data_checksum)) {
+		return 1;
+	}
+	return 0;
+}
+
 // Removes peer from the database
 // may have no effect when messages arrive out-of-order and a heartbeat is received after exit
 // however it is still nice to clean up after yourself :)
@@ -25,16 +37,17 @@ void handle_exit(const int* sockfd, sqlite3* db) {
 	struct peer_address_header peer_address_header;
 	struct sockaddr_in clntaddr;
 	socklen_t clntaddr_len;
-	recv_message(sockfd, (void*) &peer_address_header, sizeof(peer_address_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
+	//recv_message(sockfd, (void*) &peer_address_header, sizeof(peer_address_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
 	
-	POLY_TYPE crc = peer_address_header.message_header.message_header_checksum;
-	peer_address_header.message_header.message_header_checksum = 0;
-	if (   check_crc(&peer_address_header.message_header, sizeof(peer_address_header.message_header) - sizeof(peer_address_header.message_header.message_header_checksum), crc)
-		&& check_crc(&peer_address_header.peer_address, sizeof(peer_address_header.peer_address), peer_address_header.message_header.message_data_checksum)) {
-		if (peer_address_header.message_header.type != EXIT) {
-			printf("Not an exit...\n");
-			return;
-		}
+	//POLY_TYPE crc = peer_address_header.message_header.message_header_checksum;
+	//peer_address_header.message_header.message_header_checksum = 0;
+	//if (   check_crc(&peer_address_header.message_header, sizeof(peer_address_header.message_header) - sizeof(peer_address_header.message_header.message_header_checksum), crc)
+	//	&& check_crc(&peer_address_header.peer_address, sizeof(peer_address_header.peer_address), peer_address_header.message_header.message_data_checksum)) {
+	if (receive_peer_address_header(sockfd, &peer_address_header, &clntaddr, &clntaddr_len)) {
+		// if (peer_address_header.message_header.type != EXIT) {
+		// 	printf("Not an exit...\n");
+		// 	return;
+		// }
 
 		//if (db_peer_exists(db, &peer_address_header.peer_address)) {
 			db_remove_peer(db, &peer_address_header.peer_address);
@@ -62,18 +75,19 @@ void handle_heartbeat(const int* sockfd, sqlite3* db) {
 	size_t message_len;
 
 	// Receive the message
-	recv_message(sockfd, (void*) &peer_address_header, sizeof(peer_address_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
-	printf("Checking CRC heartbeat!\n");
-	POLY_TYPE crc = peer_address_header.message_header.message_header_checksum;
-	peer_address_header.message_header.message_header_checksum = 0;
-	if (   check_crc(&peer_address_header.message_header, sizeof(peer_address_header.message_header) - sizeof(peer_address_header.message_header.message_header_checksum), crc)
-		&& check_crc(&peer_address_header.peer_address, sizeof(peer_address_header.peer_address), peer_address_header.message_header.message_data_checksum)) {
+	//recv_message(sockfd, (void*) &peer_address_header, sizeof(peer_address_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
+	//printf("Checking CRC heartbeat!\n");
+	//POLY_TYPE crc = peer_address_header.message_header.message_header_checksum;
+	//peer_address_header.message_header.message_header_checksum = 0;
+	//if (   check_crc(&peer_address_header.message_header, sizeof(peer_address_header.message_header) - sizeof(peer_address_header.message_header.message_header_checksum), crc)
+	//	&& check_crc(&peer_address_header.peer_address, sizeof(peer_address_header.peer_address), peer_address_header.message_header.message_data_checksum)) {
+	if (receive_peer_address_header(sockfd, &peer_address_header, &clntaddr, &clntaddr_len)) {
 		printf("Checked CRC heartbeat!\n");
 		// Check checksum
-		if (peer_address_header.message_header.type != HEARTBEAT) {
-			printf("Not a heartbeat...\n");
-			return;
-		}
+		// if (peer_address_header.message_header.type != HEARTBEAT) {
+		// 	printf("Not a heartbeat...\n");
+		// 	return;
+		// }
 
 		// The order of updating the peer and adding it to our database is important.
 		// If the server gets overloaded, then heartbeats may not be registered in time.
@@ -133,12 +147,28 @@ void handle_heartbeat(const int* sockfd, sqlite3* db) {
 			db_update_peer_heartbeat(db, &peer_address_header.peer_address);
 		} else {
 			// Otherwise we need to add it to our list
-			db_insert_peer(db, &peer_address_header.peer_address);
+			//db_insert_peer(db, &peer_address_header.peer_address);
 		}
 	} else {
 		printf("The CRC did not match for your received heartbeat data!\n");
 	}
 }
+
+
+void handle_acknowledge_netinfo (const int* sockfd, sqlite3* db) {
+	struct peer_address_header peer_address_header;
+	struct sockaddr_in clntaddr;
+	socklen_t clntaddr_len;
+	if (receive_peer_address_header(sockfd, &peer_address_header, &clntaddr, &clntaddr_len)) {
+		if (!db_peer_exists(db, &peer_address_header.peer_address)){
+			db_insert_peer(db, &peer_address_header.peer_address);
+			printf("Insterted!\n");
+		}
+	} else {
+		printf("The CRC did not match for your received acknowledge netinfo data!\n");
+	}
+}
+
 
 void handle_requests (const int* sockfd, sqlite3* db) {
 	struct message_header header;
@@ -161,6 +191,10 @@ void handle_requests (const int* sockfd, sqlite3* db) {
 					break;
 				case EXIT:
 					handle_exit(sockfd, db);
+					break;
+				case ACKNOWLEDGENETINFO:
+					printf("Handling acknowledgement\n");
+					handle_acknowledge_netinfo(sockfd, db);
 					break;
 				default:
 					break;

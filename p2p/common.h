@@ -42,6 +42,7 @@ enum message_type {
 	NETINFO,
 	BROADCAST,
 	EXIT,
+	ACKNOWLEDGENETINFO
 
 };
 
@@ -62,7 +63,7 @@ struct peer_address_header {
 	struct peer_address peer_address;
 };
 
-struct peer_address_header init_peer_address_header (const struct peer_address* pa, int exit);
+struct peer_address_header init_peer_address_header (const struct peer_address* pa, enum message_type mtype);
 
 // ******************************* //
 // Network information definitions //

@@ -1,5 +1,3 @@
-Heartbeat protocol with acknowledgement
-
 Make queue for data
 
 Let tracker handle requests in seperate pthreads

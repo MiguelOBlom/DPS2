@@ -60,17 +60,10 @@ void receive(const int* sockfd) {
 	}
 }
 
-void exit_network(const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa) {
-	POLY_TYPE data_checksum = 0;
-	struct peer_address_header peer_address_header = init_peer_address_header(pa, 1);
+void send_netinfo (const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa, enum message_type mtype) {
+	struct peer_address_header peer_address_header = init_peer_address_header(pa, mtype);
 	send_message(sockfd, &peer_address_header, sizeof(peer_address_header), MSG_CONFIRM, srvraddr);
 }
-
-void send_heartbeat(const int* sockfd, struct sockaddr_in* srvraddr, const struct peer_address* pa) {
-	struct peer_address_header peer_address_header = init_peer_address_header(pa, 0);
-	send_message(sockfd, &peer_address_header, sizeof(peer_address_header), MSG_CONFIRM, srvraddr);
-}
-
 
 void receive_netinfo(struct netinfo_lock* netinfo_lock, const int* sockfd, struct sockaddr_in* srvraddr) {
 	size_t data_len;
@@ -83,9 +76,9 @@ void receive_netinfo(struct netinfo_lock* netinfo_lock, const int* sockfd, struc
 	printf("Receiving netinfo\n");
 	recv_message(sockfd, message, message_header.len, MSG_WAITALL, srvraddr, &srvraddr_len);
 
-	if (message_header.type != NETINFO) {
-		printf("Expected network info, but got something else...\n");
-	} else {
+	// if (message_header.type != NETINFO) {
+	// 	printf("Expected network info, but got something else...\n");
+	// } else {
 	
 		printf("Checking CRC heartbeat!\n");
 
@@ -106,33 +99,39 @@ void receive_netinfo(struct netinfo_lock* netinfo_lock, const int* sockfd, struc
 				if (*(netinfo_lock->network_info)) {
 					free(*(netinfo_lock->network_info));
 				}
+				
 				*(netinfo_lock->network_info) = malloc(data_len);
 				memcpy(*(netinfo_lock->network_info), message + sizeof(message_header), data_len);
+				*(netinfo_lock->n_peers) = data_len / sizeof(struct peer_address);
+				
 				if (pthread_mutex_unlock(&netinfo_lock->lock) != 0) {
 					perror("Error unlocking mutex");
 					exit(EXIT_FAILURE);
 				}
+
 			} else {
 				perror("Error while locking the netinfo lock");
 				exit(EXIT_FAILURE);
 			}
 			printf("Exit critical section!\n");
 
-			free(message);
+			
 
-			*(netinfo_lock->n_peers) = data_len / sizeof(struct peer_address);
+			
 			/*for (size_t i = 0; i < *n_peers; ++i) {
 				print_bytes(&(*network_info)[i], sizeof(struct peer_address));	
 			}*/
 		} else {
 			printf("The CRC did not match for your received netinfo data!\n");
 		}
-	}
-
+	// }
+	free(message);
 }
 
 int is_present(const struct netinfo_lock* netinfo_lock, const struct peer_address* own_pa) {
+	printf("is_present: %p, %p\n", *(netinfo_lock->network_info), own_pa);
 	if (*(netinfo_lock->network_info)) {
+		printf("+ is_present: %lu\n", *(netinfo_lock->n_peers));
 		for (size_t i = 0; i < *(netinfo_lock->n_peers); ++i) {
 			if(cmp_peer_address(&(*(netinfo_lock->network_info)[i]), own_pa)) {
 				return 1;
@@ -149,26 +148,42 @@ struct send_heartbeat_thread_args {
 	struct peer_address* pa;
 };
 
+const int heartbeat_period = 5;
+
 void* tracker_communication(void * args) {
 	struct netinfo_lock* netinfo_lock = ((struct send_heartbeat_thread_args*)args)->netinfo_lock;
 	int* tracker_sockfd = ((struct send_heartbeat_thread_args*)args)->sockfd;
 	struct sockaddr_in* tracker_sockaddr = ((struct send_heartbeat_thread_args*)args)->srvraddr;
 	struct peer_address* own_pa = ((struct send_heartbeat_thread_args*)args)->pa;
 
+	int was_offline = 0;
+
 	printf("Thread started!\n");
  	while(1) {
 		printf("netinfo_lock inside %p\n", netinfo_lock);
 		printf("%p\n", netinfo_lock->n_peers);
-		sleep(5);
 
-		send_heartbeat(tracker_sockfd, tracker_sockaddr, own_pa);
+		send_netinfo(tracker_sockfd, tracker_sockaddr, own_pa, HEARTBEAT);
 
- 		while(is_data_available (tracker_sockfd)) {
- 			receive_netinfo(netinfo_lock, tracker_sockfd, tracker_sockaddr);
- 			if (!is_present(netinfo_lock, own_pa)) {
- 				// send acknowledgement
- 			}
- 		}
+		for (int i = 0; i < heartbeat_period; i++) {
+			sleep(1);
+			while(is_data_available (tracker_sockfd)) {
+	 			receive_netinfo(netinfo_lock, tracker_sockfd, tracker_sockaddr);
+	 			if (!is_present(netinfo_lock, own_pa)) {
+	 				// send acknowledgement
+	 				printf("Sending acknowledgement\n");
+	 				send_netinfo(tracker_sockfd, tracker_sockaddr, own_pa, ACKNOWLEDGENETINFO);
+
+	 				was_offline = 1; // We have been online for some time
+	 				i = 0;
+	 			} else if (was_offline) { // we went from offline -> online
+	 				// Here we know that the peer has been offline
+	 				// It is therefore outdated, thus we should 
+	 				// request initialization info from other peers
+	 			}
+	 		}
+
+		}
 
 		if (*(netinfo_lock->network_info)) {
 			for (size_t i = 0; i < *(netinfo_lock->n_peers); ++i) {
@@ -236,7 +251,7 @@ int main(int argc, char ** argv) {
 	//printf("Trylock: %d\n", pthread_mutex_trylock(&netinfo_lock.lock));
 	
 	printf("&netinfo_lock outside %p\n", &netinfo_lock);
-	send_heartbeat(&tracker_sockfd, &tracker_sockaddr, &own_pa);
+	//send_netinfo(&tracker_sockfd, &tracker_sockaddr, &own_pa, HEARTBEAT);
 
 	struct send_heartbeat_thread_args sht_args;
 	sht_args.netinfo_lock = &netinfo_lock;
@@ -279,7 +294,7 @@ int main(int argc, char ** argv) {
 */
 	broadcast(&netinfo_lock, &own_pa, NULL, 0);
 		
-	sleep(3);
+	sleep(60);
 
 	receive(&own_sockfd);
 
@@ -314,7 +329,7 @@ int main(int argc, char ** argv) {
 	pthread_cancel(thread_id);
 	pthread_mutex_destroy(&netinfo_lock.lock);
 
-	exit_network(&tracker_sockfd, &tracker_sockaddr, &own_pa);
+	//send_netinfo(&tracker_sockfd, &tracker_sockaddr, &own_pa, EXIT);
 
 	return 0;
 }
