@@ -1,3 +1,5 @@
+
+
 #include "blockchain.h"
 #include "sha256.h"
 #include "hashcash.h"
@@ -22,16 +24,60 @@ struct Transactions {
 	struct Transaction<ID> transaction[N];
 };
 
-/*
-bool check_solution(std::string solution) {
-	for (int i = 0; i < DIFFICULTY; ++i) {
-		if (solution.at(i) != '0') {
-			return false;
-		}
-	}
-    return true;
+
+void RequestBlockchain() {
+	// Broadcast a request asking for a block at index blockchain.size()
+
+	// If majority sent LASTBLOCK message, we are done
+
+	// Check for which peers we have received this block
+	// If not all peers responded, maybe ask again?
+
+	// Check prev_hash for each block
+	// Check hash for each block
+	// Check how many blocks are equal 
+	// 		add block that most peers agreed upon
+
 }
-*/
+
+
+void SendBlockchain() {
+	// Send the nth block to the requester
+}
+
+void HandleBlockAdditionRequest() {
+	// Check Previous Hash
+	// Check Block Hash
+	// Check Proof Of Work
+
+	// Broadcast vote to all others
+
+	// Receive all votes and count majority
+
+	// If yes, add the block
+
+}
+
+
+void AddBlockToBlockchain () {
+	// Compute proof of work
+	// Broadcast block addition request
+
+}
+
+void Run() {
+	// If we were offline
+		// RequestBlockchain
+	// Else
+		// If randomly add transactions
+			// AddBlockToBlockchain
+		// Else 
+			// Receive messages
+			// SendBlockchain
+			// HandleBlockAdditionRequest
+
+
+}
 
 
 template <typename T>
