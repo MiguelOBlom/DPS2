@@ -1,5 +1,3 @@
-
-
 #include "blockchain.h"
 #include "sha256.h"
 #include "hashcash.h"
@@ -101,7 +99,6 @@ std::string SHA256FromDataAndHash(T data, std::string hash)
 
 
 int blockchaintest1() {
-    //Blockchain<int, std::string> bc(simpleHash);
 	Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string> bc(SHA256FromDataAndHash);
 	HashCash hc(32);
 	Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string> b = *bc.GetBlockFromIndex(0);
