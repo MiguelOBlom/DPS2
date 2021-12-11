@@ -299,7 +299,7 @@ int main(int argc, char ** argv) {
 */
 	broadcast(&netinfo_lock, &own_pa, NULL, 0);
 		
-	sleep(10);
+	sleep(60);
 
 	receive(&own_sockfd);
 

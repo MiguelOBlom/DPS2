@@ -18,14 +18,14 @@ WORKERS=$(echo $NODES | awk '{$1=""; print $0}')
 # Get the tracker IP
 TRACKER_IP=$(ssh $TRACKER $'ifconfig | grep inet | grep -o \'10\.149\.\S*\' | awk -F . \'$NF !~ /^255/\'')
 
+echo export TRACKER_IP=$TRACKER_IP > /home/$(whoami)/DPS2/trackerinfo.txt
+echo export TRACKER_PORT=$TRACKER_PORT >> /home/$(whoami)/DPS2/trackerinfo.txt
+
 # Start up the tracker
 echo ssh $TRACKER_IP "rm -f p2p.db; /home/$(whoami)/DPS2/p2p/tracker $TRACKER_IP $TRACKER_PORT p2p.db"
 #ssh $TRACKER_IP "/home/$(whoami)/DPS2/p2p/tracker $TRACKER_IP $TRACKER_PORT p2p.db"
 #ssh -t $TRACKER_IP 'exec bash -l < DPS2/run_tracker.sh &'
 screen -d -m -S tracker ssh -t $TRACKER 'exec bash -l < DPS2/run_tracker.sh'
-
-echo export TRACKER_IP=$TRACKER_IP > /home/$(whoami)/DPS2/trackerinfo.txt
-echo export TRACKER_PORT=$TRACKER_PORT >> /home/$(whoami)/DPS2/trackerinfo.txt
 
 for WORKER in $WORKERS;
 do
