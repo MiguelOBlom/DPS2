@@ -1,3 +1,5 @@
+#include <cstring>
+
 template <typename T, typename H>
 class Block {
 public:
@@ -27,9 +29,13 @@ private:
 
 template <typename T, typename H>
 Block<T, H>::Block() {
-	memset(&data, 0, sizeof(T));
-	memset(&hash, 0, sizeof(H));
-	memset(&prev_hash, 0, sizeof(H));
+	T default_t = T();
+	SetData(&default_t);
+	SetHash(H());
+	SetPrevHash(H());
+	//memset(&data, 0, sizeof(T));
+	//memset(&hash, 0, sizeof(H));
+	//memset(&prev_hash, 0, sizeof(H));
 }
 
 template <typename T, typename H>

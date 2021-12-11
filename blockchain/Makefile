@@ -1,13 +1,13 @@
 CC=gcc
 CXX=g++
-CFLAGS = -Wall -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-unused-but-set-variable -O3
+CFLAGS = -Wall -Wextra -ggdb
 CXXFLAGS = $(CFLAGS) -std=c++11
 LIBS=
-DEPS=sha256.h blockchain.h
+DEPS=sha256.h blockchain.h block.h iproofofwork.h hashcash.h 
 
 all:	application
 
-application: application.o sha256.o
+application: application.cc sha256.o
 	$(CXX) -o $@ $^ $(CFLAGS) $(LIBS)
 
 %.o:	%.cc $(DEPS)

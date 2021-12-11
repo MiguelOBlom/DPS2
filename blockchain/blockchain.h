@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <string>
 #include "sha256.h"
 #include "block.h"
 
@@ -12,7 +11,7 @@ class Blockchain {
 public:
 	Blockchain<T, H>(H (* hash_func_) (T, H));
 	void add_block(const T* data);
-	Block<T, H>* GetBlockFromIndex(const size_t index) const;
+	Block<T, H>* GetBlockFromIndex(const size_t index);
 	const std::vector<Block<T, H> > GetBlocks() const;
 	H GetHashAtIndex(const size_t index) const;
 	H GetHashFromBlock(const Block<T, H>* blockptr) const;
@@ -27,10 +26,10 @@ Blockchain<T, H>::Blockchain(H (* _hash_func) (T, H)) {
 	blocks = std::vector<Block<T, H> >();
 	hash_func = _hash_func;
 
-	Block<T, H> genesis();
-	T data = genesis.get_data();
-	H prev_hash = genesis.get_prev_hash();
-	genesis.set_hash(hash_func(data, prev_hash));
+	Block<T, H> genesis;
+	T* data = genesis.GetData();
+	H prev_hash = genesis.GetPrevHash();
+	genesis.SetHash(hash_func(*data, prev_hash));
 	delete data;
 
 	blocks.push_back(genesis);
@@ -44,8 +43,12 @@ void Blockchain<T, H>::add_block(const T* data) {
 }
 
 template <typename T, typename H>
-Block<T, H>* Blockchain<T, H>::GetBlockFromIndex(const size_t index) const {
-	return (index < blocks.size())? &blocks[index] : NULL;
+Block<T, H>* Blockchain<T, H>::GetBlockFromIndex(const size_t index) {
+	if (index < blocks.size()) {
+		return &blocks[index];
+	} else {
+		return NULL;
+	}
 }
 
 template <typename T, typename H>
