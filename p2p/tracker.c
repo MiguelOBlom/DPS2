@@ -309,18 +309,22 @@ int main(int argc, char ** argv) {
 	pthread_t receive_thread_id;
 	struct queue_lock ql;
 	struct handle_mailbox_args hm_args;
-
+	
 	if (argc != 4) {
 		printf("Usage: %s <addr> <port> <db_name>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 
 	addr = inet_addr(argv[1]);
+	//printf("ADDR: %u\n", addr);
 	if (convert_port(argv[2], &port) < 0) {
 		exit(EXIT_FAILURE);
 	}
+	//printf("PORT: %u\n", port);
 	pa = init_peer_address(domain, port, addr);
+	//printf("ADDR: %d, %u, %u\n", domain, port, addr);
 	initialize_srvr(&sockfd, &pa);
+	//return 0;
 	db_open(&db, argv[3]);
 
 	queue_init(&ql, tracker_queue_maxsize);

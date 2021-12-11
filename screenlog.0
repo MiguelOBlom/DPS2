@@ -1,0 +1,8 @@
+Infiniband hardware address can be incorrect! Please read BUGS section in ifconfig(8).
+rm -f /home/ddps2001/DPS2/p2p.db
+/home/ddps2001/DPS2/p2p/tracker 10.149.1.254 1234 /home/ddps2001/DPS2/p2p.db
+Successfully created socket: Success
+Successfully bound address to socket: Success
+b4?: No such file or directory
+exec?: No such file or directory
+^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B                                                                                                                                                                        ^C
