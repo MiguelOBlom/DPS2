@@ -1,2 +1,0 @@
-Integrate queue in peer and tracker for receiving and handling messages
-Let tracker handle requests in seperate pthreads
