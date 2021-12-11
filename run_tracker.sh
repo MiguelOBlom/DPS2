@@ -1,3 +1,5 @@
+# Miguel Blom
+
 export LD_LIBRARY_PATH=/home/$(whoami)/DPS2/p2p/sqlite3:$LD_LIBRARY_PATH
 source /home/$(whoami)/DPS2/trackerinfo.txt
 

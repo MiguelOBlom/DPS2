@@ -1,6 +1,5 @@
 #include "common.h"
 
-const short unsigned int domain = AF_INET;
 
 // Constructs a message_header with the type and length of the full dataframe
 // NOTE: the message_header_checksum depends on the data_checksum
@@ -36,19 +35,14 @@ struct peer_address_header init_peer_address_header (const struct peer_address* 
 	return peer_address_header;
 }
 
-struct netinfo_lock init_netinfo_lock(struct peer_address** network_info, size_t * n_peers) {
-	struct netinfo_lock nl;
-	nl.network_info = network_info;
-	printf("n_peers %p\n", n_peers);
-	nl.n_peers = n_peers;
-	printf("nl.n_peers %p\n", nl.n_peers);
-
-
-	if (pthread_mutex_init(&nl.lock, 0) != 0) {
-		perror("Cannot initialize mutex lock");
-		exit(EXIT_FAILURE);
-	}
-	return nl;
+int check_message_crc(void * data, size_t data_len) {
+	int retval;
+	POLY_TYPE crc = ((struct message_header*) data)->message_header_checksum;
+	((struct message_header*) data)->message_header_checksum = 0;
+	retval =  (check_crc((struct message_header*) data, sizeof(struct message_header) - sizeof(((struct message_header*) data)->message_header_checksum), crc)
+		&& check_crc(data + sizeof(struct message_header), data_len - sizeof(struct message_header), ((struct message_header*) data)->message_data_checksum));
+	((struct message_header*) data)->message_header_checksum = crc;
+	return retval;
 }
 
 // Create a pointer to a data object consisting of a configured message header 

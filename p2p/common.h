@@ -28,7 +28,7 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
-const short unsigned int domain;
+#define DOMAIN AF_INET
 
 
 
@@ -50,10 +50,9 @@ struct peer_address init_peer_address(short unsigned int family, short unsigned 
 enum message_type {
 	HEARTBEAT,
 	NETINFO,
-	BROADCAST,
+	P2P,
 	EXIT,
 	ACKNOWLEDGENETINFO
-
 };
 
 struct message_header {
@@ -78,14 +77,6 @@ struct peer_address_header init_peer_address_header (const struct peer_address* 
 // ******************************* //
 // Network information definitions //
 // ******************************* //
-struct netinfo_lock {
-	struct peer_address** network_info;
-	size_t* n_peers;
-	pthread_mutex_t lock;
-};
-
-struct netinfo_lock init_netinfo_lock(struct peer_address** network_info, size_t* n_peers);
-
 void* init_network_information (const void * data, size_t* data_len); 
 
 
@@ -98,6 +89,7 @@ void initialize_clnt(int* sockfd, const struct peer_address* pa, struct sockaddr
 ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in* sockaddr, socklen_t* sockaddr_len);
 ssize_t send_message(const int* sockfd, const void* data, const size_t data_len, int flags, const struct sockaddr_in* sockaddr);
 int is_data_available(const int* sockfd);
+int check_message_crc(void * data, size_t data_len);
 
 void print_bytes(void * data, size_t data_len);
 

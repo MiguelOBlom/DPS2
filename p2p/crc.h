@@ -10,7 +10,7 @@
 #define _CRC_
 
 // Polynomial
-const POLY_TYPE POLY;
+#define POLY 0b1011101011010101
 
 // Double the size of the POLY_TYPE
 struct dpoly {

@@ -1,6 +1,6 @@
 #include "crc.h"
 
-const POLY_TYPE POLY = 0b1011101011010101;
+
 
 void print_bits_of_byte(const unsigned char* c) {
 	unsigned char m = 128;

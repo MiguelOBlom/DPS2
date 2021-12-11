@@ -1,56 +1,25 @@
 // rm p2p.db; ./tracker 192.168.178.73 8080 p2p.db
 
-// TODO: If the tracker is adding the peer to the db, it needs 
-// a confirmation, from the peer after sending the list, so that
-// we know it registered itself as "new"
-
 #include "common.h"
-
 
 // If no heartbeat is obtained from a peer after 60 seconds, 
 // it is considered dead.
 const int timeout_threshold = 60; 
 const int tracker_queue_maxsize = 20;
 
-int check_peer_address_header(const int* sockfd, struct peer_address_header* peer_address_header) {
-	//recv_message(sockfd, (void*) peer_address_header, sizeof(*peer_address_header), MSG_WAITALL, clntaddr, clntaddr_len);
-	
-	POLY_TYPE crc = peer_address_header->message_header.message_header_checksum;
-	peer_address_header->message_header.message_header_checksum = 0;
-	if (   check_crc(&peer_address_header->message_header, sizeof(peer_address_header->message_header) - sizeof(peer_address_header->message_header.message_header_checksum), crc)
-		&& check_crc(&peer_address_header->peer_address, sizeof(peer_address_header->peer_address), peer_address_header->message_header.message_data_checksum)) {
-		return 1;
-	}
-	return 0;
-}
+
 
 // Removes peer from the database
 // may have no effect when messages arrive out-of-order and a heartbeat is received after exit
 // however it is still nice to clean up after yourself :)
-void handle_exit(const int* sockfd, sqlite3* db, struct queue_item* queue_item) {
+void handle_exit(sqlite3* db, struct queue_item* queue_item) {
 	struct peer_address_header* peer_address_header = queue_item->message;
-	//struct sockaddr_in clntaddr;
-	//socklen_t clntaddr_len;
-	//recv_message(sockfd, (void*) &peer_address_header, sizeof(peer_address_header), MSG_WAITALL, &clntaddr, &clntaddr_len);
-	
-	//POLY_TYPE crc = peer_address_header.message_header.message_header_checksum;
-	//peer_address_header.message_header.message_header_checksum = 0;
-	//if (   check_crc(&peer_address_header.message_header, sizeof(peer_address_header.message_header) - sizeof(peer_address_header.message_header.message_header_checksum), crc)
-	//	&& check_crc(&peer_address_header.peer_address, sizeof(peer_address_header.peer_address), peer_address_header.message_header.message_data_checksum)) {
-	//if (receive_peer_address_header(sockfd, &peer_address_header, &clntaddr, &clntaddr_len)) {
-	if (check_peer_address_header(sockfd, peer_address_header)) {
-		// if (peer_address_header.message_header.type != EXIT) {
-		// 	printf("Not an exit...\n");
-		// 	return;
-		// }
 
-		//if (db_peer_exists(db, &peer_address_header.peer_address)) {
-			db_remove_peer(db, &peer_address_header->peer_address);
-		//}
+	if (check_message_crc(peer_address_header, sizeof(peer_address_header))) {
+		db_remove_peer(db, &peer_address_header->peer_address);
 	} else {
 		printf("The CRC did not match for your received exit data!\n");
 	}
-
 }
 
 
@@ -75,7 +44,7 @@ void handle_heartbeat(const int* sockfd, sqlite3* db, struct queue_item* queue_i
 	//peer_address_header.message_header.message_header_checksum = 0;
 	//if (   check_crc(&peer_address_header.message_header, sizeof(peer_address_header.message_header) - sizeof(peer_address_header.message_header.message_header_checksum), crc)
 	//	&& check_crc(&peer_address_header.peer_address, sizeof(peer_address_header.peer_address), peer_address_header.message_header.message_data_checksum)) {
-	if (check_peer_address_header(sockfd, peer_address_header)) {
+	if (check_message_crc(peer_address_header, sizeof(peer_address_header))) {
 		printf("Checked CRC heartbeat!\n");
 		// Check checksum
 		// if (peer_address_header.message_header.type != HEARTBEAT) {
@@ -149,12 +118,12 @@ void handle_heartbeat(const int* sockfd, sqlite3* db, struct queue_item* queue_i
 }
 
 
-void handle_acknowledge_netinfo (const int* sockfd, sqlite3* db, struct queue_item* queue_item) {
+void handle_acknowledge_netinfo (sqlite3* db, struct queue_item* queue_item) {
 	struct peer_address_header* peer_address_header = queue_item->message;
 	// struct sockaddr_in clntaddr;
 	// socklen_t clntaddr_len;
 	//if (receive_peer_address_header(sockfd, &peer_address_header, &clntaddr, &clntaddr_len)) {
-	if (check_peer_address_header(sockfd, peer_address_header)) {
+	if (check_message_crc(peer_address_header, sizeof(peer_address_header))) {
 		if (!db_peer_exists(db, &peer_address_header->peer_address)){
 			db_insert_peer(db, &peer_address_header->peer_address);
 			printf("Insterted!\n");
@@ -182,12 +151,12 @@ void* handle_request_thread (void * args) {
 			break;
 		case EXIT:
 			printf("handle_exit(sockfd, db);\n");
-			handle_exit(sockfd, db, queue_item);
+			handle_exit(db, queue_item);
 			break;
 		case ACKNOWLEDGENETINFO:
 			//printf("Handling acknowledgement\n");
 			printf("handle_acknowledge_netinfo(sockfd, db);\n");
-			handle_acknowledge_netinfo(sockfd, db, queue_item);
+			handle_acknowledge_netinfo(db, queue_item);
 			break;
 		default:
 			break;
@@ -321,7 +290,7 @@ int main(int argc, char ** argv) {
 		exit(EXIT_FAILURE);
 	}
 	//printf("PORT: %u\n", port);
-	pa = init_peer_address(domain, port, addr);
+	pa = init_peer_address(DOMAIN, port, addr);
 	//printf("ADDR: %d, %u, %u\n", domain, port, addr);
 	initialize_srvr(&sockfd, &pa);
 	//return 0;
