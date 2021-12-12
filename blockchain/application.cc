@@ -188,12 +188,12 @@ public:
 				b = msg + sizeof(struct BlockchainIndexHeader);
 
 				if (((struct BlockchainMessageHeader*) msg)->type == NOBLOCK) {
-					if (!clnt_found(clntaddr, clients_seen)){
+					if (!client_found(clntaddr, clients_seen)){
 						++no_block;
 					}
 				} else if (((struct BlockchainMessageHeader*) msg)->type == BLOCK) {
 					// Check hash and prev_hash for the block
-					if (!clnt_found(clntaddr, clients_seen)) {
+					if (!client_found(clntaddr, clients_seen)) {
 						if (SHA256FromDataAndHash(*(b->GetData(), b->GetPrevHash()) && b->GetPrevHash() == bc.GetTopHash())) {
 							if (messages.find(b->GetHash()) != messages.end()) { // If hash is known
 								++messages[b->GetHash()].second;
@@ -309,11 +309,11 @@ public:
 			receive(&peer, &msg, &msg_len, &clntaddr);
 			if (msg) {
 				if (((struct BlockchainMessageHeader*) msg)->type == NOBLOCK) {
-					if (!clnt_found(clntaddr, clients_seen)){
+					if (!client_found(clntaddr, clients_seen)){
 						++no_block;
 					}
 				} else if (((struct BlockchainMessageHeader*) msg)->type == VOTE) {
-					if (!clnt_found(clntaddr, clients_seen) && msg->block_hash == req_block->GetHash()) {
+					if (!client_found(clntaddr, clients_seen) && msg->block_hash == req_block->GetHash()) {
 						msg->agree ? ++n_agrees : ++n_disagrees;
 						clients_seen.push_back(clntaddr);
 					}
