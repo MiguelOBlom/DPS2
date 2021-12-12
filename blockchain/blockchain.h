@@ -10,8 +10,10 @@ template <typename T, typename H>
 class Blockchain {
 public:
 	Blockchain<T, H>(H (* hash_func_) (T, H));
-	void add_block(const T* data);
+	void AddBlock(const T* data);
+	void PopBlock();
 	Block<T, H>* GetBlockFromIndex(const size_t index);
+	Block<T, H>* GetTopBlock();
 	const std::vector<Block<T, H> > GetBlocks() const;
 	H GetHashAtIndex(const size_t index) const;
 	H GetHashFromBlock(const Block<T, H>* blockptr) const;
@@ -38,10 +40,18 @@ Blockchain<T, H>::Blockchain(H (* _hash_func) (T, H)) {
 }
 
 template <typename T, typename H>
-void Blockchain<T, H>::add_block(const T* data) {
+void Blockchain<T, H>::AddBlock(const T* data) {
 	std::string prev_hash = blocks.back().hash;
 	Block<T, H> b(data, prev_hash, hash_func);
 	blocks.push_back(b);
+}
+
+template <typename T, typename H>
+void Blockchain<T, H>::PopBlock() {
+	if (block.size() > 0)
+	{
+		blocks.pop_back();
+	}
 }
 
 template <typename T, typename H>
@@ -50,6 +60,13 @@ Block<T, H>* Blockchain<T, H>::GetBlockFromIndex(const size_t index) {
 		return &blocks[index];
 	} else {
 		return NULL;
+	}
+}
+
+template <typename T, typename H>
+Block<T, H>* Blockchain<T, H>::GetTopBlock() {
+	if (blocks.back()) {
+		return &blocks.back();
 	}
 }
 

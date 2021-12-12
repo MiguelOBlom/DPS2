@@ -20,15 +20,6 @@ private:
 	T data;
 	H hash;
 	H prev_hash;
-	// seed that solves the proof of work. This could also be sent alongside
-	// the block, but it might ease the process of checking to encorporate it
-	// However, it reduces the generality of the class.
-
-	//int nonce; 
-	// Is nonce standard for blockchain? if not then please do not use nonce
-	// the data should be as generic as possible
-	// This includes that we can define a struct {nonce, data} for this purpose
-	// Besides, can't we use hash for nonce?
 };
 
 template <typename T, typename H>

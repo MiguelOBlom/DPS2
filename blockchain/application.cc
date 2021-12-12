@@ -48,12 +48,12 @@ struct Transactions {
 };
 
 template <typename T>
-std::string SHA256FromBlock(const Block<T, std::string>& b)
+std::string SHA256FromBlock(const Block<T, std::string>* b)
 {
-	T* data = b.GetData();
+	T* data = b->GetData();
 	std::string data_str = std::string((char*)data, sizeof(T));
 	delete data;
-	std::string full_str = data_str + b.GetHash() + b.GetPrevHash();
+	std::string full_str = data_str + b->GetHash() + b->GetPrevHash();
 	return sha256(full_str);
 }
 
@@ -67,12 +67,12 @@ std::string SHA256FromDataAndHash(T data, std::string hash)
 }
 
 template <typename T>
-std::string SHA256FromDataAndHash(const Block<T, std::string>& b)
+std::string SHA256FromDataAndHash(const Block<T, std::string>* b)
 {
-	T* data = b.GetData();
+	T* data = b->GetData();
 	std::string data_str = std::string((char*)data, sizeof(T));
 	delete data;
-	std::string full_str = data_str + b.GetHash();
+	std::string full_str = data_str + b->GetHash();
 	return sha256(full_str);
 }
 
@@ -81,7 +81,7 @@ class Application {
 private:
 	Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string> * bc;
 	struct peer peer;
-	IProofOfWork<std::string, std::string> * PowGroup;
+	IProofOfWork<std::string, std::string> * POWGroup;
 
 	std::queue<std::tuple<sockaddr_in, void*, size_t> > inbox = std::queue<std::tuple<sockaddr_in, void*, size_t> >();
 public:
@@ -89,7 +89,7 @@ public:
 	Application (char* tracker_addr, char* tracker_port, char* addr, char* port) {
 		bc = new Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>(SHA256FromDataAndHash);
 		init_peer(&peer, tracker_addr, tracker_port, addr, port);
-		PowGroup = new HashCash(32);
+		POWGroup = new HashCash(32);
 	}
 
 	~Application () {
@@ -169,18 +169,18 @@ public:
 	}
 
 	void HandleBlockAdditionRequest(BlockchainAdditionRequest requestHeader) {
-		Block<Transaction<ID_TYPE>, std::string > requested_block; // temporary, change when we know how the block will be received
+		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > * requested_block; // temporary, change when we know how the block will be received
 		std::string hash;
 		std::string key;
 
 		// Check Previous Hash
-		if (requested_block.GetPrevHash() != bc->GetTopHash()) {
+		if (requested_block->GetPrevHash() != bc->GetTopHash()) {
 			std::cout << "Invalid previous hash." << std::endl;
 			return; // Previous hash invalid.
 		}
 
 		// Check Block Hash
-		if (requested_block.GetHash() != SHA256FromDataAndHash(requested_block)) {
+		if (requested_block->GetHash() != SHA256FromDataAndHash(requested_block)) {
 			std::cout << "Invalid block hash." << std::endl;
 			return; // Block hash invalid
 		}
@@ -189,7 +189,7 @@ public:
 		key = requestHeader.pow_solution;
 
 		// Check Proof Of Work
-		if (!PowGroup->CheckSolution(&hash, &key)) {
+		if (!POWGroup->CheckSolution(&hash, &key)) {
 			std:: cout << "POW invalid." << std::endl;
 			return;
 		}
@@ -204,10 +204,24 @@ public:
 	}
 
 
-	void AddBlockToBlockchain () {
-
+	void AddBlockToBlockchain (Transactions<ID_TYPE, MAX_TRANSACTIONS> * data) {
 		// Compute proof of work
+		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > * new_block;
+		bc->AddBlock(data); // Blockchain handles the process of hash generation
+
+		new_block = bc->GetTopBlock();
+		std::string new_block_hash = SHA256FromBlock(new_block);
+
+		std::string solution = POWGroup->SolveProblem(&new_block_hash);
+
+		
 		// Broadcast block addition request
+
+		// If rejected, pop newly added block
+		bool rejected;
+		if (rejected) {
+			bc->PopBlock();
+		}
 
 	}
 
