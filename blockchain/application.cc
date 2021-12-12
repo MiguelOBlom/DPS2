@@ -66,20 +66,7 @@ std::string SHA256FromDataAndHash(T data, std::string hash)
 	return sha256(full_str);
 }
 
-<<<<<<< Updated upstream
-template <typename T>
-std::string SHA256FromDataAndHash(const Block<T, std::string>* b)
-{
-	T* data = b->GetData();
-	std::string data_str = std::string((char*)data, sizeof(T));
-	delete data;
-	std::string full_str = data_str + b->GetHash();
-	return sha256(full_str);
-}
-
-=======
 const int n_tries = 10; // number of tries before trying to request a block again
->>>>>>> Stashed changes
 
 class Application {
 private:
@@ -160,7 +147,6 @@ public:
 	}
 
 	bool RequestBlockchainBlock(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* largest_block) {
-
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
 		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> > messages; // Hash -> Block, Count (Block)
 		std::vector<sockaddr_in> clients_seen;
