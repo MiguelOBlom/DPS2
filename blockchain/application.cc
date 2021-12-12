@@ -11,14 +11,20 @@
 #define MAX_TRANSACTIONS 5
 #define ID_TYPE char
 
-enum BlockChainMessageType {
+enum BlockchainMessageType {
 	BLOCK,
 	REQUESTBLOCK,
-	LASTBLOCK
+	NOBLOCK
 };
 
-struct 
+struct BlockchainMessageHeader {
+	BlockchainMessageType type;
+}
 
+struct BlockchainIndexHeader {
+	struct BlockchainMessageHeader bmh;
+	size_t index;
+}
 
 template <typename ID>
 struct Transaction {
@@ -56,6 +62,8 @@ class Application {
 private:
 	Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string> * bc;
 	struct peer peer;
+
+	queue<sockaddr_in, message>...
 public:
 
 	Application (char* tracker_addr, char* tracker_port, char* addr, char* port) {
@@ -68,24 +76,66 @@ public:
 		exit_peer(&peer);
 	}
 
+	void ReceiveMessage() {
+
+	}
+
 	void RequestBlockchain() {
+		std::vector<void *> messages;
+		struct BlockchainIndexHeader bih;
+		bih.bmh.type = REQUESTBLOCK;
+		bih.index = bc.Size();
 		// Broadcast a request asking for a block at index blockchain.size()
+		size_t n_peers = broadcast(&peer, &bih, sizeof(bih));
 
 		// If majority sent LASTBLOCK message, we are done
+		sleep(5);
+		void * msg;
+		size_t msg_len;
+		struct sockaddr_in clntaddr;
+		receive(&peer, &msg, &msg_len, &clntaddr);
 
-		// Check for which peers we have received this block
-		// If not all peers responded, maybe ask again?
+		// Add all messages that are not of type BLOCK or NOBLOCK to queue  
+		
+		while() {
+			// Check for which peers we have received this block
+			// If not all peers responded, maybe ask again?
 
-		// Check prev_hash for each block
-		// Check hash for each block
-		// Check how many blocks are equal 
-		// 		add block that most peers agreed upon
+			// Check prev_hash for each block
+			// Check hash for each block
+			// Check how many blocks are equal 
+			// 		add block that most peers agreed upon
+		}
+
 
 	}
 
 
-	void SendBlockchain() {
+	void SendBlockchain(const struct BlockchainIndexHeader& bih, const struct sockaddr_in* clntaddr) {
+		struct BlockchainIndexHeader response_bih;
+		response_bih.index = bih.index;
+
+		size_t response_len;
+		void * response;
 		// Send the nth block to the requester
+		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b = bc.GetBlockFromIndex(bih.index);
+		if (b) {
+			response_bih.bmh.type = BLOCK;
+			
+			response_len = sizeof(bih) + sizeof(*b);
+			response = malloc(response_len);
+			memcpy(response, &response_bih, sizeof(response_bih));
+			memcpy(response + sizeof(response_bih), b, sizeof(*b));
+
+			respond(&peer, response, response_len, clntaddr);
+
+			free(response);
+		} else {
+			response_bih.bmh.type = NOBLOCK;
+
+			respond(&peer, &response_bih, sizeof(response_bih), clntaddr);
+		}
+
 	}
 
 	void HandleBlockAdditionRequest() {
@@ -109,16 +159,27 @@ public:
 	}
 
 	void Run() {
+		bool transact;
 		// If we were offline
+		if (should_refresh(&peer)) {
 			// RequestBlockchain
-		// Else
+			RequestBlockchain();
+		} else {
 			// If randomly add transactions
+			if (transact) {
 				// AddBlockToBlockchain
-			// Else 
+				AddBlockToBlockchain();
+			} else {
 				// Receive messages
+				ReceiveMessages(); // Receive all messages for some time
+
+				// Remove all BLOCK and NOBLOCK messages
+
+				// Then handle each other queued block accordingly
 				// SendBlockchain
 				// HandleBlockAdditionRequest
-
+			}
+		}
 
 	}
 

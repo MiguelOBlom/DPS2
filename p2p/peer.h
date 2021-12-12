@@ -32,8 +32,8 @@ struct send_heartbeat_thread_args {
 };
 
 
-void broadcast(struct peer* p, void * data, size_t data_len);
-void receive(struct peer* p, void ** message, size_t* message_len, struct sockaddr_in* clntaddr, socklen_t* clntaddr_len);
+size_t broadcast(struct peer* p, void * data, size_t data_len);
+void receive(struct peer* p, void ** message, size_t* message_len, struct sockaddr_in* clntaddr);
 void respond(struct peer* p, void * message, size_t message_len, const struct sockaddr_in* clntaddr);
 int  should_refresh(struct peer* p);
 void init_peer(struct peer* p, char* c_tracker_addr, char* c_tracker_port, char* c_addr, char* c_port);
