@@ -21,7 +21,8 @@ enum BlockchainMessageType {
 	BLOCK,
 	REQUESTBLOCK,
 	NOBLOCK,
-	VOTE
+	VOTE,
+	ADDREQUEST,
 };
 
 struct BlockchainMessageHeader {
@@ -178,6 +179,7 @@ public:
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
 		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> > messages; // Hash -> Block, Count (Block)
 		std::vector<sockaddr_in> clients_seen = std::vector<sockaddr_in>();
+		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >::iterator it;
 		size_t no_block = 0;
 
 		struct BlockchainIndexHeader bih;
@@ -214,6 +216,7 @@ public:
 
 							if (messages.find(b->GetHash()) != messages.end()) { // If hash is known
 								++messages[b->GetHash()].second;
+								free(msg);
 							} else {
 								messages.insert(std::make_pair(b->GetHash(), std::make_pair(b, 1)));
 							}
@@ -231,6 +234,10 @@ public:
 				if(checkMajority(largest_block, clients_seen.size(), n_peers, no_block, messages)) {
 					// If largest_block == null, there are no more blocks
 					// Add the block with the most votes
+					for(it = messages.begin; it != messages.end(); ++it) {
+						free(it->second.first);
+					}
+
 					return true;
 				}
 			} else {
@@ -240,18 +247,25 @@ public:
 
 			// If not all peers responded, maybe ask again?
 			if (tries >= 10) {
+				for(it = messages.begin; it != messages.end(); ++it) {
+					free(it->second.first);
+				}
 				return false;
 			}
 		}
 
+		for(it = messages.begin; it != messages.end(); ++it) {
+			free(it->second.first);
+		}
 		return false;
 	}
 
 	void RequestBlockchain (){
+		bool ret;
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
 
 		do {
-			RequestBlockchainBlock(b);
+			while(!RequestBlockchainBlock(b));
 			std::cout << b << std::endl;
 		} while (b != NULL);
 	}
@@ -375,6 +389,7 @@ public:
 
 		
 		// Broadcast block addition request
+		// type!
 
 		// If rejected, pop newly added block
 		bool rejected;
@@ -385,19 +400,50 @@ public:
 	}
 
 	void Run() {
-		bool transact;
+		bool transact = false;
+		void * msg;
+		size_t msg_len;
+		sockaddr_in clntaddr;
+
 		// If we were offline
 		if (should_refresh(&peer)) {
 			// RequestBlockchain
-			//RequestBlockchain();
+			RequestBlockchain();
 		} else {
 			// If randomly add transactions
 			if (transact) {
 				// AddBlockToBlockchain
 				//AddBlockToBlockchain();
 			} else {
+				msg = NULL;
+				do {
+					receive(&peer, &msg, &msg_len, &clntaddr);
+					inbox.push(std::make_tuple(clntaddr, msg, msg_len));
+				} while (msg);
+
+
+				std::queue<std::tuple<sockaddr_in, void*, size_t> >::iterator it;
+				for (it = inbox.begin(); it != inbox.end(); ++it) {
+					msg = it[1];
+					switch(((struct BlockchainMessageHeader*)msg)->type) {
+							case REQUESTBLOCK:
+								SendBlockchain(msg, it[0]);
+								break;
+
+							case ADDREQUEST:
+
+								break;
+							case BLOCK:
+							case NOBLOCK:
+							case VOTE:
+							default:
+								break;
+					}
+					free(msg);
+				}
+
 				// Receive messages
-				//ReceiveMessages(); // Receive all messages for some time
+				// ReceiveMessages(); // Receive all messages for some time
 
 				// Remove all BLOCK and NOBLOCK messages
 

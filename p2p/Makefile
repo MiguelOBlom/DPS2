@@ -18,7 +18,7 @@ tracker: tracker.c common.o db.o crc.o queue.o
 	$(CC) $(LIB) $(INC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 clean:
-	rm -f libpeer.so tracker *.o *.db
+	rm -f application tracker *.o *.db
 	
 	
 
