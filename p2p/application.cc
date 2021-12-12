@@ -11,6 +11,7 @@
 #include <queue>
 #include <map>
 #include <tuple>
+#include <map>
 
 #define DIFFICULTY 3
 #define MAX_TRANSACTIONS 5
@@ -19,11 +20,18 @@
 enum BlockchainMessageType {
 	BLOCK,
 	REQUESTBLOCK,
-	NOBLOCK
+	NOBLOCK,
+	VOTE
 };
 
 struct BlockchainMessageHeader {
 	BlockchainMessageType type;
+};
+
+struct BlockVote {
+	struct BlockchainMessageHeader bmh;
+	std::string block_hash;
+	bool agree;  
 };
 
 struct BlockchainIndexHeader {
@@ -81,6 +89,7 @@ std::string SHA256FromDataAndHash(const Block<T, std::string>* b)
 
 const int n_tries = 10; // number of tries before trying to request a block again
 
+
 class Application {
 private:
 	Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string> * bc;
@@ -102,7 +111,11 @@ public:
 	}
 
 
-	bool checkMajority(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* & largest_block, const size_t& i, const size_t& n_peers, const size_t& no_block, std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >& messages){
+	bool checkMajority(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* & largest_block, 
+					   const size_t& i, 
+					   const size_t& n_peers, 
+					   const size_t& no_block, 
+					   const std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >& messages){
 		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >::iterator it;
 		size_t largest;
 		size_t second_largest;
@@ -141,7 +154,7 @@ public:
 					return true;
 				}
 			} else {
-				//majority vote for NOBLOCK
+				// majority vote for NOBLOCK
 				largest_block = NULL;
 				return true;
 			}
@@ -195,8 +208,10 @@ public:
 					}
 				} else if (((struct BlockchainMessageHeader*) msg)->type == BLOCK) {
 					// Check hash and prev_hash for the block
+
 					if (!client_found(clntaddr, clients_seen)){
 						if (SHA256FromDataAndHash(*(b->GetData()), b->GetPrevHash()) == b->GetHash() && b->GetPrevHash() == bc->GetTopHash()) {
+
 							if (messages.find(b->GetHash()) != messages.end()) { // If hash is known
 								++messages[b->GetHash()].second;
 							} else {
@@ -211,6 +226,7 @@ public:
 					// Add all messages that are not of type BLOCK or NOBLOCK to queue  
 					inbox.push(std::make_tuple(clntaddr, msg, msg_len));
 				}
+
 
 				if(checkMajority(largest_block, clients_seen.size(), n_peers, no_block, messages)) {
 					// If largest_block == null, there are no more blocks
@@ -267,38 +283,82 @@ public:
 		}
 	}
 
-	void HandleBlockAdditionRequest(BlockchainAdditionRequest requestHeader) {
-		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > * requested_block; // temporary, change when we know how the block will be received
-		std::string hash;
-		std::string key;
+	bool HandleBlockAdditionRequest(BlockchainAdditionRequest requestHeader) {
+		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > * req_block; // temporary, change when we know how the block will be received
+		BlockVote vote;
+		vote.bmh.type = VOTE;
+		vote.block_hash = req_block->GetHash();
+		vote.agree = false;
+		void * response;
+
+		std::string hash = SHA256FromBlock(req_block);
+		std::string key = requestHeader.pow_solution;
 
 		// Check Previous Hash
-		if (requested_block->GetPrevHash() != bc->GetTopHash()) {
+		if (req_block->GetPrevHash() != bc->GetTopHash()) {
 			std::cout << "Invalid previous hash." << std::endl;
-			return; // Previous hash invalid.
+			vote.agree = false;
 		}
 
 		// Check Block Hash
-		if (requested_block->GetHash() != SHA256FromDataAndHash(requested_block)) {
+		else if (req_block->GetHash() != SHA256FromDataAndHash(req_block->GetData(), req_block->GetHash())) {
 			std::cout << "Invalid block hash." << std::endl;
-			return; // Block hash invalid
+			vote.agree = false;
 		}
 
-		hash = SHA256FromBlock(requested_block);
-		key = requestHeader.pow_solution;
-
 		// Check Proof Of Work
-		if (!POWGroup->CheckSolution(&hash, &key)) {
+		else if (!POWGroup->CheckSolution(&hash, &key)) {
 			std:: cout << "POW invalid." << std::endl;
-			return;
+			vote.agree = false;
 		}
 
 
 		// Broadcast vote to all others
+		size_t n_peers = broadcast(&peer, &vote, sizeof(vote));
+		
+		// Receive all votes
+		int tries = 0;
+		size_t n_agrees = 0;
+		size_t n_disagrees = 0;
+		std::vector<sockaddr_in> clients_seen;
+		struct sockaddr_in clntaddr;
+		void * msg;
+		size_t msg_len;
 
-		// Receive all votes and count majority
+		while (clients_seen.size() < n_peers) {
+			receive(&peer, &msg, &msg_len, &clntaddr);
+			if (msg) {
+				if (((struct BlockchainMessageHeader*) msg)->type == NOBLOCK) {
+					if (!client_found(clntaddr, clients_seen)){
+						++no_block;
+					}
+				} else if (((struct BlockchainMessageHeader*) msg)->type == VOTE) {
+					if (!client_found(clntaddr, clients_seen) && msg->block_hash == req_block->GetHash()) {
+						msg->agree ? ++n_agrees : ++n_disagrees;
+						clients_seen.push_back(clntaddr);
+					}
+				} else {
+					// Add all messages that are not of type VOTE or NOBLOCK to queue  
+					inbox.push(std::make_tuple(clntaddr, msg, msg_len));
+				}
 
-		// If yes, add the block
+				if (n_agrees > n_peers / 2) {
+					return true;
+				} else if (n_disagrees > n_peers / 2) {
+					return false;
+				}
+			} else {
+				sleep(1);
+				++tries;
+			}
+
+			// If not all peers responded, maybe ask again?
+			if (tries >= 10) {
+				return false;
+			}
+		}
+
+		// If yes, add the block: how?
 
 	}
 
@@ -345,6 +405,7 @@ public:
 				// SendBlockchain
 				// HandleBlockAdditionRequest
 			}
+
 		}
 
 	}
