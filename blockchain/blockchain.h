@@ -15,6 +15,7 @@ public:
 	const std::vector<Block<T, H> > GetBlocks() const;
 	H GetHashAtIndex(const size_t index) const;
 	H GetHashFromBlock(const Block<T, H>* blockptr) const;
+	H GetTopHash() const;
 	size_t Size();
 
 private:
@@ -73,6 +74,14 @@ H Blockchain<T, H>::GetHashFromBlock(const Block<T, H>* blockptr) const {
 template <typename T, typename H>
 size_t Blockchain<T, H>::Size() {
 	return blocks.size();
+}
+
+template <typename T, typename H>
+H Blockchain<T, H>::GetTopHash() const {
+	if (blocks.back())
+	{
+		return blocks.back().hash;
+	}
 }
 
 #endif

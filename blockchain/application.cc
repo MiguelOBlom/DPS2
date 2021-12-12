@@ -1,4 +1,5 @@
 #include "blockchain.h"
+#include "block.h"
 #include "sha256.h"
 #include "hashcash.h"
 #include "../p2p/peer.h"
@@ -17,8 +18,14 @@ enum BlockChainMessageType {
 	LASTBLOCK
 };
 
-struct 
+struct BlockChainMessageHeader{
+	std::string header;
+};
 
+struct BlockchainAdditionRequest {
+	struct BlockchainMessageHeader bmh;
+	std::string pow_solution;
+};
 
 template <typename ID>
 struct Transaction {
@@ -48,6 +55,16 @@ std::string SHA256FromDataAndHash(T data, std::string hash)
 	std::string data_str = std::string((char*) &data, sizeof(T));
 	std::cout << data_str << std::endl;
 	std::string full_str = data_str + hash;
+	return sha256(full_str);
+}
+
+template <typename T>
+std::string SHA256FromDataAndHash(const Block<T, std::string>& b)
+{
+	T* data = b.GetData();
+	std::string data_str = std::string((char*)data, sizeof(T));
+	delete data;
+	std::string full_str = data_str + b.GetHash();
 	return sha256(full_str);
 }
 
@@ -88,10 +105,27 @@ public:
 		// Send the nth block to the requester
 	}
 
-	void HandleBlockAdditionRequest() {
+	void HandleBlockAdditionRequest(BlockchainAdditionRequest request) {
+		Block<Transaction<ID_TYPE>, std::string > requestedBlock; // temporary, change when we know how the block will be received
+
 		// Check Previous Hash
+		if (requestedBlock.GetPrevHash() != bc->GetTopHash()) {
+			std::cout << "Invalid previous hash." << std::endl;
+			return; // Previous hash invalid.
+		}
+
 		// Check Block Hash
+		if (requestedBlock.GetHash() != SHA256FromDataAndHash(requestedBlock)) {
+			std::cout << "Invalid block hash." << std::endl;
+			return; // Block hash invalid
+		}
+
 		// Check Proof Of Work
+		if (!CheckSolution(SHA256FromBlock(requestedBlock), ) {
+			std:: cout << "POW invalid," << std::endl;
+			return;
+		}
+
 
 		// Broadcast vote to all others
 
