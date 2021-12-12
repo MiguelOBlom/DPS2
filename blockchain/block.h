@@ -12,6 +12,7 @@ public:
 	T* GetData() const;
 	void GetData(T* & out) const;
 	H GetHash() const;
+	H GetKey() const;
 	H GetPrevHash() const;
 
 
@@ -19,6 +20,9 @@ private:
 	T data;
 	H hash;
 	H prev_hash;
+	// seed that solves the proof of work. This could also be sent alongside
+	// the block, but it might ease the process of checking to encorporate it
+	// However, it reduces the generality of the class.
 
 	//int nonce; 
 	// Is nonce standard for blockchain? if not then please do not use nonce
@@ -79,6 +83,11 @@ void Block<T, H>::GetData(T* & out) const {
 template <typename T, typename H>
 H Block<T, H>::GetHash() const {
 	return hash;
+}
+
+template <typename T, typename H>
+H Block<T, H>::GetKey() const {
+	return seed;
 }
 
 template <typename T, typename H>

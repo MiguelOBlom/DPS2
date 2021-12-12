@@ -19,7 +19,8 @@ struct netinfo_lock init_netinfo_lock(struct peer_address** network_info, size_t
 }
 
 
-void broadcast(struct peer* p, void * data, size_t data_len) {
+size_t broadcast(struct peer* p, void * data, size_t data_len) {
+	size_t n_messages_sent = 0;
 	struct netinfo_lock* netinfo_lock = &p->netinfo_lock;
 	struct peer_address* own_pa = &p->own_pa;
 	POLY_TYPE data_checksum = get_crc(data, data_len);
@@ -41,6 +42,7 @@ void broadcast(struct peer* p, void * data, size_t data_len) {
 				if(!cmp_peer_address(&(*(netinfo_lock->network_info))[i], own_pa)) {
 					initialize_clnt(&sockfd, &(*(netinfo_lock->network_info))[i], &sockaddr);
 					send_message(&sockfd, message, message_header.len, MSG_CONFIRM, &sockaddr);	
+					++n_messages_sent;
 				}
 			}
 		}
@@ -54,6 +56,7 @@ void broadcast(struct peer* p, void * data, size_t data_len) {
 	}
 
 	free(message);
+	return n_messages_sent;
 }
 
 
@@ -67,7 +70,8 @@ void handle_broadcast(struct peer* p) {
 }
 
 
-void receive(struct peer* p, void ** message, size_t* message_len, struct sockaddr_in* clntaddr, socklen_t* clntaddr_len) {
+void receive(struct peer* p, void ** message, size_t* message_len, struct sockaddr_in* clntaddr) {
+	socklen_t clntaddr_len;
 	int* sockfd = &p->own_sockfd;
 	struct message_header header;
 
@@ -76,12 +80,12 @@ void receive(struct peer* p, void ** message, size_t* message_len, struct sockad
 	//socklen_t clntaddr_len;
 	if (is_data_available(sockfd)) {
 		printf("YAY! Data is available!!!!!!!!!!!!!!!!!!!!!!!!!\n");
-		recv_message(sockfd, &header, sizeof(struct message_header), MSG_WAITALL | MSG_PEEK, clntaddr, clntaddr_len);
+		recv_message(sockfd, &header, sizeof(struct message_header), MSG_WAITALL | MSG_PEEK, clntaddr, &clntaddr_len);
 
 		data = malloc(header.len);
 
 		// Return pointer to allocated message data
-		recv_message(sockfd, data, header.len, MSG_WAITALL, clntaddr, clntaddr_len);
+		recv_message(sockfd, data, header.len, MSG_WAITALL, clntaddr, &clntaddr_len);
 		if (header.type == P2P && check_message_crc(data, header.len)){
 			*message_len = header.len - sizeof(header);
 			*message = malloc(*message_len);
