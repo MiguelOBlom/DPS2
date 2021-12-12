@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -ggdb
 CXXFLAGS = $(CFLAGS) -std=c++11
 LIBS=-lpeer
 DEPS=sha256.h blockchain.h block.h iproofofwork.h hashcash.h 
-INC=-I../p2p
-LIB=-L../p2p
+INC=-I/home/miguel/DPS2/p2p/
+LIB=-L/home/miguel/DPS2/p2p/
 
 all:	application
 

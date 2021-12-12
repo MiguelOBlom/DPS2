@@ -1,5 +1,9 @@
 #include <cstring>
 
+#ifndef _BLOCK_
+#define _BLOCK_
+
+
 template <typename T, typename H>
 class Block {
 public:
@@ -12,7 +16,6 @@ public:
 	T* GetData() const;
 	void GetData(T* & out) const;
 	H GetHash() const;
-	H GetKey() const;
 	H GetPrevHash() const;
 
 
@@ -77,11 +80,8 @@ H Block<T, H>::GetHash() const {
 }
 
 template <typename T, typename H>
-H Block<T, H>::GetKey() const {
-	return seed;
-}
-
-template <typename T, typename H>
 H Block<T, H>::GetPrevHash() const {
 	return prev_hash;
 }
+
+#endif

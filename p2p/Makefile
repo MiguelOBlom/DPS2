@@ -6,13 +6,13 @@ INC=-I./sqlite3
 LIB=-L./sqlite3
 
 
-all: libpeer.so tracker
+all: application tracker
 
 %.o: %.c $(DEPS)
 	$(CC) $(LIB) $(INC) -c -o $@ $< $(CFLAGS) $(LIBS) 
 
-libpeer.so: peer.c common.o db.o crc.o queue.o $(DEPS)
-	$(CC) $(LIB) $(INC) -o $@ $^ $(CFLAGS) $(LIBS) -shared -fPIC
+application: peer.o common.o db.o crc.o queue.o $(DEPS)
+	$(CC) $(LIB) $(INC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 tracker: tracker.c common.o db.o crc.o queue.o
 	$(CC) $(LIB) $(INC) -o $@ $^ $(CFLAGS) $(LIBS)

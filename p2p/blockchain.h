@@ -41,14 +41,14 @@ Blockchain<T, H>::Blockchain(H (* _hash_func) (T, H)) {
 
 template <typename T, typename H>
 void Blockchain<T, H>::AddBlock(const T* data) {
-	std::string prev_hash = blocks.back().hash;
-	Block<T, H> b(data, prev_hash, hash_func);
+	std::string prev_hash = blocks.back().GetHash();
+	Block<T, H> b(data, hash_func(*data, prev_hash), prev_hash);
 	blocks.push_back(b);
 }
 
 template <typename T, typename H>
 void Blockchain<T, H>::PopBlock() {
-	if (block.size() > 0)
+	if (blocks.size() > 0)
 	{
 		blocks.pop_back();
 	}
@@ -65,9 +65,7 @@ Block<T, H>* Blockchain<T, H>::GetBlockFromIndex(const size_t index) {
 
 template <typename T, typename H>
 Block<T, H>* Blockchain<T, H>::GetTopBlock() {
-	if (blocks.back()) {
-		return &blocks.back();
-	}
+	return &blocks.back();
 }
 
 template <typename T, typename H>
@@ -79,7 +77,7 @@ template <typename T, typename H>
 H Blockchain<T, H>::GetHashAtIndex(const size_t index) const {
 	Block<T, H>* b = GetBlockFromIndex(index);
 	if (b) {
-		return b->hash;
+		return b->GetHash();
 	}
 }
 
@@ -95,10 +93,7 @@ size_t Blockchain<T, H>::Size() {
 
 template <typename T, typename H>
 H Blockchain<T, H>::GetTopHash() const {
-	if (blocks.back())
-	{
-		return blocks.back().hash;
-	}
+	return blocks.back().GetHash();
 }
 
 #endif

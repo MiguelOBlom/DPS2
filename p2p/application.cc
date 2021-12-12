@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <map>
 #include <tuple>
 
 #define DIFFICULTY 3
@@ -66,6 +67,18 @@ std::string SHA256FromDataAndHash(T data, std::string hash)
 	return sha256(full_str);
 }
 
+
+template <typename T>
+std::string SHA256FromDataAndHash(const Block<T, std::string>* b)
+{
+	T* data = b->GetData();
+	std::string data_str = std::string((char*)data, sizeof(T));
+	delete data;
+	std::string full_str = data_str + b->GetHash();
+	return sha256(full_str);
+}
+
+
 const int n_tries = 10; // number of tries before trying to request a block again
 
 class Application {
@@ -88,7 +101,8 @@ public:
 		exit_peer(&peer);
 	}
 
-	bool checkMajority(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* & largest_block, const size_t& i, const size_t& n_peers, const size_t& no_block, const std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >& messages){
+
+	bool checkMajority(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* & largest_block, const size_t& i, const size_t& n_peers, const size_t& no_block, std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >& messages){
 		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >::iterator it;
 		size_t largest;
 		size_t second_largest;
@@ -99,7 +113,7 @@ public:
 			largest_block = NULL;
 			if (messages.size() > 0) {
 				largest = no_block;
-				it = messages.begin()
+				it = messages.begin();
 				second_largest = it->second.second;
 				if (second_largest == largest) {
 					// No consensus
@@ -135,9 +149,9 @@ public:
 		return false;
 	}
 
-	bool client_found(const sockaddr_in& clntaddr, const std::vector<sockaddr_in>& clients_seen) {
-		std::vector<sockaddr_in> clients_seen::iterator it;
-		for (it = clients_seen.begin; it != clients_seen.end(); ++it){
+	bool client_found(const sockaddr_in& clntaddr, std::vector<sockaddr_in>& clients_seen) {
+		std::vector<sockaddr_in>::iterator it;
+		for (it = clients_seen.begin(); it != clients_seen.end(); ++it){
 			if (it->sin_family == clntaddr.sin_family && it->sin_port == clntaddr.sin_port &&
 				it->sin_addr.s_addr == clntaddr.sin_addr. s_addr) {
 				return true;
@@ -146,42 +160,43 @@ public:
 		return false;
 	}
 
-	bool RequestBlockchainBlock(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* largest_block) {
+	bool RequestBlockchainBlock(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* & largest_block) {
+
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
 		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> > messages; // Hash -> Block, Count (Block)
-		std::vector<sockaddr_in> clients_seen;
+		std::vector<sockaddr_in> clients_seen = std::vector<sockaddr_in>();
 		size_t no_block = 0;
 
 		struct BlockchainIndexHeader bih;
 		bih.bmh.type = REQUESTBLOCK;
-		bih.index = bc.Size();
+		bih.index = bc->Size();
 		// Broadcast a request asking for a block at index blockchain.size()
 		size_t n_peers = broadcast(&peer, &bih, sizeof(bih));
 
 		// If majority sent LASTBLOCK message, we are done
-		sleep(5);
 		void * msg;
 		size_t msg_len;
 		struct sockaddr_in clntaddr;
 
 		int tries;
 
-		for (size_t i = 0; i < n_peers; ++i) {
+		while(clients_seen.size() < n_peers){
 			tries = 0;
 
 			receive(&peer, &msg, &msg_len, &clntaddr);
 
 			if (msg) {
-				b = msg + sizeof(struct BlockchainIndexHeader);
+				b = (Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*)((char*)msg + sizeof(struct BlockchainIndexHeader));
 
 				if (((struct BlockchainMessageHeader*) msg)->type == NOBLOCK) {
-					if (!clnt_found(clntaddr, clients_seen)){
+					if (!client_found(clntaddr, clients_seen)){
 						++no_block;
+						clients_seen.push_back(clntaddr);
 					}
 				} else if (((struct BlockchainMessageHeader*) msg)->type == BLOCK) {
 					// Check hash and prev_hash for the block
-					if (!clnt_found(clntaddr, clients_seen)){
-						if (SHA256FromDataAndHash(*(b->GetData(), b->GetPrevHash()) && b->GetPrevHash() == bc.GetTopHash())) {
+					if (!client_found(clntaddr, clients_seen)){
+						if (SHA256FromDataAndHash(*(b->GetData()), b->GetPrevHash()) == b->GetHash() && b->GetPrevHash() == bc->GetTopHash()) {
 							if (messages.find(b->GetHash()) != messages.end()) { // If hash is known
 								++messages[b->GetHash()].second;
 							} else {
@@ -190,13 +205,14 @@ public:
 						} else {
 							free(msg);
 						}
+						clients_seen.push_back(clntaddr);
 					}
 				} else {
 					// Add all messages that are not of type BLOCK or NOBLOCK to queue  
 					inbox.push(std::make_tuple(clntaddr, msg, msg_len));
 				}
 
-				if(checkMajority(largest_block, i, n_peers, no_block, messages)) {
+				if(checkMajority(largest_block, clients_seen.size(), n_peers, no_block, messages)) {
 					// If largest_block == null, there are no more blocks
 					// Add the block with the most votes
 					return true;
@@ -219,7 +235,8 @@ public:
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
 
 		do {
-
+			RequestBlockchainBlock(b);
+			std::cout << b << std::endl;
 		} while (b != NULL);
 	}
 
@@ -230,7 +247,7 @@ public:
 		struct BlockchainIndexHeader response_bih;
 		response_bih.index = bih.index;
 
-		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b = bc.GetBlockFromIndex(bih.index);
+		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b = bc->GetBlockFromIndex(bih.index);
 		// If the block exists
 		if (b) {
 			// Send the nth block to the requester
@@ -239,7 +256,7 @@ public:
 			response_len = sizeof(bih) + sizeof(*b);
 			response = malloc(response_len);
 			memcpy(response, &response_bih, sizeof(response_bih));
-			memcpy(response + sizeof(response_bih), b, sizeof(*b));
+			memcpy((char *)response + sizeof(response_bih), b, sizeof(*b));
 
 			respond(&peer, response, response_len, clntaddr);
 
@@ -312,15 +329,15 @@ public:
 		// If we were offline
 		if (should_refresh(&peer)) {
 			// RequestBlockchain
-			RequestBlockchain();
+			//RequestBlockchain();
 		} else {
 			// If randomly add transactions
 			if (transact) {
 				// AddBlockToBlockchain
-				AddBlockToBlockchain();
+				//AddBlockToBlockchain();
 			} else {
 				// Receive messages
-				ReceiveMessages(); // Receive all messages for some time
+				//ReceiveMessages(); // Receive all messages for some time
 
 				// Remove all BLOCK and NOBLOCK messages
 
@@ -339,7 +356,7 @@ public:
 int blockchaintest1() {
 	Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string> bc(SHA256FromDataAndHash);
 	HashCash hc(32);
-	Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string> b = *bc.GetBlockFromIndex(0);
+	Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b = bc.GetBlockFromIndex(0);
 	std::string hash = SHA256FromBlock(b);
 	std::string solution = hc.SolveProblem(&hash);
 	std::cout << hc.CheckSolution(&hash, &solution) << std::endl;
@@ -347,7 +364,16 @@ int blockchaintest1() {
 }
 
 
-int main () {
+int main (int argc, char ** argv) {
+	if (argc != 5) {
+		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port>\n", argv[0]);
+		exit(EXIT_FAILURE);
+	}
+
+	Application a(argv[1], argv[2], argv[3], argv[4]);
+	a.RequestBlockchain();
+
+
 	/*
 	const char * a = "Hell\0o world!";
 	std::string str = std::string(a, 13);
