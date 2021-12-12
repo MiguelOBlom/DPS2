@@ -332,6 +332,14 @@ public:
 		size_t no_block = 0;
 		
 		// Receive all votes
+		return CheckVotes(n_peers);
+
+		// If yes, add the block: how?
+
+	}
+
+
+	bool CheckVotes(size_t n_peers) {
 		int tries = 0;
 		size_t n_agrees = 0;
 		size_t n_disagrees = 0;
@@ -372,29 +380,33 @@ public:
 				return false;
 			}
 		}
-
-		// If yes, add the block: how?
-
 	}
 
-
 	void AddBlockToBlockchain (Transactions<ID_TYPE, MAX_TRANSACTIONS> * data) {
-		// Compute proof of work
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > * new_block;
 		bc->AddBlock(data); // Blockchain handles the process of hash generation
-
 		new_block = bc->GetTopBlock();
 		std::string new_block_hash = SHA256FromBlock(new_block);
 
-		std::string solution = POWGroup->SolveProblem(&new_block_hash);
+		// Compute proof of work
+		BlockchainAdditionRequest request_bar;
+		request_bar.bmh.type = ADDREQUEST;
+		request_bar.pow_solution = POWGroup->SolveProblem(&new_block_hash);
+		size_t request_len;
+		void * request;
 
-		
-		// Broadcast block addition request
-		// type!
+		request_len = sizeof(request_bar) + sizeof(*new_block);
+		request = malloc(request_len);
+		memcpy(request, &request_bar, sizeof(request_bar));
+		memcpy((char *)request + sizeof(request_bar), new_block, sizeof(*new_block));
+
+		size_t n_peers = broadcast(&peer, &request, request_len);
+		free(request);
+
+		bool accepted = CheckVotes(n_peers);
 
 		// If rejected, pop newly added block
-		bool rejected;
-		if (rejected) {
+		if (!accepted) {
 			bc->PopBlock();
 		}
 
