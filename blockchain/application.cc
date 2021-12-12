@@ -35,11 +35,6 @@ struct BlockchainAdditionRequest {
 	std::string pow_solution;
 };
 
-struct BlockchainAdditionRequest {
-	struct BlockchainMessageHeader bmh;
-	std::string pow_solution;
-}
-
 template <typename ID>
 struct Transaction {
 	ID sender;
@@ -94,7 +89,7 @@ public:
 	Application (char* tracker_addr, char* tracker_port, char* addr, char* port) {
 		bc = new Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>(SHA256FromDataAndHash);
 		init_peer(&peer, tracker_addr, tracker_port, addr, port);
-		IProofOfWork = new HashCash(32);
+		PowGroup = new HashCash(32);
 	}
 
 	~Application () {
@@ -175,6 +170,8 @@ public:
 
 	void HandleBlockAdditionRequest(BlockchainAdditionRequest requestHeader) {
 		Block<Transaction<ID_TYPE>, std::string > requested_block; // temporary, change when we know how the block will be received
+		std::string hash;
+		std::string key;
 
 		// Check Previous Hash
 		if (requested_block.GetPrevHash() != bc->GetTopHash()) {
@@ -188,8 +185,11 @@ public:
 			return; // Block hash invalid
 		}
 
+		hash = SHA256FromBlock(requested_block);
+		key = requestHeader.pow_solution;
+
 		// Check Proof Of Work
-		if (!PowGroup.CheckSolution(SHA256FromBlock(requested_block), requestHeader.pow_solution) {
+		if (!PowGroup->CheckSolution(&hash, &key)) {
 			std:: cout << "POW invalid." << std::endl;
 			return;
 		}
