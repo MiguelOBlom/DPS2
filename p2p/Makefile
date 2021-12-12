@@ -11,7 +11,7 @@ all: application tracker
 %.o: %.c $(DEPS)
 	$(CC) $(LIB) $(INC) -c -o $@ $< $(CFLAGS) $(LIBS) 
 
-application: peer.o common.o db.o crc.o queue.o $(DEPS)
+application: application.cc peer.o common.o db.o crc.o queue.o $(DEPS)
 	$(CC) $(LIB) $(INC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 tracker: tracker.c common.o db.o crc.o queue.o

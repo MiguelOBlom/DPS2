@@ -116,7 +116,7 @@ public:
 					   const size_t& i, 
 					   const size_t& n_peers, 
 					   const size_t& no_block, 
-					   const std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >& messages){
+					   std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >& messages){
 		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >::iterator it;
 		size_t largest;
 		size_t second_largest;
@@ -234,7 +234,7 @@ public:
 				if(checkMajority(largest_block, clients_seen.size(), n_peers, no_block, messages)) {
 					// If largest_block == null, there are no more blocks
 					// Add the block with the most votes
-					for(it = messages.begin; it != messages.end(); ++it) {
+					for(it = messages.begin(); it != messages.end(); ++it) {
 						free(it->second.first);
 					}
 
@@ -247,14 +247,14 @@ public:
 
 			// If not all peers responded, maybe ask again?
 			if (tries >= 10) {
-				for(it = messages.begin; it != messages.end(); ++it) {
+				for(it = messages.begin(); it != messages.end(); ++it) {
 					free(it->second.first);
 				}
 				return false;
 			}
 		}
 
-		for(it = messages.begin; it != messages.end(); ++it) {
+		for(it = messages.begin(); it != messages.end(); ++it) {
 			free(it->second.first);
 		}
 		return false;
@@ -329,6 +329,7 @@ public:
 
 		// Broadcast vote to all others
 		size_t n_peers = broadcast(&peer, &vote, sizeof(vote));
+		size_t no_block = 0;
 		
 		// Receive all votes
 		return CheckVotes(n_peers);
@@ -355,8 +356,8 @@ public:
 						++no_block;
 					}
 				} else if (((struct BlockchainMessageHeader*) msg)->type == VOTE) {
-					if (!client_found(clntaddr, clients_seen) && msg->block_hash == req_block->GetHash()) {
-						msg->agree ? ++n_agrees : ++n_disagrees;
+					if (!client_found(clntaddr, clients_seen) && ((struct BlockVote*)msg)->block_hash == req_block->GetHash()) {
+						((struct BlockVote*)msg)->agree ? ++n_agrees : ++n_disagrees;
 						clients_seen.push_back(clntaddr);
 					}
 				} else {
@@ -418,52 +419,58 @@ public:
 		sockaddr_in clntaddr;
 
 		// If we were offline
-		if (should_refresh(&peer)) {
-			// RequestBlockchain
-			RequestBlockchain();
-		} else {
-			// If randomly add transactions
-			if (transact) {
-				// AddBlockToBlockchain
-				//AddBlockToBlockchain();
+		while(1) {
+			if (should_refresh(&peer)) {
+				// RequestBlockchain
+				RequestBlockchain();
 			} else {
-				msg = NULL;
-				do {
-					receive(&peer, &msg, &msg_len, &clntaddr);
-					inbox.push(std::make_tuple(clntaddr, msg, msg_len));
-				} while (msg);
+				// If randomly add transactions
+				if (transact) {
+					// AddBlockToBlockchain
+					//AddBlockToBlockchain();
+				} else {
+					msg = NULL;
+					do {
+						receive(&peer, &msg, &msg_len, &clntaddr);
+						inbox.push(std::make_tuple(clntaddr, msg, msg_len));
+					} while (msg);
 
 
-				std::queue<std::tuple<sockaddr_in, void*, size_t> >::iterator it;
-				for (it = inbox.begin(); it != inbox.end(); ++it) {
-					msg = it[1];
-					switch(((struct BlockchainMessageHeader*)msg)->type) {
-							case REQUESTBLOCK:
-								SendBlockchain(msg, it[0]);
-								break;
+					std::queue<std::tuple<sockaddr_in, void*, size_t> >::iterator it;
+					
 
-							case ADDREQUEST:
+					//for (it = inbox.begin(); it != inbox.end(); ++it) {
+					while(!inbox.empty()) {
+						msg = it[1];
+						switch(((struct BlockchainMessageHeader*)msg)->type) {
+								case REQUESTBLOCK:
+									SendBlockchain(msg, it[0]);
+									break;
 
-								break;
-							case BLOCK:
-							case NOBLOCK:
-							case VOTE:
-							default:
-								break;
+								case ADDREQUEST:
+
+									break;
+								case BLOCK:
+								case NOBLOCK:
+								case VOTE:
+								default:
+									break;
+						}
+						free(msg);
+
 					}
-					free(msg);
+
+					// Receive messages
+					// ReceiveMessages(); // Receive all messages for some time
+
+					// Remove all BLOCK and NOBLOCK messages
+
+					// Then handle each other queued block accordingly
+					// SendBlockchain
+					// HandleBlockAdditionRequest
 				}
 
-				// Receive messages
-				// ReceiveMessages(); // Receive all messages for some time
-
-				// Remove all BLOCK and NOBLOCK messages
-
-				// Then handle each other queued block accordingly
-				// SendBlockchain
-				// HandleBlockAdditionRequest
 			}
-
 		}
 
 	}
@@ -490,7 +497,7 @@ int main (int argc, char ** argv) {
 	}
 
 	Application a(argv[1], argv[2], argv[3], argv[4]);
-	a.RequestBlockchain();
+	a.Run();
 
 
 	/*
