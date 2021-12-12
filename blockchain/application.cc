@@ -66,6 +66,7 @@ std::string SHA256FromDataAndHash(T data, std::string hash)
 	return sha256(full_str);
 }
 
+<<<<<<< Updated upstream
 template <typename T>
 std::string SHA256FromDataAndHash(const Block<T, std::string>& b)
 {
@@ -76,6 +77,9 @@ std::string SHA256FromDataAndHash(const Block<T, std::string>& b)
 	return sha256(full_str);
 }
 
+=======
+const int n_tries = 10; // number of tries before trying to request a block again
+>>>>>>> Stashed changes
 
 class Application {
 private:
@@ -97,10 +101,71 @@ public:
 		exit_peer(&peer);
 	}
 
-	void RequestBlockchain() {
+	bool checkMajority(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* & largest_block, const size_t& i, const size_t& n_peers, const size_t& no_block, const std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >& messages){
+		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> >::iterator it;
+		size_t largest;
+		size_t second_largest;
+		size_t temp;
+
+		// There is a potential majority
+		if (i >= n_peers/2) {
+			largest_block = NULL;
+			if (messages.size() > 0) {
+				largest = no_block;
+				it = messages.begin()
+				second_largest = it->second.second;
+				if (second_largest == largest) {
+					// No consensus
+				} else if (second_largest > largest) {
+					temp = second_largest;
+					second_largest = largest;
+					largest = temp;
+					largest_block = it->second.first;
+				}
+
+				for (; it != messages.end(); ++it){
+					if (it->second.second > largest){
+						largest_block = it->second.first;
+						second_largest = largest;
+						largest = it->second.second;
+					} else if (it->second.second > second_largest){
+						second_largest = it->second.second;
+					}
+				}
+
+				if (largest > second_largest + (n_peers - i)) { // If the largest has more elements than the sum of the second largest and the unknown part, then we can safely assume we have found all information for a majority vote
+					// majority for largest
+					// if largest_block == NULL: majority for no_block
+					// otherwise for block pointed to
+					return true;
+				}
+			} else {
+				//majority vote for NOBLOCK
+				largest_block = NULL;
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool client_found(const sockaddr_in& clntaddr, const std::vector<sockaddr_in>& clients_seen) {
+		std::vector<sockaddr_in> clients_seen::iterator it;
+		for (it = clients_seen.begin; it != clients_seen.end(); ++it){
+			if (it->sin_family == clntaddr.sin_family && it->sin_port == clntaddr.sin_port &&
+				it->sin_addr.s_addr == clntaddr.sin_addr. s_addr) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool RequestBlockchainBlock(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* largest_block) {
+
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
-		//std::tuple <sockaddr_in, void*, size_t> t;
-		std::vector<void *> messages;
+		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> > messages; // Hash -> Block, Count (Block)
+		std::vector<sockaddr_in> clients_seen;
+		size_t no_block = 0;
+
 		struct BlockchainIndexHeader bih;
 		bih.bmh.type = REQUESTBLOCK;
 		bih.index = bc.Size();
@@ -113,32 +178,63 @@ public:
 		size_t msg_len;
 		struct sockaddr_in clntaddr;
 
-		// Add all messages that are not of type BLOCK or NOBLOCK to queue  
+		int tries;
+
 		for (size_t i = 0; i < n_peers; ++i) {
-			
+			tries = 0;
+
 			receive(&peer, &msg, &msg_len, &clntaddr);
-			b = msg + sizeof(struct BlockchainIndexHeader);
-			if (((struct BlockchainMessageHeader*) msg)->type == NOBLOCK || 
-				((struct BlockchainMessageHeader*) msg)->type == BLOCK && SHA256FromDataAndHash(*(b->GetData(), b->GetPrevHash()) && b->GetPrevHash() == bc.GetTopHash())) {
-				messages.push_back(msg);
+
+			if (msg) {
+				b = msg + sizeof(struct BlockchainIndexHeader);
+
+				if (((struct BlockchainMessageHeader*) msg)->type == NOBLOCK) {
+					if (!clnt_found(clntaddr, clients_seen)){
+						++no_block;
+					}
+				} else if (((struct BlockchainMessageHeader*) msg)->type == BLOCK) {
+					// Check hash and prev_hash for the block
+					if (!clnt_found(clntaddr, clients_seen)){
+						if (SHA256FromDataAndHash(*(b->GetData(), b->GetPrevHash()) && b->GetPrevHash() == bc.GetTopHash())) {
+							if (messages.find(b->GetHash()) != messages.end()) { // If hash is known
+								++messages[b->GetHash()].second;
+							} else {
+								messages.insert(std::make_pair(b->GetHash(), std::make_pair(b, 1)));
+							}
+						} else {
+							free(msg);
+						}
+					}
+				} else {
+					// Add all messages that are not of type BLOCK or NOBLOCK to queue  
+					inbox.push(std::make_tuple(clntaddr, msg, msg_len));
+				}
+
+				if(checkMajority(largest_block, i, n_peers, no_block, messages)) {
+					// If largest_block == null, there are no more blocks
+					// Add the block with the most votes
+					return true;
+				}
 			} else {
-				inbox.push(std::make_tuple(clntaddr, msg, msg_len));
+				sleep(1);
+				++tries;
 			}
 
-
-
-
-
-			// Check for which peers we have received this block
 			// If not all peers responded, maybe ask again?
-
-			// Check prev_hash for each block
-			// Check hash for each block
-			// Check how many blocks are equal 
-			// 		add block that most peers agreed upon
+			if (tries >= 10) {
+				return false;
+			}
 		}
 
+		return false;
+	}
 
+	void RequestBlockchain (){
+		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
+
+		do {
+
+		} while (b != NULL);
 	}
 
 
