@@ -8,6 +8,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <tuple>
 
 #define DIFFICULTY 3
 #define MAX_TRANSACTIONS 5
@@ -32,6 +34,11 @@ struct BlockchainAdditionRequest {
 	struct BlockchainMessageHeader bmh;
 	std::string pow_solution;
 };
+
+struct BlockchainAdditionRequest {
+	struct BlockchainMessageHeader bmh;
+	std::string pow_solution;
+}
 
 template <typename ID>
 struct Transaction {
@@ -81,7 +88,7 @@ private:
 	struct peer peer;
 	IProofOfWork<std::string, std::string> * PowGroup;
 
-	queue<sockaddr_in, message>...
+	std::queue<std::tuple<sockaddr_in, void*, size_t> > inbox = std::queue<std::tuple<sockaddr_in, void*, size_t> >();
 public:
 
 	Application (char* tracker_addr, char* tracker_port, char* addr, char* port) {
@@ -95,11 +102,9 @@ public:
 		exit_peer(&peer);
 	}
 
-	void ReceiveMessage() {
-
-	}
-
 	void RequestBlockchain() {
+		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
+		//std::tuple <sockaddr_in, void*, size_t> t;
 		std::vector<void *> messages;
 		struct BlockchainIndexHeader bih;
 		bih.bmh.type = REQUESTBLOCK;
@@ -112,11 +117,23 @@ public:
 		void * msg;
 		size_t msg_len;
 		struct sockaddr_in clntaddr;
-		receive(&peer, &msg, &msg_len, &clntaddr);
 
 		// Add all messages that are not of type BLOCK or NOBLOCK to queue  
-		
-		while() {
+		for (size_t i = 0; i < n_peers; ++i) {
+			
+			receive(&peer, &msg, &msg_len, &clntaddr);
+			b = msg + sizeof(struct BlockchainIndexHeader);
+			if (((struct BlockchainMessageHeader*) msg)->type == NOBLOCK || 
+				((struct BlockchainMessageHeader*) msg)->type == BLOCK && SHA256FromDataAndHash(*(b->GetData(), b->GetPrevHash()) && b->GetPrevHash() == bc.GetTopHash())) {
+				messages.push_back(msg);
+			} else {
+				inbox.push(std::make_tuple(clntaddr, msg, msg_len));
+			}
+
+
+
+
+
 			// Check for which peers we have received this block
 			// If not all peers responded, maybe ask again?
 
@@ -131,14 +148,15 @@ public:
 
 
 	void SendBlockchain(const struct BlockchainIndexHeader& bih, const struct sockaddr_in* clntaddr) {
+		void * response;
+		size_t response_len;
 		struct BlockchainIndexHeader response_bih;
 		response_bih.index = bih.index;
 
-		size_t response_len;
-		void * response;
-		// Send the nth block to the requester
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b = bc.GetBlockFromIndex(bih.index);
+		// If the block exists
 		if (b) {
+			// Send the nth block to the requester
 			response_bih.bmh.type = BLOCK;
 			
 			response_len = sizeof(bih) + sizeof(*b);
@@ -151,10 +169,8 @@ public:
 			free(response);
 		} else {
 			response_bih.bmh.type = NOBLOCK;
-
 			respond(&peer, &response_bih, sizeof(response_bih), clntaddr);
 		}
-
 	}
 
 	void HandleBlockAdditionRequest(BlockchainAdditionRequest requestHeader) {
