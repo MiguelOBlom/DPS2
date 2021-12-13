@@ -300,6 +300,7 @@ void exit_peer(struct peer* p) {
 	pthread_mutex_destroy(&p->netinfo_lock.lock);	
 }
 
+/*
 int main(int argc, char ** argv) {
 	// Struct peer
 	struct peer p;
@@ -324,3 +325,4 @@ int main(int argc, char ** argv) {
 
 	return 0;
 }
+*/

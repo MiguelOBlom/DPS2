@@ -262,7 +262,6 @@ public:
 	}
 
 	void RequestBlockchain (){
-		bool ret;
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
 
 		do {
