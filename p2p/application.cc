@@ -98,6 +98,7 @@ private:
 	IProofOfWork<std::string, std::string> * POWGroup;
 
 	std::queue<std::tuple<sockaddr_in, void*, size_t> > inbox = std::queue<std::tuple<sockaddr_in, void*, size_t> >();
+	std::vector<struct BlockVote*> votes;
 public:
 
 	Application (char* tracker_addr, char* tracker_port, char* addr, char* port) {
@@ -297,8 +298,9 @@ public:
 		}
 	}
 
-	bool HandleBlockAdditionRequest(BlockchainAdditionRequest requestHeader) {
-		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > * req_block; // temporary, change when we know how the block will be received
+	bool HandleBlockAdditionRequest(void* request_message, size_t request_len) {
+		struct BlockchainAdditionRequest* requestHeader = (struct BlockchainAdditionRequest*) request_message;
+		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > * req_block = (Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > *) (((char*)request_message) + sizeof(requestHeader));
 		BlockVote vote;
 		vote.bmh.type = VOTE;
 		vote.block_hash = req_block->GetHash();
@@ -306,7 +308,7 @@ public:
 		void * response;
 
 		std::string hash = SHA256FromBlock(req_block);
-		std::string key = requestHeader.pow_solution;
+		std::string key = requestHeader->pow_solution;
 
 		// Check Previous Hash
 		if (req_block->GetPrevHash() != bc->GetTopHash()) {
@@ -329,18 +331,18 @@ public:
 
 		// Broadcast vote to all others
 		size_t n_peers = broadcast(&peer, &vote, sizeof(vote));
-		size_t no_block = 0;
 		
 		// Receive all votes
-		return CheckVotes(n_peers);
+		return CheckVotesForBlock(n_peers, req_block);
 
 		// If yes, add the block: how?
 
 	}
 
 
-	bool CheckVotes(size_t n_peers) {
+	bool CheckVotesForBlock(size_t n_peers, Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > * req_block) {
 		int tries = 0;
+		size_t no_block = 0;
 		size_t n_agrees = 0;
 		size_t n_disagrees = 0;
 		std::vector<sockaddr_in> clients_seen;
@@ -403,7 +405,7 @@ public:
 		size_t n_peers = broadcast(&peer, &request, request_len);
 		free(request);
 
-		bool accepted = CheckVotes(n_peers);
+		bool accepted = CheckVotesForBlock(n_peers, new_block);
 
 		// If rejected, pop newly added block
 		if (!accepted) {
