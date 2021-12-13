@@ -2,7 +2,11 @@
 #include <block.h>
 #include <sha256.h>
 #include <hashcash.h>
-#include "p2p/peer.h"
+
+extern "C" {
+#include <peer.h>
+}
+
 #include <iproofofwork.h>
 
 #include <string>
@@ -16,16 +20,6 @@
 #define DIFFICULTY 3
 #define MAX_TRANSACTIONS 5
 #define ID_TYPE char
-
-/*
-extern "C" struct peer;
-extern "C" size_t broadcast(struct peer* p, void * data, size_t data_len);
-extern "C" void receive(struct peer* p, void ** message, size_t* message_len, struct sockaddr_in* clntaddr);
-extern "C" void respond(struct peer* p, void * message, size_t message_len, const struct sockaddr_in* clntaddr);
-extern "C" int  should_refresh(struct peer* p);
-extern "C" void init_peer(struct peer* p, char* c_tracker_addr, char* c_tracker_port, char* c_addr, char* c_port);
-extern "C" void exit_peer(struct peer* p);
-*/
 
 enum BlockchainMessageType {
 	BLOCK,

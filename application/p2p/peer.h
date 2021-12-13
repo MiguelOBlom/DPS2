@@ -3,9 +3,9 @@
 #ifndef _P2PPEER_
 #define _P2PPEER_
 
-#ifdef __cplusplus
-extern "C"{
-#endif 
+//#ifdef __cplusplus
+//extern "C"{
+//#endif 
 
 const int heartbeat_period = 5;
 
@@ -43,8 +43,8 @@ int  should_refresh(struct peer* p);
 void init_peer(struct peer* p, char* c_tracker_addr, char* c_tracker_port, char* c_addr, char* c_port);
 void exit_peer(struct peer* p);
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 #endif
