@@ -2,7 +2,7 @@
 #include "block.h"
 #include "sha256.h"
 #include "hashcash.h"
-#include "../p2p/peer.h"
+#include "peer.h"
 #include "iproofofwork.h"
 
 #include <string>
