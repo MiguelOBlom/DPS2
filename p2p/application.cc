@@ -349,6 +349,7 @@ public:
 		struct sockaddr_in clntaddr;
 		void * msg;
 		size_t msg_len;
+		size_t no_block = 0;
 
 		while (clients_seen.size() < n_peers) {
 			receive(&peer, &msg, &msg_len, &clntaddr);
@@ -438,15 +439,15 @@ public:
 					} while (msg);
 
 
-					std::queue<std::tuple<sockaddr_in, void*, size_t> >::iterator it;
+					std::tuple<sockaddr_in, void*, size_t> inbox_item;
 					
 
 					//for (it = inbox.begin(); it != inbox.end(); ++it) {
 					while(!inbox.empty()) {
-						msg = it[1];
+						msg = std::get<1>(inbox_item);
 						switch(((struct BlockchainMessageHeader*)msg)->type) {
 								case REQUESTBLOCK:
-									SendBlockchain(msg, it[0]);
+									SendBlockchain(*((struct BlockchainIndexHeader*)msg), &std::get<0>(inbox_item));
 									break;
 
 								case ADDREQUEST:
