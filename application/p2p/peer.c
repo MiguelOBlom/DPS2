@@ -149,7 +149,7 @@ void receive_netinfo(struct netinfo_lock* netinfo_lock, const int* sockfd, struc
 					free(*(netinfo_lock->network_info));
 				}
 				
-				*(netinfo_lock->network_info) = malloc(data_len);
+				*(netinfo_lock->network_info) = (struct peer_address*) malloc(data_len);
 				memcpy(*(netinfo_lock->network_info), message + sizeof(message_header), data_len);
 				print_bytes(*(netinfo_lock->network_info), data_len);
 				*(netinfo_lock->n_peers) = data_len / sizeof(struct peer_address);

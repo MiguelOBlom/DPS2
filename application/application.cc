@@ -1,9 +1,9 @@
-#include "blockchain.h"
-#include "block.h"
-#include "sha256.h"
-#include "hashcash.h"
-#include "../p2p/peer.h"
-#include "iproofofwork.h"
+#include <blockchain.h>
+#include <block.h>
+#include <sha256.h>
+#include <hashcash.h>
+#include "p2p/peer.h"
+#include <iproofofwork.h>
 
 #include <string>
 #include <iostream>
@@ -16,6 +16,16 @@
 #define DIFFICULTY 3
 #define MAX_TRANSACTIONS 5
 #define ID_TYPE char
+
+/*
+extern "C" struct peer;
+extern "C" size_t broadcast(struct peer* p, void * data, size_t data_len);
+extern "C" void receive(struct peer* p, void ** message, size_t* message_len, struct sockaddr_in* clntaddr);
+extern "C" void respond(struct peer* p, void * message, size_t message_len, const struct sockaddr_in* clntaddr);
+extern "C" int  should_refresh(struct peer* p);
+extern "C" void init_peer(struct peer* p, char* c_tracker_addr, char* c_tracker_port, char* c_addr, char* c_port);
+extern "C" void exit_peer(struct peer* p);
+*/
 
 enum BlockchainMessageType {
 	BLOCK,
@@ -498,6 +508,7 @@ int blockchaintest1() {
 
 
 int main (int argc, char ** argv) {
+	
 	if (argc != 5) {
 		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port>\n", argv[0]);
 		exit(EXIT_FAILURE);
@@ -513,6 +524,6 @@ int main (int argc, char ** argv) {
 	std::cout << str << std::endl;
 	*/
 
-	blockchaintest1();
+	//blockchaintest1();
 	return 0;
 }

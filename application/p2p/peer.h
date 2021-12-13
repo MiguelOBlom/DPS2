@@ -1,7 +1,11 @@
 #include "common.h"
 
-#ifndef _PEER_
-#define _PEER_
+#ifndef _P2PPEER_
+#define _P2PPEER_
+
+#ifdef __cplusplus
+extern "C"{
+#endif 
 
 const int heartbeat_period = 5;
 
@@ -38,5 +42,9 @@ void respond(struct peer* p, void * message, size_t message_len, const struct so
 int  should_refresh(struct peer* p);
 void init_peer(struct peer* p, char* c_tracker_addr, char* c_tracker_port, char* c_addr, char* c_port);
 void exit_peer(struct peer* p);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
