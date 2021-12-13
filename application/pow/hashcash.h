@@ -1,5 +1,5 @@
 #include "iproofofwork.h"
-#include "sha256.h"
+#include <sha256.h>
 #include <iostream>
 
 class HashCash : public IProofOfWork <std::string, std::string> {

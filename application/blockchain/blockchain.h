@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "sha256.h"
+#include <sha256.h>
 #include "block.h"
 
 template <typename T, typename H>
