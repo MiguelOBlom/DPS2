@@ -98,7 +98,7 @@ private:
 	IProofOfWork<std::string, std::string> * POWGroup;
 
 	std::queue<std::tuple<sockaddr_in, void*, size_t> > inbox = std::queue<std::tuple<sockaddr_in, void*, size_t> >();
-	std::vector<struct BlockVote*> votes;
+	std::vector<std::pair<sockaddr_in, struct BlockVote*> > votes;
 public:
 
 	Application (char* tracker_addr, char* tracker_port, char* addr, char* port) {
@@ -357,9 +357,13 @@ public:
 						++no_block;
 					}
 				} else if (((struct BlockchainMessageHeader*) msg)->type == VOTE) {
-					if (!client_found(clntaddr, clients_seen) && ((struct BlockVote*)msg)->block_hash == req_block->GetHash()) {
-						((struct BlockVote*)msg)->agree ? ++n_agrees : ++n_disagrees;
-						clients_seen.push_back(clntaddr);
+					votes.push_back(std::make_pair(clntaddr, (struct BlockVote*) msg));
+					while(votes.size() > 0) {
+						if (!client_found(votes.back().first, clients_seen) && votes.back().second->block_hash == req_block->GetHash()) {
+							votes.back().second->agree ? ++n_agrees : ++n_disagrees;
+							clients_seen.push_back(votes.back().first);
+						}
+						votes.pop_back();
 					}
 				} else {
 					// Add all messages that are not of type VOTE or NOBLOCK to queue  
@@ -451,9 +455,11 @@ public:
 								case ADDREQUEST:
 
 									break;
+								case VOTE:
+									votes.push_back(std::make_pair(std::get<0>(inbox_item), (struct BlockVote*)std::get<1>(inbox_item)));
+									break;
 								case BLOCK:
 								case NOBLOCK:
-								case VOTE:
 								default:
 									break;
 						}
