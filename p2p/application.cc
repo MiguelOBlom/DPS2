@@ -349,7 +349,6 @@ public:
 		struct sockaddr_in clntaddr;
 		void * msg;
 		size_t msg_len;
-		size_t no_block = 0;
 
 		while (clients_seen.size() < n_peers) {
 			receive(&peer, &msg, &msg_len, &clntaddr);
