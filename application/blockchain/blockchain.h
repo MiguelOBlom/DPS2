@@ -13,6 +13,7 @@ public:
 	//void AddBlock(Block<T, H>* b);
 	void AddBlock(const T* data);
 	void PopBlock();
+	Block<T, H>* SneakPeekBlock(const T* data);
 	Block<T, H>* GetBlockFromIndex(const size_t index);
 	Block<T, H>* GetTopBlock();
 	const std::vector<Block<T, H> > GetBlocks() const;
@@ -38,6 +39,12 @@ Blockchain<T, H>::Blockchain(H (* _hash_func) (T, H)) {
 	delete data;
 
 	blocks.push_back(genesis);
+}
+
+template <typename T, typename H>
+Block<T, H>* Blockchain<T, H>::SneakPeekBlock(const T* data) {
+	std::string prev_hash = blocks.back().GetHash();
+	return new Block<T, H>(data, hash_func(*data, prev_hash), prev_hash);
 }
 
 template <typename T, typename H>

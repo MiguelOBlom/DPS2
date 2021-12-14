@@ -124,12 +124,14 @@ size_t _get_number_of_peers (sqlite3* db, int timeout_threshold) {
 	char * stmt = "SELECT COUNT(*) FROM PeerInfo WHERE ((strftime('%s', 'now') - peer_heartbeat)) < ";
 
 	size_t stmt_len = strlen(stmt);
-	size_t len = stmt_len + snprintf(NULL, 0, "%d", timeout_threshold) + 2;
+	size_t var_len = snprintf(NULL, 0, "%d", timeout_threshold);
+	size_t len = stmt_len + var_len + 2;
 	char * str = malloc(len);
 	strncpy(str, stmt, stmt_len);
-	snprintf(str + stmt_len, len, "%d", timeout_threshold);
-	str[stmt_len + len] = ';';
-	str[stmt_len + len + 1] = '\0';
+	snprintf(str + stmt_len, var_len, "%d", timeout_threshold);
+	str[stmt_len + var_len] = ';';
+	str[stmt_len + var_len + 1] = '\0';
+	printf("sanity check %lu %lu %lu %lu\n", stmt_len, var_len, len, stmt_len + var_len);
 
 	int sqlite3_retval = sqlite3_exec(db, str, _get_single_integer, &n_items, &errmsg);
 	//sqlite3_retval = sqlite3_exec(db, str, _fill_peerinfo_table, data, &errmsg);
@@ -294,12 +296,13 @@ void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t*
 	stmt = "SELECT ROW_NUMBER() OVER() AS num_row, peer_family, peer_port, peer_addr FROM PeerInfo WHERE ((strftime('%s', 'now') - peer_heartbeat)) < ";
 
 	size_t stmt_len = strlen(stmt);
-	size_t len = stmt_len + snprintf(NULL, 0, "%d", timeout_threshold) + 2;
+	size_t var_len = snprintf(NULL, 0, "%d", timeout_threshold);
+	size_t len = stmt_len + var_len + 2;
 	char * str = malloc(len);
 	strncpy(str, stmt, stmt_len);
-	snprintf(str + stmt_len, len, "%d", timeout_threshold);
-	str[stmt_len + len] = ';';
-	str[stmt_len + len + 1] = '\0';
+	snprintf(str + stmt_len, var_len, "%d", timeout_threshold);
+	str[stmt_len + var_len] = ';';
+	str[stmt_len + var_len + 1] = '\0';
 
 	sqlite3_retval = sqlite3_exec(db, str, _fill_peeraddress_table, data, &errmsg);
 
@@ -328,12 +331,13 @@ void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items
 	stmt = "SELECT ROW_NUMBER() OVER() AS num_row, * FROM PeerInfo WHERE ((strftime('%s', 'now') - peer_heartbeat)) < ";
 
 	size_t stmt_len = strlen(stmt);
-	size_t len = stmt_len + snprintf(NULL, 0, "%d", timeout_threshold) + 2;
+	size_t var_len = snprintf(NULL, 0, "%d", timeout_threshold);
+	size_t len = stmt_len + var_len + 2;
 	char * str = malloc(len);
 	strncpy(str, stmt, stmt_len);
-	snprintf(str + stmt_len, len, "%d", timeout_threshold);
-	str[stmt_len + len] = ';';
-	str[stmt_len + len + 1] = '\0';
+	snprintf(str + stmt_len, var_len, "%d", timeout_threshold);
+	str[stmt_len + var_len] = ';';
+	str[stmt_len + var_len + 1] = '\0';
 
 	sqlite3_retval = sqlite3_exec(db, str, _fill_peerinfo_table, data, &errmsg);
 
