@@ -75,7 +75,7 @@ void handle_heartbeat(const int* sockfd, sqlite3* db, struct queue_item* queue_i
 		// Thus, the reliability of the data is dependent on the throughput of the tracker.
 
 		// Send back a list of peer_address objects
-		db_get_all_peer_addresses(db, &network_information, &n_peers);
+		db_get_all_peer_addresses(db, &network_information, &n_peers, timeout_threshold);
 
 		for (size_t i = 0; i < n_peers; ++i) {
 			printf("family: %d, port: %d, addr: %d\n", network_information[i].family, network_information[i].port, network_information[i].addr);
@@ -127,6 +127,8 @@ void handle_acknowledge_netinfo (sqlite3* db, struct queue_item* queue_item) {
 		if (!db_peer_exists(db, &peer_address_header->peer_address)){
 			db_insert_peer(db, &peer_address_header->peer_address);
 			printf("Insterted!\n");
+		} else {
+			db_update_peer_heartbeat(db, &peer_address_header->peer_address);
 		}
 	} else {
 		printf("The CRC did not match for your received acknowledge netinfo data!\n");

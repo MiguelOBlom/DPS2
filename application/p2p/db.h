@@ -80,8 +80,8 @@ int  db_peer_exists (sqlite3 * db, const struct peer_address* pa);
 void db_insert_peer (sqlite3* db, const struct peer_address* pa);
 void db_update_peer_heartbeat (sqlite3 * db, const struct peer_address* pa);
 void db_remove_outdated_peers (sqlite3* db, int timeout_threshold);
-void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t* n_items);
-void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items);
+void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t* n_items, int timeout_threshold);
+void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items, int timeout_threshold);
 int  is_data_available(const int* sockfd);
 void db_remove_peer (sqlite3 * db, const struct peer_address* pa);
 

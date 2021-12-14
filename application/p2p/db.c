@@ -118,11 +118,26 @@ void _bind_sqlite3_peeraddress(sqlite3* db, char * partial_stmt, const struct pe
 }
 
 // Return the number of peers that are present in the database
-size_t _get_number_of_peers (sqlite3* db) {
+size_t _get_number_of_peers (sqlite3* db, int timeout_threshold) {
 	size_t n_items;
 	char * errmsg;
-	char * stmt = "SELECT COUNT(*) FROM PeerInfo;";
-	int sqlite3_retval = sqlite3_exec(db, stmt, _get_single_integer, &n_items, &errmsg);
+	char * stmt = "SELECT COUNT(*) FROM PeerInfo WHERE ((strftime('%s', 'now') - peer_heartbeat)) < ";
+
+	size_t stmt_len = strlen(stmt);
+	size_t len = stmt_len + snprintf(NULL, 0, "%d", timeout_threshold) + 2;
+	char * str = malloc(len);
+	strncpy(str, stmt, stmt_len);
+	snprintf(str + stmt_len, len, "%d", timeout_threshold);
+	str[stmt_len + len] = ';';
+	str[stmt_len + len + 1] = '\0';
+
+	int sqlite3_retval = sqlite3_exec(db, str, _get_single_integer, &n_items, &errmsg);
+	//sqlite3_retval = sqlite3_exec(db, str, _fill_peerinfo_table, data, &errmsg);
+
+	free(str);
+
+
+
 
 	if (sqlite3_retval != SQLITE_OK) {
 		printf("Error while counting rows: %s\n", errmsg);
@@ -268,16 +283,27 @@ void db_remove_peer (sqlite3 * db, const struct peer_address* pa) {
 }
 
 // Provide a list of all peer addresses in data, the size is provided in n_items
-void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t* n_items) {
+void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t* n_items, int timeout_threshold) {
 	char * errmsg;
 	char * stmt;
 	int sqlite3_retval;
 
-	*n_items = _get_number_of_peers(db);
+	*n_items = _get_number_of_peers(db, timeout_threshold);
 	*data = malloc(sizeof(struct peer_address) * *n_items);
 
-	stmt = "SELECT ROW_NUMBER() OVER() AS num_row, peer_family, peer_port, peer_addr FROM PeerInfo;";
-	sqlite3_retval = sqlite3_exec(db, stmt, _fill_peeraddress_table, data, &errmsg);
+	stmt = "SELECT ROW_NUMBER() OVER() AS num_row, peer_family, peer_port, peer_addr FROM PeerInfo WHERE ((strftime('%s', 'now') - peer_heartbeat)) < ";
+
+	size_t stmt_len = strlen(stmt);
+	size_t len = stmt_len + snprintf(NULL, 0, "%d", timeout_threshold) + 2;
+	char * str = malloc(len);
+	strncpy(str, stmt, stmt_len);
+	snprintf(str + stmt_len, len, "%d", timeout_threshold);
+	str[stmt_len + len] = ';';
+	str[stmt_len + len + 1] = '\0';
+
+	sqlite3_retval = sqlite3_exec(db, str, _fill_peeraddress_table, data, &errmsg);
+
+	free(str);
 
 	if (sqlite3_retval != SQLITE_OK) {
 		printf("Error while fetching peer info: %s\n", errmsg);
@@ -291,16 +317,27 @@ void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t*
 }
 
 // Provide a list of all peer info in data, the size is provided in n_items
-void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items) {
+void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items, int timeout_threshold) {
 	char * errmsg;
 	char * stmt;
 	int sqlite3_retval;
 
-	*n_items = _get_number_of_peers(db);
+	*n_items = _get_number_of_peers(db, timeout_threshold);
 	*data = malloc(sizeof(struct peer_info) * *n_items);
 
-	stmt = "SELECT ROW_NUMBER() OVER() AS num_row, * FROM PeerInfo;";
-	sqlite3_retval = sqlite3_exec(db, stmt, _fill_peerinfo_table, data, &errmsg);
+	stmt = "SELECT ROW_NUMBER() OVER() AS num_row, * FROM PeerInfo WHERE ((strftime('%s', 'now') - peer_heartbeat)) < ";
+
+	size_t stmt_len = strlen(stmt);
+	size_t len = stmt_len + snprintf(NULL, 0, "%d", timeout_threshold) + 2;
+	char * str = malloc(len);
+	strncpy(str, stmt, stmt_len);
+	snprintf(str + stmt_len, len, "%d", timeout_threshold);
+	str[stmt_len + len] = ';';
+	str[stmt_len + len + 1] = '\0';
+
+	sqlite3_retval = sqlite3_exec(db, str, _fill_peerinfo_table, data, &errmsg);
+
+	free(str);
 
 	if (sqlite3_retval != SQLITE_OK) {
 		printf("Error while fetching peer address: %s\n", errmsg);
