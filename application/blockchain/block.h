@@ -27,6 +27,7 @@ private:
 
 template <typename T, typename H>
 Block<T, H>::Block() {
+
 	T default_t = T();
 	SetData(&default_t);
 	SetHash(H());
@@ -38,6 +39,7 @@ Block<T, H>::Block() {
 
 template <typename T, typename H>
 Block<T, H>::Block(const T* _data, const H _hash, const H _prev_hash){
+
 	SetData(_data);
 	SetHash(_hash);
 	SetPrevHash(_prev_hash);

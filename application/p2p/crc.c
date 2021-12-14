@@ -68,7 +68,8 @@ void sr(struct dpoly* dp, size_t n) {
 }
 
 // Compute the crc using polynom dp and data of size data_len 
-POLY_TYPE calc_crc(struct dpoly dp, void * data, size_t data_len, size_t n_blocks) {
+POLY_TYPE calc_crc(struct dpoly dp, void * data, size_t n_blocks) {
+	//int x = 0;
 	size_t poly_len = calc_poly_len(dp);
 	sl(&dp, sizeof(dp) * 8 - poly_len);
 
@@ -81,6 +82,25 @@ POLY_TYPE calc_crc(struct dpoly dp, void * data, size_t data_len, size_t n_block
 			// 	printf("\n");
 			// }
 			// printf("\n");
+
+			//printf("crc the data at: %p, %lu, %p\n", data, q ,&(((POLY_TYPE*)data)[q]));
+			//printf("crc the data[q] at:  %lu, %p\n", q, &((POLY_TYPE*)data)[q]);
+			/*
+			while(((char*)data)[0]) {
+				x++;
+				break;
+			}
+
+			while (((POLY_TYPE*)data)[q]){
+				x++;
+				break;
+			}
+
+			while (((POLY_TYPE*)data)[q] & 1 << (i - 1)){
+				x++;
+				break;
+			}
+			*/
 
 			if (((POLY_TYPE*)data)[q] & 1 << (i - 1)) {
 				((POLY_TYPE*)data)[q + 1] ^= dp.l;
@@ -109,13 +129,20 @@ POLY_TYPE get_crc(const void * data, size_t data_len) {
 	
 	memset(temp, 0, temp_len);
 	memcpy(temp, (POLY_TYPE*) data, data_len);
+	//printf("get_crc data, datalen: %p, %lu\n", data, data_len);
+	//printf("get_crc temp, templen: %p, %lu\n", temp, temp_len);
+
+	//for (size_t q = 0; q < n_blocks - 1; ++q) {
+	//	printf("%u ", ((POLY_TYPE*)data)[q]);
+	//}
+	//printf("\n");
 	//printf("temp is at: %p with size %lu\n", temp, temp_len);
 
 	struct dpoly dp;
 	dp.h = POLY;
 	dp.l = 0;
 
-	POLY_TYPE ret = calc_crc(dp, temp, temp_len, n_blocks);
+	POLY_TYPE ret = calc_crc(dp, temp, n_blocks);
 
 	free(temp);
 
@@ -125,6 +152,7 @@ POLY_TYPE get_crc(const void * data, size_t data_len) {
 int check_crc(const void * data, size_t data_len, POLY_TYPE crc) {
 	POLY_TYPE res;
 	size_t temp_len = data_len + sizeof(crc);
+	//printf("temp_len %lu\n", temp_len);
 	void * temp = malloc(temp_len);
 	memcpy(temp, data, data_len);
 	memcpy(temp + data_len, &crc, sizeof(crc));

@@ -90,11 +90,11 @@ std::string HashCash::SolveProblem(std::string* seed) {
 
 	 	hash = xor_strings(sha256(*seed + key), *seed);
 
-		std::cout << "hash: ";
-		for (size_t j = 0; j < hash.size(); ++j) {
-			std::cout << (0xFF & (unsigned int) hash[j]) << " ";
-		}
-		std::cout << std::endl;
+		///std::cout << "hash: ";
+		///for (size_t j = 0; j < hash.size(); ++j) {
+		///	std::cout << (0xFF & (unsigned int) hash[j]) << " ";
+		///}
+		///std::cout << std::endl;
 		
 		if (count_zeroes(hash)) {
 			return key;

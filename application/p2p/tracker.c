@@ -15,7 +15,7 @@ const int tracker_queue_maxsize = 20;
 void handle_exit(sqlite3* db, struct queue_item* queue_item) {
 	struct peer_address_header* peer_address_header = queue_item->message;
 
-	if (check_message_crc(peer_address_header, sizeof(peer_address_header))) {
+	if (check_message_crc(peer_address_header, sizeof(struct peer_address_header))) {
 		db_remove_peer(db, &peer_address_header->peer_address);
 	} else {
 		printf("The CRC did not match for your received exit data!\n");
@@ -44,7 +44,7 @@ void handle_heartbeat(const int* sockfd, sqlite3* db, struct queue_item* queue_i
 	//peer_address_header.message_header.message_header_checksum = 0;
 	//if (   check_crc(&peer_address_header.message_header, sizeof(peer_address_header.message_header) - sizeof(peer_address_header.message_header.message_header_checksum), crc)
 	//	&& check_crc(&peer_address_header.peer_address, sizeof(peer_address_header.peer_address), peer_address_header.message_header.message_data_checksum)) {
-	if (check_message_crc(peer_address_header, sizeof(peer_address_header))) {
+	if (check_message_crc(peer_address_header, sizeof(struct peer_address_header))) {
 		printf("Checked CRC heartbeat!\n");
 		// Check checksum
 		// if (peer_address_header.message_header.type != HEARTBEAT) {
@@ -123,7 +123,7 @@ void handle_acknowledge_netinfo (sqlite3* db, struct queue_item* queue_item) {
 	// struct sockaddr_in clntaddr;
 	// socklen_t clntaddr_len;
 	//if (receive_peer_address_header(sockfd, &peer_address_header, &clntaddr, &clntaddr_len)) {
-	if (check_message_crc(peer_address_header, sizeof(peer_address_header))) {
+	if (check_message_crc(peer_address_header, sizeof(struct peer_address_header))) {
 		if (!db_peer_exists(db, &peer_address_header->peer_address)){
 			db_insert_peer(db, &peer_address_header->peer_address);
 			printf("Insterted!\n");
@@ -165,17 +165,18 @@ void* handle_request_thread (void * args) {
 	free(queue_item->message);
 	free(queue_item);
 	pthread_detach(pthread_self());
+	return NULL;
 	//free args, message, queueitem
 }
 
 void handle_requests (const int* sockfd, sqlite3* db, struct queue_lock* ql) {
-	struct message_header header;
-	struct sockaddr_in clntaddr;
-	socklen_t clntaddr_len;
+	//struct message_header header;
+	//struct sockaddr_in clntaddr;
+	//socklen_t clntaddr_len;
 	pthread_t handle_request_thread_id;
 	struct queue_item* queue_item;
 	struct handle_request_thread_args* hrt_args;
-	for(int i = 0; i < 50; i++) {
+	while (1){
 		if(queue_is_empty(ql)) {
 			sleep(1);
 		} else {
@@ -212,7 +213,7 @@ void* handle_mailbox(void * args) {
 	socklen_t clntaddr_len;
 	struct queue_item* queue_item;
 	int found;
-	struct peer_address* pa;
+	//struct peer_address* pa;
 
 	while(1) {
 		if (!is_data_available(sockfd)) {
@@ -269,7 +270,7 @@ void* handle_mailbox(void * args) {
 
 
 int main(int argc, char ** argv) {
-	struct sockaddr_in sockaddr;
+	//struct sockaddr_in sockaddr;
 	int sockfd;
 	struct peer_address pa;
 	short unsigned int port;
@@ -313,7 +314,7 @@ int main(int argc, char ** argv) {
 	handle_requests(&sockfd, db, &ql);
 
 	void * tmp;
-	while(tmp = queue_dequeue(&ql)) {
+	while((tmp = queue_dequeue(&ql))) {
 		free(((struct queue_item*)tmp)->message);
 		free(tmp);
 	}

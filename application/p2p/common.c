@@ -29,6 +29,7 @@ struct peer_address init_peer_address(short unsigned int family, short unsigned 
 struct peer_address_header init_peer_address_header (const struct peer_address* pa, enum message_type mtype) {
 	POLY_TYPE data_checksum;
 	struct peer_address_header peer_address_header;
+	//printf("common initpeeraddressheader: %p\n", pa);
 	peer_address_header.peer_address = *pa;
 	data_checksum = get_crc(pa, sizeof(struct peer_address));
 	peer_address_header.message_header = init_message_header(mtype, sizeof(peer_address_header), data_checksum);
@@ -72,7 +73,7 @@ void _create_udp_socket(int* sockfd, const short unsigned int family) {
 		perror("Failed creating socket");
 		exit(EXIT_FAILURE);
 	} else {
-		perror("Successfully created socket");
+		///perror("Successfully created socket");
 	}
 }
 
@@ -82,7 +83,7 @@ void _bind_socket(const int* sockfd, const struct sockaddr_in* sockaddr) {
 		perror("Failed binding address to socket");
 		exit(EXIT_FAILURE);
 	} else {
-		perror("Successfully bound address to socket");
+		///perror("Successfully bound address to socket");
 	}
 }
 
@@ -103,7 +104,7 @@ int convert_port(char* chport, short unsigned int* port) {
 	unsigned long int uliport = strtoul(chport, NULL, 10);
 	// Check if conversion was successful	
 	if (uliport == 0 && (errno == EINVAL || errno == ERANGE)) {
-		perror("Could not convert port");
+		///perror("Could not convert port");
 		*port = 0;
 		return -1;
 	}
@@ -116,6 +117,7 @@ int convert_port(char* chport, short unsigned int* port) {
 // Requires a domain and initialized socket address
 void initialize_srvr(int* sockfd, const struct peer_address* pa) {
 	struct sockaddr_in sockaddr = _create_sockaddr_in(pa);
+	printf("sockaddr %d, %u, %u\n", sockaddr.sin_family, sockaddr.sin_port, sockaddr.sin_addr.s_addr);
 	_create_udp_socket(sockfd, pa->family);
 	_bind_socket(sockfd, &sockaddr);
 }
@@ -135,10 +137,11 @@ void initialize_clnt(int* sockfd, const struct peer_address* pa, struct sockaddr
 ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in* sockaddr, socklen_t* sockaddr_len) {
 	*sockaddr_len = sizeof(*sockaddr);
 	ssize_t msg_len = recvfrom(*sockfd, data, data_len, flags, (struct sockaddr*) sockaddr, sockaddr_len);
+	//printf("recv sockaddr %d, %u, %u\n", sockaddr->sin_family, sockaddr->sin_port, sockaddr->sin_addr.s_addr);
 	if (msg_len < 0) {
-		perror("Failed receiving message");
+		//perror("Failed receiving message");
 	} else {
-		perror("Successfully received message");
+		//perror("Successfully received message");
 	}
 	
 	return msg_len;
@@ -152,9 +155,9 @@ ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int f
 ssize_t send_message(const int* sockfd, const void* data, const size_t data_len, int flags, const struct sockaddr_in* sockaddr) {
 	ssize_t msg_len;
 	if ((msg_len = sendto(*sockfd, data, data_len, flags, (const struct sockaddr*) sockaddr, sizeof(*sockaddr))) < 0) {
-		perror("Failed sending message");
+		//perror("Failed sending message");
 	} else {
-		perror("Successfully sent message");
+		//perror("Successfully sent message");
 	}
 	return msg_len;
 }
@@ -163,7 +166,7 @@ int is_data_available(const int* sockfd) {
 	int size;
 	int ret = ioctl(*sockfd, FIONREAD, &size);
 	if (ret == 0) {
-		printf("%d %d\n", ret, size);
+		//printf("%d %d\n", ret, size);
 		return size > 0;
 	}
 	

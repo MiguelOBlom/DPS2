@@ -10,6 +10,7 @@ template <typename T, typename H>
 class Blockchain {
 public:
 	Blockchain<T, H>(H (* hash_func_) (T, H));
+	//void AddBlock(Block<T, H>* b);
 	void AddBlock(const T* data);
 	void PopBlock();
 	Block<T, H>* GetBlockFromIndex(const size_t index);
@@ -45,7 +46,12 @@ void Blockchain<T, H>::AddBlock(const T* data) {
 	Block<T, H> b(data, hash_func(*data, prev_hash), prev_hash);
 	blocks.push_back(b);
 }
-
+/*
+template <typename T, typename H>
+void Blockchain<T, H>::AddBlock(Block<T, H>* b) {
+	blocks.push_back(b);
+}
+*/
 template <typename T, typename H>
 void Blockchain<T, H>::PopBlock() {
 	if (blocks.size() > 0)
