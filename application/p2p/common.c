@@ -139,7 +139,7 @@ ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int f
 	ssize_t msg_len = recvfrom(*sockfd, data, data_len, flags, (struct sockaddr*) sockaddr, sockaddr_len);
 	//printf("recv sockaddr %d, %u, %u\n", sockaddr->sin_family, sockaddr->sin_port, sockaddr->sin_addr.s_addr);
 	if (msg_len < 0) {
-		//perror("Failed receiving message");
+		perror("Failed receiving message");
 	} else {
 		//perror("Successfully received message");
 	}
@@ -155,7 +155,7 @@ ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int f
 ssize_t send_message(const int* sockfd, const void* data, const size_t data_len, int flags, const struct sockaddr_in* sockaddr) {
 	ssize_t msg_len;
 	if ((msg_len = sendto(*sockfd, data, data_len, flags, (const struct sockaddr*) sockaddr, sizeof(*sockaddr))) < 0) {
-		//perror("Failed sending message");
+		perror("Failed sending message");
 	} else {
 		//perror("Successfully sent message");
 	}

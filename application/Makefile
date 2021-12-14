@@ -6,11 +6,14 @@ DEPS=sha256.h blockchain.h block.h iproofofwork.h hashcash.h
 
 all: sha256/libsha256.so sqlite3/libsqlite3.so pow/libpow.so p2p/libpeer.so build/tracker blockchain/libblockchain.so build/application
 
+lock_vector.o: lock_vector.cc lock_vector.h
+	$(CXX) $(CXXFLAGS) -c -o $@ $< -pthread
+
 application.o: application.cc
 	$(CXX) $(CXXFLAGS) -I./blockchain -I./sha256 -I./pow -I./p2p -c -o $@ $< -L./blockchain -L./sha256 -L./pow -L./p2p -lblockchain -lsha256 -lpow -lpeer
 
-build/application: application.o
-	$(CXX) $(CXXFLAGS) -I./blockchain -I./sha256 -I./pow -I./p2p -o $@ $^ -L./blockchain -L./sha256 -L./pow -L./p2p -lblockchain -lsha256 -lpow -lpeer
+build/application: application.o lock_vector.o
+	$(CXX) $(CXXFLAGS) -I./blockchain -I./sha256 -I./pow -I./p2p -o $@ $^ -L./blockchain -L./sha256 -L./pow -L./p2p -lblockchain -lsha256 -lpow -lpeer -pthread
 
 sqlite3/libsqlite3.so: sqlite3/shell.c sqlite3/sqlite3.c sqlite3/sqlite3.h sqlite3/sqlite3ext.h
 	$(CC) $(CFLAGS) -o $@ $^ -pthread -ldl -shared -fPIC
@@ -45,4 +48,4 @@ blockchain/libblockchain.so: blockchain/block.h blockchain/blockchain.h
 	$(CXX) $(CXXFLAGS) -I./sqlite3 -I./sha256 -o $@ $^ -shared -fPIC -lsqlite3 -lsha256 -L./sqlite3 -L./sha256
 
 clean:
-	rm -f sha256/libsha256.so sqlite3/libsqlite3.so pow/libpow.so build/tracker p2p/*.o p2p/libpeer.so blockchain/libblockchain.so build/application application.o
+	rm -f sha256/libsha256.so sqlite3/libsqlite3.so pow/libpow.so build/tracker p2p/*.o p2p/libpeer.so blockchain/libblockchain.so build/application application.o lock_vector.o

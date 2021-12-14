@@ -44,6 +44,7 @@ size_t broadcast(struct peer* p, void * data, size_t data_len) {
 			//print_bytes(message, message_header.len);
 			for (size_t i = 0; i < *(netinfo_lock->n_peers); ++i) {
 				if(!cmp_peer_address(&(*(netinfo_lock->network_info))[i], own_pa)) {
+					printf("Broadcast to %d, %u, %u\n", (*(netinfo_lock->network_info))[i].family, (*(netinfo_lock->network_info))[i].port, (*(netinfo_lock->network_info))[i].addr);
 					initialize_clnt(&sockfd, &(*(netinfo_lock->network_info))[i], &sockaddr);
 					send_message(&sockfd, message, message_header.len, MSG_CONFIRM, &sockaddr);	
 
