@@ -6,13 +6,19 @@ DEPS=sha256.h blockchain.h block.h iproofofwork.h hashcash.h
 
 all: sha256/libsha256.so sqlite3/libsqlite3.so pow/libpow.so p2p/libpeer.so build/tracker blockchain/libblockchain.so build/application
 
-lock_vector.o: lock_vector.cc lock_vector.h
-	$(CXX) $(CXXFLAGS) -c -o $@ $< -pthread
+#transaction_reader.o: transaction_reader.cc transaction_reader.h transaction.h
+#	$(CXX) $(CXXFLAGS) -c -o $@ $<	
+
+#lock_vector.o: lock_vector.h
+#	$(CXX) $(CXXFLAGS) -c -o $@ $< -pthread
+
+#transaction.o: transaction.h
+#	$(CXX) $(CXXFLAGS) -c -o $@ $<	
 
 application.o: application.cc
 	$(CXX) $(CXXFLAGS) -I./blockchain -I./sha256 -I./pow -I./p2p -c -o $@ $< -L./blockchain -L./sha256 -L./pow -L./p2p -lblockchain -lsha256 -lpow -lpeer
 
-build/application: application.o lock_vector.o
+build/application: application.o lock_vector.h transaction.h transaction_reader.h
 	$(CXX) $(CXXFLAGS) -I./blockchain -I./sha256 -I./pow -I./p2p -o $@ $^ -L./blockchain -L./sha256 -L./pow -L./p2p -lblockchain -lsha256 -lpow -lpeer -pthread
 
 sqlite3/libsqlite3.so: sqlite3/shell.c sqlite3/sqlite3.c sqlite3/sqlite3.h sqlite3/sqlite3ext.h
@@ -30,12 +36,11 @@ p2p/common.o: p2p/common.c p2p/common.h p2p/crc.h
 p2p/db.o: p2p/db.c p2p/db.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 	
-p2p/crc.o: p2p/crc.c p2p/crc.h
+p2p/crc.o: p2p/crc.c p2p/crc.h config.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 	
 p2p/queue.o: p2p/queue.c p2p/queue.h
 	$(CC) $(CFLAGS) -c -o $@ $<
-
 
 p2p/libpeer.so: p2p/peer.c p2p/common.o p2p/db.o p2p/crc.o p2p/queue.o p2p/common.h p2p/db.h p2p/crc.h p2p/queue.h p2p/peer.h
 	$(CC) $(CFLAGS) -I./sqlite3 -o $@ $^ -shared -fPIC -lsqlite3 -pthread -L./sqlite3
@@ -43,9 +48,8 @@ p2p/libpeer.so: p2p/peer.c p2p/common.o p2p/db.o p2p/crc.o p2p/queue.o p2p/commo
 build/tracker: p2p/tracker.c p2p/common.o p2p/db.o p2p/crc.o p2p/queue.o
 	$(CC) $(CFLAGS) -I./sqlite3 -o $@ $^ -lsqlite3 -pthread -L./sqlite3
 
-
 blockchain/libblockchain.so: blockchain/block.h blockchain/blockchain.h
 	$(CXX) $(CXXFLAGS) -I./sqlite3 -I./sha256 -o $@ $^ -shared -fPIC -lsqlite3 -lsha256 -L./sqlite3 -L./sha256
 
 clean:
-	rm -f sha256/libsha256.so sqlite3/libsqlite3.so pow/libpow.so build/tracker p2p/*.o p2p/libpeer.so blockchain/libblockchain.so build/application application.o lock_vector.o
+	rm -f sha256/libsha256.so sqlite3/libsqlite3.so pow/libpow.so build/tracker p2p/*.o p2p/libpeer.so blockchain/libblockchain.so build/application application.o *.o

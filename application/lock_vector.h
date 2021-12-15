@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#ifndef _LOCKVECTOR_
+#define _LOCKVECTOR_
+
 template <typename T>
 class LockVector {
 private:
@@ -44,4 +47,6 @@ public:
 	}
 
 };
+
+#endif
 

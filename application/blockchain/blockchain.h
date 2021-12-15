@@ -1,10 +1,10 @@
-#ifndef _BLOCKCHAIN_
-#define _BLOCKCHAIN_
-
 #include <iostream>
 #include <vector>
 #include <sha256.h>
 #include "block.h"
+
+#ifndef _BLOCKCHAIN_
+#define _BLOCKCHAIN_
 
 template <typename T, typename H>
 class Blockchain {

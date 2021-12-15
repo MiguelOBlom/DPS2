@@ -3,14 +3,13 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-// Polynomial type
-#define POLY_TYPE uint16_t
+#include "../config.h"
 
 #ifndef _CRC_
 #define _CRC_
 
 // Polynomial
-#define POLY 0b1011101011010101
+
 
 // Double the size of the POLY_TYPE
 struct dpoly {

@@ -3,7 +3,6 @@
 #ifndef _BLOCK_
 #define _BLOCK_
 
-
 template <typename T, typename H>
 class Block {
 public:

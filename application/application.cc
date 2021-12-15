@@ -8,6 +8,8 @@ extern "C" {
 #include <hashcash.h>
 #include <iproofofwork.h>
 
+#include "transaction_reader.h"
+#include "config.h"
 #include "lock_vector.h"
 
 #include <string>
@@ -18,9 +20,6 @@ extern "C" {
 #include <tuple>
 #include <map>
 
-#define DIFFICULTY 3
-#define MAX_TRANSACTIONS 5
-#define ID_TYPE char
 
 enum BlockchainMessageType {
 	BLOCK,
@@ -48,12 +47,6 @@ struct BlockchainAdditionRequest {
 	//std::string pow_solution;
 };
 
-template <typename ID>
-struct Transaction {
-	ID sender;
-	ID receiver;
-	unsigned int amount;
-};
 
 
 struct BlockData {
@@ -104,10 +97,7 @@ void BlockFromData(Block<T, std::string>* & b, void * data){
 
 
 
-template <typename ID, unsigned int N>
-struct Transactions {
-	struct Transaction<ID> transaction[N];
-};
+
 
 template <typename T>
 std::string SHA256FromBlock(const Block<T, std::string>* b)
@@ -151,6 +141,7 @@ struct inbox_thread_args {
 
 
 void* inbox_thread(void * args) {
+	//printf("Inbox thread starting!\n");
 	sockaddr_in clntaddr;
 	void * msg;
 	size_t msg_len;
@@ -160,14 +151,17 @@ void* inbox_thread(void * args) {
 	std::cout << &peer->own_sockfd << std::endl;
 	free(args);
 	while (1) {
+		//printf("In the WHILE LOOP!\n");
 		receive(peer, &msg, &msg_len, &clntaddr);
 
 		if (msg) {
+			//printf("Something...\n");
 			if (inbox->Lock()) {
 				inbox->vec.push_back(std::make_tuple(msg, msg_len));
 				inbox->Unlock();
 			}	
 		} else {
+			//printf("Nothing...\n");
 			sleep(1);
 		}
 		
@@ -186,18 +180,20 @@ private:
 	//std::vector<struct BlockVote*> votes = std::vector<struct BlockVote*>();
 	pthread_t inbox_thread_id; 
 
-
+	std::vector<Transactions<ID_TYPE, MAX_TRANSACTIONS> > transactions;
 
 
 public:
 
-	Application (char* tracker_addr, char* tracker_port, char* addr, char* port) {
+	Application (char* tracker_addr, char* tracker_port, char* addr, char* port, std::vector<Transactions<ID_TYPE, MAX_TRANSACTIONS> > _transactions) {
+		transactions = _transactions;
+
 		bc = new Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>(SHA256FromDataAndHash);
 		
 		peer = (struct peer*) malloc(sizeof(struct peer));
 		memset(peer, 0, sizeof(struct peer));
 		init_peer(peer, tracker_addr, tracker_port, addr, port);
-		pow_group = new HashCash(24);
+		pow_group = new HashCash(DIFFICULTY);
 
 
 
@@ -624,6 +620,8 @@ public:
 					} else {
 						// Add all messages that are not of type BLOCK or NOBLOCK to queue 
 						if (!once) {
+							// TODO: If a vote is too early, then it would not make sense to add the block, right? It means that the rest of the network
+							// is ahead of us 
 							std::cout << "[ CheckVotesForBlock ] Not VOTE or VOTE too early " << ((struct BlockchainMessageHeader*) msg)->index << std::endl;
 							once = true;
 						}
@@ -714,7 +712,7 @@ public:
 		return false;
 	}
 
-	void AddBlockToBlockchain (Transactions<ID_TYPE, MAX_TRANSACTIONS> * data) {
+	bool AddBlockToBlockchain (Transactions<ID_TYPE, MAX_TRANSACTIONS> * data) {
 		
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string > * new_block = bc->SneakPeekBlock(data);
 		//bc->AddBlock(data); // Blockchain handles the process of hash generation
@@ -767,93 +765,98 @@ public:
 		if (!accepted) {
 			std::cout << "[ AddBlockToBlockchain ] Not accepted " << std::endl;
 			//bc->PopBlock();
-			return;
+			return false;
 		}
 
 		bc->AddBlock(data);
 		std::cout << "[ AddBlockToBlockchain ] Accepted, blockchain size: " << bc->Size() << std::endl;
-		
+		return true;
 	}
 
 	void Run() {
 		std::tuple<void*, size_t> inbox_item;
-		bool transact = true;
 		void * msg;
 		size_t msg_len;
 		sockaddr_in clntaddr;
 
-		// If we were offline
 		while(1) {
-			if (should_refresh(peer)) {
-				// RequestBlockchain
-				std::cout << "[ RequestBlockchain ] --------- Start --------- " << std::endl;
-				RequestBlockchain();
-				std::cout << "[ RequestBlockchain ] --------- Stop  --------- " << std::endl << std::endl;
-			} else {
-				if(inbox.Lock()) {
-					if(!inbox.vec.empty()) {
-						inbox_item = *(inbox.vec.begin());
-						inbox.vec.erase(inbox.vec.begin());
-						inbox.Unlock();
+			if(peer->is_online) {
+				// If we were offline
+				if (should_refresh(peer)) {
+					// RequestBlockchain
+					std::cout << "[ RequestBlockchain ] --------- Start --------- " << std::endl;
+					RequestBlockchain();
+					std::cout << "[ RequestBlockchain ] --------- Stop  --------- " << std::endl << std::endl;
+				} else {
+					if(inbox.Lock()) {
+						if(!inbox.vec.empty()) {
+							inbox_item = *(inbox.vec.begin());
+							inbox.vec.erase(inbox.vec.begin());
+							inbox.Unlock();
 
-						msg = std::get<0>(inbox_item);
+							msg = std::get<0>(inbox_item);
 
-						switch(((struct BlockchainMessageHeader*)msg)->type) {
-								case REQUESTBLOCK:
-									std::cout << "[ SendBlockchain ] --------- Start --------- " << std::endl;
-									//std::cout << std::get<0>(inbox_item).sin_family << " " << std::get<0>(inbox_item).sin_port << " " << std::get<0>(inbox_item).sin_addr.s_addr << std::endl;
-									SendBlockchain(*((struct BlockchainMessageHeader*)msg)/*, &std::get<0>(inbox_item)*/);
-									free(msg);
-									std::cout << "[ SendBlockchain ] --------- Stop  --------- " << std::endl << std::endl;
-									break;
-
-								case ADDREQUEST:
-									std::cout << "[ HandleBlockAdditionRequest ] --------- Start --------- " << std::endl;
-									HandleBlockAdditionRequest(msg, std::get<1>(inbox_item));
-									std::cout << "[ HandleBlockAdditionRequest ] --------- Stop  --------- " << std::endl << std::endl;
-									break;
-								case VOTE:
-									std::cout << "[ BlockVote ] --------- Start --------- " << std::endl;
-									if (((struct BlockchainMessageHeader*) msg)->index < bc->Size()) {
-										std::cout << "[ BlockVote ] Outdated vote " << ((struct BlockchainMessageHeader*) msg)->index << std::endl;
+							switch(((struct BlockchainMessageHeader*)msg)->type) {
+									case REQUESTBLOCK:
+										std::cout << "[ SendBlockchain ] --------- Start --------- " << std::endl;
+										//std::cout << std::get<0>(inbox_item).sin_family << " " << std::get<0>(inbox_item).sin_port << " " << std::get<0>(inbox_item).sin_addr.s_addr << std::endl;
+										SendBlockchain(*((struct BlockchainMessageHeader*)msg)/*, &std::get<0>(inbox_item)*/);
 										free(msg);
-									} else {
-										if(inbox.Lock()) {
-											inbox.vec.push_back(inbox_item); // Put it back
-											inbox.Unlock();
+										std::cout << "[ SendBlockchain ] --------- Stop  --------- " << std::endl << std::endl;
+										break;
+
+									case ADDREQUEST:
+										std::cout << "[ HandleBlockAdditionRequest ] --------- Start --------- " << std::endl;
+										HandleBlockAdditionRequest(msg, std::get<1>(inbox_item));
+										std::cout << "[ HandleBlockAdditionRequest ] --------- Stop  --------- " << std::endl << std::endl;
+										break;
+									case VOTE:
+										std::cout << "[ BlockVote ] --------- Start --------- " << std::endl;
+										if (((struct BlockchainMessageHeader*) msg)->index < bc->Size()) {
+											std::cout << "[ BlockVote ] Outdated vote " << ((struct BlockchainMessageHeader*) msg)->index << std::endl;
+											free(msg);
+										} else {
+											if(inbox.Lock()) {
+												inbox.vec.push_back(inbox_item); // Put it back
+												inbox.Unlock();
+											}
 										}
-									}
-									std::cout << "[ BlockVote ] --------- stop --------- " << std::endl << std::endl;
+										std::cout << "[ BlockVote ] --------- stop --------- " << std::endl << std::endl;
 
-									// We add votes to a buffer, in case other's votes are received before the request
-									// due to messages being received out of order 
-									//votes.push_back(((struct BlockVote*)std::get<0>(inbox_item)));
-									break;
-								case BLOCK:
-								case NOBLOCK:
-								default:
-									free(msg);
-									break;
-						}
-						
+										// We add votes to a buffer, in case other's votes are received before the request
+										// due to messages being received out of order 
+										//votes.push_back(((struct BlockVote*)std::get<0>(inbox_item)));
+										break;
+									case BLOCK:
+									case NOBLOCK:
+									default:
+										free(msg);
+										break;
+							}
+							
 
-					} else {
-						inbox.Unlock();
-
-						if (transact) {
-							Transactions<ID_TYPE, MAX_TRANSACTIONS> ts; 
-							memset(&ts, 0, sizeof(ts));
-							std::cout << "[ AddBlockToBlockchain ] --------- Start --------- " << std::endl;
-							AddBlockToBlockchain(&ts);
-							std::cout << "[ AddBlockToBlockchain ] --------- Stop --------- " << std::endl << std::endl;
-							transact = false;
 						} else {
-							sleep(1);
+							inbox.Unlock();
+
+							if (!transactions.empty()) {
+								Transactions<ID_TYPE, MAX_TRANSACTIONS> ts = transactions.front(); 
+								std::cout << "[ AddBlockToBlockchain ] --------- Start --------- " << std::endl;
+								if (AddBlockToBlockchain(&ts)) {
+									transactions.erase(transactions.begin());
+								}
+								std::cout << "[ AddBlockToBlockchain ] --------- Stop --------- " << std::endl << std::endl;
+							} else {
+								sleep(1);
+							}
 						}
 					}
-				}
 
+				}
+			} else {
+				printf("We are offline...\n");
+				sleep(1);
 			}
+
 		}
 
 	}
@@ -874,13 +877,14 @@ int blockchaintest1() {
 
 
 int main (int argc, char ** argv) {
-	
-	if (argc != 5) {
-		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port>\n", argv[0]);
+	srand(time(NULL));
+
+	if (argc != 6) {
+		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port> <transaction_trace>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 
-	Application* a = new Application(argv[1], argv[2], argv[3], argv[4]);
+	Application* a = new Application(argv[1], argv[2], argv[3], argv[4], TransactionReader<ID_TYPE, MAX_TRANSACTIONS>::ReadFile(argv[5]));
 	sleep(5);
 	a->Run();
 

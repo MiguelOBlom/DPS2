@@ -25,11 +25,11 @@
 #include "crc.h"
 #include "db.h"
 
+#include <time.h>
+#include <stdlib.h>
+
 #ifndef _COMMON_H_
 #define _COMMON_H_
-
-#define DOMAIN AF_INET
-
 
 
 struct queue_item {

@@ -1,0 +1,7 @@
+Early votes mean that it makes no sense to add the block
+If no message from tracker-> do not join network!
+
+
+memory leaks
+Comments
+warnings/errors

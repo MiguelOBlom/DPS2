@@ -1,4 +1,5 @@
 #include "common.h"
+#include "../config.h"
 
 #ifndef _P2PPEER_
 #define _P2PPEER_
@@ -7,12 +8,13 @@
 //extern "C"{
 //#endif 
 
-const int heartbeat_period = 5;
+
 
 struct netinfo_lock {
 	struct peer_address** network_info;
 	size_t* n_peers;
 	int* was_offline;
+	int* is_online;
 	pthread_mutex_t lock;
 };
 
@@ -28,6 +30,7 @@ struct peer {
 	size_t n_peers;
 	pthread_t thread_id;
 	int was_offline;
+	int is_online;
 };
 /*
 struct send_heartbeat_thread_args {

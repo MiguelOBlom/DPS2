@@ -1,11 +1,10 @@
 // rm p2p.db; ./tracker 192.168.178.73 8080 p2p.db
 
 #include "common.h"
-
+#include "../config.h"
 // If no heartbeat is obtained from a peer after 60 seconds, 
 // it is considered dead.
-const int timeout_threshold = 60; 
-const int tracker_queue_maxsize = 20;
+
 
 
 
@@ -15,11 +14,11 @@ const int tracker_queue_maxsize = 20;
 void handle_exit(sqlite3* db, struct queue_item* queue_item) {
 	struct peer_address_header* peer_address_header = queue_item->message;
 
-	if (check_message_crc(peer_address_header, sizeof(struct peer_address_header))) {
+	//if (check_message_crc(peer_address_header, sizeof(struct peer_address_header))) {
 		db_remove_peer(db, &peer_address_header->peer_address);
-	} else {
-		printf("The CRC did not match for your received exit data!\n");
-	}
+	//} else {
+	//	printf("The CRC did not match for your received exit data!\n");
+	//}
 }
 
 
@@ -44,8 +43,8 @@ void handle_heartbeat(const int* sockfd, sqlite3* db, struct queue_item* queue_i
 	//peer_address_header.message_header.message_header_checksum = 0;
 	//if (   check_crc(&peer_address_header.message_header, sizeof(peer_address_header.message_header) - sizeof(peer_address_header.message_header.message_header_checksum), crc)
 	//	&& check_crc(&peer_address_header.peer_address, sizeof(peer_address_header.peer_address), peer_address_header.message_header.message_data_checksum)) {
-	if (check_message_crc(peer_address_header, sizeof(struct peer_address_header))) {
-		printf("Checked CRC heartbeat!\n");
+	//if (check_message_crc(peer_address_header, sizeof(struct peer_address_header))) {
+	//	printf("Checked CRC heartbeat!\n");
 		// Check checksum
 		// if (peer_address_header.message_header.type != HEARTBEAT) {
 		// 	printf("Not a heartbeat...\n");
@@ -75,7 +74,7 @@ void handle_heartbeat(const int* sockfd, sqlite3* db, struct queue_item* queue_i
 		// Thus, the reliability of the data is dependent on the throughput of the tracker.
 
 		// Send back a list of peer_address objects
-		db_get_all_peer_addresses(db, &network_information, &n_peers, timeout_threshold);
+		db_get_all_peer_addresses(db, &network_information, &n_peers, TIMEOUT_THRESHOLD);
 
 		for (size_t i = 0; i < n_peers; ++i) {
 			printf("family: %d, port: %d, addr: %d\n", network_information[i].family, network_information[i].port, network_information[i].addr);
@@ -112,9 +111,9 @@ void handle_heartbeat(const int* sockfd, sqlite3* db, struct queue_item* queue_i
 			// Otherwise we need to add it to our list
 			//db_insert_peer(db, &peer_address_header.peer_address);
 		}
-	} else {
-		printf("The CRC did not match for your received heartbeat data!\n");
-	}
+	//} else {
+	//	printf("The CRC did not match for your received heartbeat data!\n");
+	//}
 }
 
 
@@ -123,16 +122,16 @@ void handle_acknowledge_netinfo (sqlite3* db, struct queue_item* queue_item) {
 	// struct sockaddr_in clntaddr;
 	// socklen_t clntaddr_len;
 	//if (receive_peer_address_header(sockfd, &peer_address_header, &clntaddr, &clntaddr_len)) {
-	if (check_message_crc(peer_address_header, sizeof(struct peer_address_header))) {
+	//if (check_message_crc(peer_address_header, sizeof(struct peer_address_header))) {
 		if (!db_peer_exists(db, &peer_address_header->peer_address)){
 			db_insert_peer(db, &peer_address_header->peer_address);
 			printf("Insterted!\n");
 		} else {
 			db_update_peer_heartbeat(db, &peer_address_header->peer_address);
 		}
-	} else {
-		printf("The CRC did not match for your received acknowledge netinfo data!\n");
-	}
+	//} else {
+	//	printf("The CRC did not match for your received acknowledge netinfo data!\n");
+	//}
 }
 
 struct handle_request_thread_args {
@@ -222,49 +221,63 @@ void* handle_mailbox(void * args) {
 			sleep(1);
 		} else {
 			recv_message(sockfd, (void*) &header, sizeof(header), MSG_WAITALL | MSG_PEEK, &clntaddr, &clntaddr_len);
-			// Allocate queue item of size (sizeof(void*) + sizeof(socklen_t) + socklen_t)
-			// We do so, to take into account the variable length of the sockaddr_in
-			queue_item = malloc(sizeof(void*) + sizeof(socklen_t) + clntaddr_len);
-			// Allocate buffer for the whole message
-			queue_item->message = malloc(header.len);
-			recv_message(sockfd, queue_item->message, header.len, MSG_WAITALL, &queue_item->clntaddr, &queue_item->clntaddr_len);
-			
-			// Check for spamming heartbeat
-			if (header.type == HEARTBEAT) {
-				if(pthread_mutex_lock(&ql->lock) == 0) {
-					found = 0;
-					for(size_t i = 1; i <= ql->size; ++i) {
-						//printf("own: %p, other: %p\n", own_pa, &((struct peer_address_header*)(queue_item->message))->peer_address);
-						struct peer_address_header* other = ((struct queue_item*)(ql->data[(ql->top - i + ql->max_size) % ql->max_size]))->message;
-						if(other->message_header.type == HEARTBEAT && cmp_peer_address(&other->peer_address, &((struct peer_address_header*)(queue_item->message))->peer_address )) {
-							printf("Found!\n");
-							found = 1;
-							break;
+			if (check_message_crc(&header, sizeof(header))) {
+				// Allocate queue item of size (sizeof(void*) + sizeof(socklen_t) + socklen_t)
+				// We do so, to take into account the variable length of the sockaddr_in
+				queue_item = malloc(sizeof(void*) + sizeof(socklen_t) + clntaddr_len);
+				// Allocate buffer for the whole message
+				queue_item->message = malloc(header.len);
+				recv_message(sockfd, queue_item->message, header.len, MSG_WAITALL, &queue_item->clntaddr, &queue_item->clntaddr_len);
+				if (check_message_crc(queue_item->message, header.len)) {
+					// Check for spamming heartbeat
+					if (header.type == HEARTBEAT) {
+						if(pthread_mutex_lock(&ql->lock) == 0) {
+							found = 0;
+							for(size_t i = 1; i <= ql->size; ++i) {
+								//printf("own: %p, other: %p\n", own_pa, &((struct peer_address_header*)(queue_item->message))->peer_address);
+								struct peer_address_header* other = ((struct queue_item*)(ql->data[(ql->top - i + ql->max_size) % ql->max_size]))->message;
+								if(other->message_header.type == HEARTBEAT && cmp_peer_address(&other->peer_address, &((struct peer_address_header*)(queue_item->message))->peer_address )) {
+									printf("Found!\n");
+									found = 1;
+									break;
+								}
+							}
+
+							if (pthread_mutex_unlock(&ql->lock) != 0) {
+								perror("Error unlocking queue mutex");
+								exit(EXIT_FAILURE);
+							}
+
+						} else {
+							perror("Error while locking queue mutex");
+							exit(EXIT_FAILURE);
 						}
 					}
 
-					if (pthread_mutex_unlock(&ql->lock) != 0) {
-						perror("Error unlocking queue mutex");
-						exit(EXIT_FAILURE);
+					// Push queue item to queue
+					if (!found) {
+						if (!queue_is_full(ql)) {
+							queue_enqueue(ql, queue_item);
+						} else {
+							printf("Queue is full!\n");		
+							free(queue_item->message);
+							free(queue_item);
+						}
+					} else {
+						printf("Someone is spamming a heartbeat!!!!!!!!!!\n");
 					}
-
-				} else {
-					perror("Error while locking queue mutex");
-					exit(EXIT_FAILURE);
-				}
-			}
-
-			// Push queue item to queue
-			if (!found) {
-				if (!queue_is_full(ql)) {
-					queue_enqueue(ql, queue_item);
-				} else {
-					printf("Queue is full!\n");		
+				} else{
 					free(queue_item->message);
 					free(queue_item);
+					printf("The CRC did not match for the received data!\n");
 				}
 			} else {
-				printf("Someone is spamming a heartbeat!!!!!!!!!!\n");
+				queue_item = malloc(sizeof(void*) + sizeof(socklen_t) + clntaddr_len);
+				queue_item->message = malloc(sizeof(struct message_header));
+				recv_message(sockfd, queue_item->message, sizeof(struct message_header), MSG_WAITALL, &queue_item->clntaddr, &queue_item->clntaddr_len);
+				free(queue_item->message);
+				free(queue_item);
+				printf("The CRC did not match for the received data!\n");
 			}
 		}
 	}
@@ -299,7 +312,7 @@ int main(int argc, char ** argv) {
 	//return 0;
 	db_open(&db, argv[3]);
 
-	queue_init(&ql, tracker_queue_maxsize);
+	queue_init(&ql, TRACKER_QUEUE_SIZE);
 
 	hm_args.ql = &ql;
 	hm_args.sockfd = &sockfd;

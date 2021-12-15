@@ -41,7 +41,7 @@ int check_message_crc(void * data, size_t data_len) {
 	POLY_TYPE crc = ((struct message_header*) data)->message_header_checksum;
 	((struct message_header*) data)->message_header_checksum = 0;
 	retval =  (check_crc((struct message_header*) data, sizeof(struct message_header) - sizeof(((struct message_header*) data)->message_header_checksum), crc)
-		&& check_crc(data + sizeof(struct message_header), data_len - sizeof(struct message_header), ((struct message_header*) data)->message_data_checksum));
+		&& (data_len == sizeof(struct message_header) || check_crc(data + sizeof(struct message_header), data_len - sizeof(struct message_header), ((struct message_header*) data)->message_data_checksum)));
 	((struct message_header*) data)->message_header_checksum = crc;
 	return retval;
 }
@@ -129,6 +129,14 @@ void initialize_clnt(int* sockfd, const struct peer_address* pa, struct sockaddr
 	_create_udp_socket(sockfd, pa->family);
 }
 
+
+void _flip_random_bit(void * data, const size_t data_len) {
+	size_t e = rand() % 8;
+	size_t r = rand() % data_len;
+	((char*)data)[r] ^= 1 << e;
+}
+
+
 // Receive a message on the socket file descriptor sockfd
 // The message is provided through data, with a max length of data_len, the actual size (or error) is returned as ssize_t
 // Flags flags are passed through to the socket recvfrom call
@@ -136,6 +144,7 @@ void initialize_clnt(int* sockfd, const struct peer_address* pa, struct sockaddr
 // in these values the information about the sender is stored
 ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in* sockaddr, socklen_t* sockaddr_len) {
 	*sockaddr_len = sizeof(*sockaddr);
+	//printf("recv: %p, %p, %p, %p\n", sockfd, data, sockaddr, sockaddr_len);
 	ssize_t msg_len = recvfrom(*sockfd, data, data_len, flags, (struct sockaddr*) sockaddr, sockaddr_len);
 	//printf("recv sockaddr %d, %u, %u\n", sockaddr->sin_family, sockaddr->sin_port, sockaddr->sin_addr.s_addr);
 	if (msg_len < 0) {
@@ -143,7 +152,8 @@ ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int f
 	} else {
 		//perror("Successfully received message");
 	}
-	
+
+
 	return msg_len;
 }
 
@@ -154,11 +164,27 @@ ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int f
 // Returns the number of characters sent, or an error upon error sending the message
 ssize_t send_message(const int* sockfd, const void* data, const size_t data_len, int flags, const struct sockaddr_in* sockaddr) {
 	ssize_t msg_len;
-	if ((msg_len = sendto(*sockfd, data, data_len, flags, (const struct sockaddr*) sockaddr, sizeof(*sockaddr))) < 0) {
+
+	// Randomly manipulate bit to simulate bad network reliability
+	void * temp = malloc(data_len);
+	memcpy(temp, data, data_len);
+
+	int r = rand() % 100;
+	if (r < BITFLIP_CHANCE) {
+		printf("[ _flip_random_bit ] Sent contains a mutation!\n");
+		_flip_random_bit(temp, data_len);
+	} else {
+		//printf("[ _flip_random_bit ] No mutation!\n");
+	}
+
+
+	if ((msg_len = sendto(*sockfd, temp, data_len, flags, (const struct sockaddr*) sockaddr, sizeof(*sockaddr))) < 0) {
 		perror("Failed sending message");
 	} else {
 		//perror("Successfully sent message");
 	}
+
+	free(temp);
 	return msg_len;
 }
 

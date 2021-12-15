@@ -2,6 +2,9 @@
 #include <sha256.h>
 #include <iostream>
 
+#ifndef _HASHCASH_
+#define _HASHCASH_
+
 class HashCash : public IProofOfWork <std::string, std::string> {
 	public:
 		HashCash(size_t difficulty);
@@ -118,3 +121,5 @@ bool HashCash::CheckSolution(std::string* seed, std::string* solution){
 	std::string hash = xor_strings(sha256(*seed + *solution), *seed);
 	return count_zeroes(hash);
 }
+
+#endif
