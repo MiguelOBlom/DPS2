@@ -1,7 +1,7 @@
-/home/ddps2001/DPS2/1639650387/out/10.149.1.17_1234.out
-/home/ddps2001/DPS2/1639650387/out/10.149.1.17_1234.out
+/home/ddps2001/DPS2/1639651398/out/10.149.1.18_1234.out
+/home/ddps2001/DPS2/1639651398/out/10.149.1.18_1234.out
 Started proc!
-sockaddr 2, 53764, 285316362
+sockaddr 2, 53764, 302093578
 0x631a24
 Thread started!
 We are offline...
@@ -22,7 +22,7 @@ We are offline...
 Coming online...
 [ RequestBlockchain ] --------- Start --------- 
 [ RequestBlockchain ] Requesting block 1
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
 [ RequestBlockchain ] Majority found
@@ -36,25 +36,25 @@ Blockchain is size 1 with top hash e61f41d57db208c5f92a35c4ce7198570924a3fc87eeb
 
 Blockchain is size 1 with top hash e61f41d57db208c5f92a35c4ce7198570924a3fc87eeba83441fceee5d6a2865
 [ RequestBlockchain ] Requesting block 1
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received BLOCK 
 [ RequestBlockchain ] BLOCK is new
 [ RequestBlockchain ] Found f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a with count 1
 [ RequestBlockchain ] Majority found
 [ RequestBlockchain ] Requesting block 2
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received BLOCK 
 [ RequestBlockchain ] Malformed BLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c2
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf818612
+Broadcast to 2, 53764, 318870794
 [ CheckVotesForBlock ] Not a VOTE
 [ CheckVotesForBlock ] Is a noblock
 [ SendBlockchain ] Block does not exist 
@@ -63,27 +63,27 @@ Broadcast to 2, 53764, 302093578
 Coming online...
 [ CheckVotesForBlock ] Got vote for block 2
 [ CheckVotesForBlock ] Handling vote 
-2 53764 302093578
+2 53764 318870794
 [ CheckVotesForBlock ] Block hash matches!
 [ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Added as candidate 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] Our block got added 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -93,24 +93,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -120,26 +120,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -149,24 +147,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -176,53 +176,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
-[ AddBlockToBlockchain ] Not accepted 
-Handling all block addition requests...
-[ AddBlockToBlockchain ] No block got added ... for some reason 3
-
-[ AddBlockToBlockchain ] --------- Stop --------- 
-
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
-[ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ RequestBlockchain ] Message available! 
-[ RequestBlockchain ] Handling block...
-2 53764 302093578
-[ RequestBlockchain ] Received NOBLOCK
-[ RequestBlockchain ] Majority found
-[ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -232,24 +203,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -259,24 +232,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -286,26 +259,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -315,24 +288,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -342,26 +315,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -371,24 +344,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -398,24 +371,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -425,26 +400,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -454,24 +427,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -481,24 +456,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -508,24 +483,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -535,26 +510,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -564,24 +539,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -591,26 +566,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -620,24 +595,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -647,24 +622,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -674,24 +649,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -701,26 +676,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -730,24 +705,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -757,24 +732,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -784,26 +759,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -811,53 +786,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
-[ AddBlockToBlockchain ] Not accepted 
-Handling all block addition requests...
-[ AddBlockToBlockchain ] No block got added ... for some reason 3
-
-[ AddBlockToBlockchain ] --------- Stop --------- 
-
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
-[ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ RequestBlockchain ] Message available! 
-[ RequestBlockchain ] Handling block...
-2 53764 302093578
-[ RequestBlockchain ] Received NOBLOCK
-[ RequestBlockchain ] Majority found
-[ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -867,24 +815,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -894,53 +842,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
-[ AddBlockToBlockchain ] Not accepted 
-Handling all block addition requests...
-[ AddBlockToBlockchain ] No block got added ... for some reason 3
-
-[ AddBlockToBlockchain ] --------- Stop --------- 
-
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
-[ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
-[ RequestBlockchain ] Message available! 
-[ RequestBlockchain ] Handling block...
-2 53764 302093578
-[ RequestBlockchain ] Received NOBLOCK
-[ RequestBlockchain ] Majority found
-[ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -950,24 +869,53 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
+Broadcast to 2, 53764, 318870794
+[ AddBlockToBlockchain ] Not accepted 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] No block got added ... for some reason 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 318870794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -977,26 +925,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -1006,24 +952,26 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -1033,26 +981,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
-[ receive_netinfo ] 2 peers online!
-Coming online...
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -1062,24 +1008,24 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
-Broadcast to 2, 53764, 302093578
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ receive_netinfo ] 2 peers online!
@@ -1089,22 +1035,242 @@ Coming online...
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ AddBlockToBlockchain ] Not accepted 
 Handling all block addition requests...
 [ AddBlockToBlockchain ] No block got added ... for some reason 3
 
 [ AddBlockToBlockchain ] --------- Stop --------- 
 
-Blockchain is size 3 with top hash abf1f9c42f6a8525dcf293242d20d6634b0d5bdaeb1eacd4961bd8d0abd2236c
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
 [ RequestBlockchain ] Requesting block 3
-Broadcast to 2, 53764, 302093578
+Broadcast to 2, 53764, 318870794
 [ receive_netinfo ] 2 peers online!
 Coming online...
 [ RequestBlockchain ] Message available! 
 [ RequestBlockchain ] Handling block...
-2 53764 302093578
+2 53764 318870794
 [ RequestBlockchain ] Received NOBLOCK
 [ RequestBlockchain ] Majority found
 [ AddBlockToBlockchain ] --------- Start --------- 
-[ AddBlockToBlockchain ] Trying to add block with hash b464cfe40e631fbcd19bf3797b8a5a227d9330bf17d310c0b119628c75c6c9123
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
+Broadcast to 2, 53764, 318870794
+[ AddBlockToBlockchain ] Not accepted 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] No block got added ... for some reason 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 318870794
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 318870794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
+Broadcast to 2, 53764, 318870794
+[ AddBlockToBlockchain ] Not accepted 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] No block got added ... for some reason 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 318870794
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 318870794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
+Broadcast to 2, 53764, 318870794
+[ AddBlockToBlockchain ] Not accepted 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] No block got added ... for some reason 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 318870794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
+Broadcast to 2, 53764, 318870794
+[ AddBlockToBlockchain ] Not accepted 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] No block got added ... for some reason 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 318870794
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 318870794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
+Broadcast to 2, 53764, 318870794
+[ AddBlockToBlockchain ] Not accepted 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] No block got added ... for some reason 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 318870794
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 318870794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
+Broadcast to 2, 53764, 318870794
+[ AddBlockToBlockchain ] Not accepted 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] No block got added ... for some reason 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 318870794
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 318870794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
+Broadcast to 2, 53764, 318870794
+[ AddBlockToBlockchain ] Not accepted 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] No block got added ... for some reason 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 318870794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693
+Broadcast to 2, 53764, 318870794
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Too many tries! Got 1 agrees and 0 disagrees
+Broadcast to 2, 53764, 318870794
+[ AddBlockToBlockchain ] Not accepted 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] No block got added ... for some reason 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash 6e28aaa1b4c6d7ac24e867d81ea356b4d9155269ab150517cc9407f80bf81861
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 318870794
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 318870794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash 81a1dc6decbf1adb513c06184d9e173ed4ed23d2ad78fe94a4922543368f15693

@@ -42,14 +42,14 @@ do
 	# Build the project
 	(cd application; make clean; make)
 
-	for REP in 1 #{1..20}
+	for REP in 1 {1..20}
 	do
 		
 		# Generate 100 transactions for our single peer (we need 2 peers, a sender and a receiver, but we can join these files)
 		echo "Generating transactions..."
 		EXPERIMENT_NAME=$(python3 $DPS2_DIR/application/transaction_generator/transaction_generator.py 2 100)
 		cat $DPS2_DIR/$EXPERIMENT_NAME/0.trc $DPS2_DIR/$EXPERIMENT_NAME/1.trc > $DPS2_DIR/$EXPERIMENT_NAME/data.trc
-
+		rm $DPS2_DIR/$EXPERIMENT_NAME/0.trc $DPS2_DIR/$EXPERIMENT_NAME/1.trc
 		# Reserve nodes and get their names
 		echo "Reserving nodes..."
 		NODES=$(./reserve_nodes.sh $DPS_NNODES $DPS_TIME)
