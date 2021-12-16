@@ -12,7 +12,7 @@ module load python/3.6.0
 #DPS_NTRANSACTIONS=$3
 #DPS_TIME=$2
 #DPS_NNODES=$1
-DPS_NNODES=3 # 20 empty peers, a tracker and the peer with the data
+DPS_NNODES=22 # 20 empty peers, a tracker and the peer with the data
 DPS_TIME="00:15:00"
 
 TRACKER_PORT=8080
@@ -21,7 +21,7 @@ PEER_PORT=1234
 
 rm -f exp_perf.res
 
-for BLOCK_SIZE in 1 2 5 10 20 50 100
+for BLOCK_SIZE in 100 50 20 10 5 2 1
 do
 	# Generate config
 	echo "// Socket family" > $DPS2_DIR/application/config.h
