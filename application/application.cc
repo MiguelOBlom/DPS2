@@ -11,6 +11,7 @@ extern "C" {
 #include "transaction_reader.h"
 #include "config.h"
 #include "lock_vector.h"
+#include "logger.h"
 
 #include <string>
 #include <iostream>
@@ -182,6 +183,8 @@ void* inbox_thread(void * args) {
 
 class Application {
 private:
+	char * log_filename;
+	Logger* log;
 	Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string> * bc;
 	struct peer * peer;
 	IProofOfWork<std::string, std::string> * pow_group;
@@ -197,7 +200,10 @@ private:
 
 public:
 
-	Application (char* tracker_addr, char* tracker_port, char* addr, char* port, std::vector<Transactions<ID_TYPE, MAX_TRANSACTIONS> > _transactions) {
+	Application (char* tracker_addr, char* tracker_port, char* addr, char* port, std::vector<Transactions<ID_TYPE, MAX_TRANSACTIONS> > _transactions, char * log_filename) {
+		log = new Logger();
+		log_filename = log_filename;
+
 		transactions = _transactions;
 
 		bc = new Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>(SHA256FromDataAndHash);
@@ -294,7 +300,6 @@ public:
 	}
 
 	bool RequestBlockchainBlock(Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* & largest_block) {
-
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
 		std::map<std::string, std::pair<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*, size_t> > messages; // Hash -> Block, Count (Block)
 		std::vector<struct peer_address> clients_seen = std::vector<struct peer_address>();
@@ -469,13 +474,22 @@ public:
 	}
 
 	void RequestBlockchain () {
+		size_t block_id;
 		Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>* b;
 
+		bool success;
+
+		
+
+
 		do {
-			while(!RequestBlockchainBlock(b)) {
-				//std::cout << "err" << std::endl;
-			}
-			//std::cout << b << std::endl;
+			block_id = bc->Size();
+			do {
+				log->LogRequestBlock(block_id);
+				success = RequestBlockchainBlock(b);
+				log->LogReceivedBlock(block_id, success);
+			} while (!success);
+
 			if (b) {
 				bc->AddBlock(b->GetData()); 
 				delete b;
@@ -509,6 +523,7 @@ public:
 			memcpy((char *)response + sizeof(response_bmh), block_data, block_size);
 
 			respond(peer, response, response_len, &bmh.peer_address);
+			log->LogSendingBlock(bmh.index);
 			std::cout << "[ SendBlockchain ] BLOCK sent! " << std::endl;
 			free(block_data);
 			free(response);
@@ -521,6 +536,7 @@ public:
 			//temp.sin_port = htons(1235);
 			//respond(&peer, &response_bih, sizeof(response_bih), &temp);
 			respond(peer, &response_bmh, sizeof(response_bmh), &bmh.peer_address);
+			log->LogSendingBlock(bmh.index);
 			std::cout << "[ SendBlockchain ] NOBLOCK sent! " << std::endl;
 		}
 	}
@@ -1051,6 +1067,8 @@ public:
 							inbox.Unlock();
 
 							if (!transactions.empty()) {
+								size_t block_id = bc->Size();
+								log->LogBlockAddedStart(block_id);
 								Transactions<ID_TYPE, MAX_TRANSACTIONS> ts = transactions.front(); 
 								RequestBlockchain();
 								std::cout << "[ AddBlockToBlockchain ] --------- Start --------- " << std::endl;
@@ -1065,15 +1083,19 @@ public:
 									if (new_block == best) {
 										std::cout << "[ AddBlockToBlockchain ] Our block got added " << bc->Size() << std::endl << std::endl;
 										transactions.erase(transactions.begin());
+										log->LogBlockAddedStop(block_id, true);
 									} else {
 										std::cout << "[ AddBlockToBlockchain ] Another block got added instead " << bc->Size() << std::endl << std::endl;
+										log->LogBlockAddedStop(block_id, false);
 									}
 									delete best;
 								} else {
 									std::cout << "[ AddBlockToBlockchain ] No block got added ... for some reason " << bc->Size() << std::endl << std::endl;
+									log->LogBlockAddedStop(block_id, false);
 								}
 								std::cout << "[ AddBlockToBlockchain ] --------- Stop --------- " << std::endl << std::endl;
 							} else {
+								log->WriteBack(log_filename);
 								std::cout << "[ Run ] No messages... "<< std::endl;
 								place_back(inbox, read_messages);
 								for (int i = 0; i < rand() % 5; i++) {
@@ -1111,12 +1133,12 @@ int blockchaintest1() {
 int main (int argc, char ** argv) {
 	srand(time(NULL));
 
-	if (argc != 6) {
-		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port> <transaction_trace>\n", argv[0]);
+	if (argc != 7) {
+		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port> <transaction_trace> <output_file>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 
-	Application* a = new Application(argv[1], argv[2], argv[3], argv[4], TransactionReader<ID_TYPE, MAX_TRANSACTIONS>::ReadFile(argv[5]));
+	Application* a = new Application(argv[1], argv[2], argv[3], argv[4], TransactionReader<ID_TYPE, MAX_TRANSACTIONS>::ReadFile(argv[5]), argv[6]);
 	a->Run();
 
 
