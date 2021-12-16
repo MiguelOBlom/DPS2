@@ -19,6 +19,7 @@ DPS_NNODES=$1
 
 TRACKER_PORT=8080
 WORKER_PORT=1234
+PEER_PORT=1234
 
 echo "Generating transactions..."
 EXPERIMENT_NAME=$(python3 $DPS2_DIR/application/transaction_generator/transaction_generator.py $((DPS_NNODES-1)) $DPS_NTRANSACTIONS)
@@ -38,7 +39,7 @@ TRACKER_IP=$(ssh $TRACKER $'ifconfig | grep inet | grep -o \'10\.149\.\S*\' | aw
 echo "Setting up network information..."
 echo export TRACKER_IP=$TRACKER_IP > $DPS2_DIR/netinfo.txt
 echo export TRACKER_PORT=$TRACKER_PORT >> $DPS2_DIR/netinfo.txt
-echo export PEER_PORT=1234 >> $DPS2_DIR/netinfo.txt
+echo export PEER_PORT=$PEER_PORT >> $DPS2_DIR/netinfo.txt
 echo export EXPERIMENT_NAME=$EXPERIMENT_NAME >> $DPS2_DIR/netinfo.txt
 
 # Start up the tracker
