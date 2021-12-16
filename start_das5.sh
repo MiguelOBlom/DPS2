@@ -7,6 +7,7 @@
 DPS2_DIR=/home/$(whoami)/DPS2
 
 module load prun
+module load python/3.6.0
 
 ./stop_das5.sh
 
@@ -20,7 +21,7 @@ TRACKER_PORT=8080
 WORKER_PORT=1234
 
 echo "Generating transactions..."
-EXPERIMENT_NAME=$(python3 $DPS2_DIR/application/transaction_generator/transaction_generator.py $DPS_NNODES $DPS_NTRANSACTIONS)
+EXPERIMENT_NAME=$(python3 $DPS2_DIR/application/transaction_generator/transaction_generator.py $((DPS_NNODES-1)) $DPS_NTRANSACTIONS)
 echo "Experiment $EXPERIMENT_NAME"
 
 # Reserve nodes and get their names
