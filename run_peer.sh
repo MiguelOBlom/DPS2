@@ -8,6 +8,6 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH":$DPS2_DIR/application/blockchain:$DPS2
 
 IP=$(ifconfig | grep inet | grep -o '10\.149\.\S*' | awk -F . '$NF !~ /^255/')
 
-echo $DPS2_DIR/application/build/application $TRACKER_IP $TRACKER_PORT $IP $PEER_PORT $DPS2_DIR/$EXPERIMENT_NAME/$IP_$PEER_PORT.trc
+echo $DPS2_DIR/application/build/application $TRACKER_IP $TRACKER_PORT $IP $PEER_PORT $DPS2_DIR/$EXPERIMENT_NAME/$IP_$PEER_PORT.trc >> out.txt
 $DPS2_DIR/application/build/application $TRACKER_IP $TRACKER_PORT $IP $PEER_PORT $DPS2_DIR/$EXPERIMENT_NAME/$IP_$PEER_PORT.trc
 sleep infinity
