@@ -200,9 +200,10 @@ private:
 
 public:
 
-	Application (char* tracker_addr, char* tracker_port, char* addr, char* port, std::vector<Transactions<ID_TYPE, MAX_TRANSACTIONS> > _transactions, char * log_filename) {
+	Application (char* tracker_addr, char* tracker_port, char* addr, char* port, std::vector<Transactions<ID_TYPE, MAX_TRANSACTIONS> > _transactions, char * _log_filename) {
+		std::cout << _log_filename << std::endl;
 		log = new Logger();
-		log_filename = log_filename;
+		log_filename = _log_filename;
 
 		transactions = _transactions;
 
