@@ -10,6 +10,6 @@ IP=$(ifconfig | grep inet | grep -o '10\.149\.\S*' | awk -F . '$NF !~ /^255/')
 echo $IP>>out.txt
 mkdir -p $DPS2_DIR/$EXPERIMENT_NAME/out
 
-echo $DPS2_DIR/application/build/application $TRACKER_IP $TRACKER_PORT $IP $PEER_PORT $DPS2_DIR/$EXPERIMENT_NAME/${IP}_${PEER_PORT}.trc $DPS2_DIR/$EXPERIMENT_NAME/out/${IP}_${PEER_PORT}.out >> out.txt
-$DPS2_DIR/application/build/application $TRACKER_IP $TRACKER_PORT $IP $PEER_PORT $DPS2_DIR/$EXPERIMENT_NAME/${IP}_${PEER_PORT}.trc $DPS2_DIR/$EXPERIMENT_NAME/out/${IP}_${PEER_PORT}.out
+echo $DPS2_DIR/application/build/application $TRACKER_IP $TRACKER_PORT $IP $PEER_PORT $DPS2_DIR/$EXPERIMENT_NAME/${IP}_${PEER_PORT}.trc $DPS2_DIR/$EXPERIMENT_NAME/out/${IP}_${PEER_PORT}.out \> $DPS2_DIR/$EXPERIMENT_NAME/${IP}_${PEER_PORT}.log >> out.txt
+$DPS2_DIR/application/build/application $TRACKER_IP $TRACKER_PORT $IP $PEER_PORT $DPS2_DIR/$EXPERIMENT_NAME/${IP}_${PEER_PORT}.trc $DPS2_DIR/$EXPERIMENT_NAME/out/${IP}_${PEER_PORT}.out > $DPS2_DIR/$EXPERIMENT_NAME/${IP}_${PEER_PORT}.log
 sleep infinity
