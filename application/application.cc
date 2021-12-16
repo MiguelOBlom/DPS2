@@ -1004,7 +1004,7 @@ public:
 		size_t msg_len;
 		sockaddr_in clntaddr;
 
-		std::vector<std::tuple<void*, size_t> > read_messages = std::vector<std::tuple<void*, size_t> >();
+		//std::vector<std::tuple<void*, size_t> > read_messages = std::vector<std::tuple<void*, size_t> >();
 
 		while(1) {
 			if(peer->is_online) {
@@ -1012,7 +1012,7 @@ public:
 				if (should_refresh(peer)) {
 					// RequestBlockchain
 					std::cout << "[ RequestBlockchain ] --------- Start --------- " << std::endl;
-					place_back(inbox, read_messages);
+					//place_back(inbox, read_messages);
 					RequestBlockchain();
 					std::cout << "[ RequestBlockchain ] --------- Stop  --------- " << std::endl << std::endl;
 				} else {
@@ -1030,7 +1030,7 @@ public:
 									case REQUESTBLOCK:
 										std::cout << "[ SendBlockchain ] --------- Start --------- " << std::endl;
 										//std::cout << std::get<0>(inbox_item).sin_family << " " << std::get<0>(inbox_item).sin_port << " " << std::get<0>(inbox_item).sin_addr.s_addr << std::endl;
-										place_back(inbox, read_messages);
+										//place_back(inbox, read_messages);
 										SendBlockchain(*((struct BlockchainMessageHeader*)msg)/*, &std::get<0>(inbox_item)*/);
 										free(msg);
 										std::cout << "[ SendBlockchain ] --------- Stop  --------- " << std::endl << std::endl;
@@ -1039,7 +1039,7 @@ public:
 									case ADDREQUEST:
 										RequestBlockchain();
 										std::cout << "[ HandleBlockAdditionRequest ] --------- Start --------- " << std::endl;
-										place_back(inbox, read_messages);
+										//place_back(inbox, read_messages);
 										HandleBlockAdditionRequest(msg, std::get<1>(inbox_item), true);
 										best = HandleAllBlockAdditionRequests();
 										if (best){
@@ -1089,7 +1089,7 @@ public:
 								Transactions<ID_TYPE, MAX_TRANSACTIONS> ts = transactions.front(); 
 								RequestBlockchain();
 								std::cout << "[ AddBlockToBlockchain ] --------- Start --------- " << std::endl;
-								place_back(inbox, read_messages);
+								//place_back(inbox, read_messages);
 								//if (AddBlockToBlockchain(&ts)) {
 								//	transactions.erase(transactions.begin());
 								//}
@@ -1114,7 +1114,7 @@ public:
 							} else {
 								log->WriteBack(log_filename);
 								std::cout << "[ Run ] No messages... "<< std::endl;
-								place_back(inbox, read_messages);
+								//place_back(inbox, read_messages);
 								for (int i = 0; i < rand() % 5; i++) {
 									sleep(1);
 								}
