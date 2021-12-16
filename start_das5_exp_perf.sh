@@ -34,7 +34,7 @@ do
 	echo "#define TRACKER_QUEUE_SIZE 20" >> $DPS2_DIR/application/config.h
 	echo "// Application configuration" >> $DPS2_DIR/application/config.h
 	echo "#define DIFFICULTY 24" >> $DPS2_DIR/application/config.h
-	echo "#define MAX_TRANSACTIONS 5" >> $DPS2_DIR/application/config.h
+	echo "#define MAX_TRANSACTIONS $BLOCK_SIZE" >> $DPS2_DIR/application/config.h
 	echo "#define ID_TYPE char" >> $DPS2_DIR/application/config.h
 	echo "// Chance data gets mutated (on receive)" >> $DPS2_DIR/application/config.h
 	echo "#define BITFLIP_CHANCE 0" >> $DPS2_DIR/application/config.h
@@ -48,7 +48,7 @@ do
 		# Generate 100 transactions for our single peer (we need 2 peers, a sender and a receiver, but we can join these files)
 		echo "Generating transactions..."
 		EXPERIMENT_NAME=$(python3 $DPS2_DIR/application/transaction_generator/transaction_generator.py 2 100)
-		cat $DPS2_DIR/$EXPERIMENT_NAME/0.trc $DPS2_DIR/$EXPERIMENT_NAME/1.trc $DPS2_DIR/$EXPERIMENT_NAME/data.trc
+		cat $DPS2_DIR/$EXPERIMENT_NAME/0.trc $DPS2_DIR/$EXPERIMENT_NAME/1.trc > $DPS2_DIR/$EXPERIMENT_NAME/data.trc
 
 		# Reserve nodes and get their names
 		echo "Reserving nodes..."
