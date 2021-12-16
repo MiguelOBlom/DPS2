@@ -3,6 +3,7 @@
 #include <vector>
 #include <string.h>
 
+#include "config.h"
 #include "transaction.h"
 
 #ifndef _TRANSACTIONREADER_
