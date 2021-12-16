@@ -8,8 +8,6 @@ module load python/3.6.0
 
 ./stop_das5.sh
 
-
-DPS_TIME=$1
 #DPS_NDISTANCE=$4
 #DPS_NTRANSACTIONS=$3
 #DPS_TIME=$2
