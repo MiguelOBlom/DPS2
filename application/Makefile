@@ -4,7 +4,10 @@ CFLAGS=-Wall -Wextra -ggdb
 CXXFLAGS=$(CFLAGS) -std=c++11
 DEPS=sha256.h blockchain.h block.h iproofofwork.h hashcash.h 
 
-all: sha256/libsha256.so sqlite3/libsqlite3.so pow/libpow.so p2p/libpeer.so build/tracker blockchain/libblockchain.so build/application
+all: builddir sha256/libsha256.so sqlite3/libsqlite3.so pow/libpow.so p2p/libpeer.so build/tracker blockchain/libblockchain.so build/application
+
+builddir:
+	mkdir -p build
 
 #transaction_reader.o: transaction_reader.cc transaction_reader.h transaction.h
 #	$(CXX) $(CXXFLAGS) -c -o $@ $<	
