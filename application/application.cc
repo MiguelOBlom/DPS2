@@ -227,7 +227,7 @@ public:
 		for (auto transaction: transactions) {
 			std::cout << "-- Transaction -- " << std::endl;
 			for (size_t i = 0; i < MAX_TRANSACTIONS; i++) {
-				std::cout << transaction.transactions[i].sender << " to " << transaction.transactions[i].receiver << ": " << transaction.transactions[i].amount << std::endl; 
+				std::cout << transaction.transaction[i].sender << " to " << transaction.transaction[i].receiver << ": " << transaction.transaction[i].amount << std::endl; 
 			}
 			
 		}
