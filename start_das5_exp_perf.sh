@@ -19,7 +19,7 @@ TRACKER_PORT=8080
 WORKER_PORT=1234
 PEER_PORT=1234
 
-rm exp_perf.res
+rm -f exp_perf.res
 
 for BLOCK_SIZE in 1 2 5 10 20 50 100
 do
