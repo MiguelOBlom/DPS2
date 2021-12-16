@@ -53,7 +53,7 @@ do
 	echo "Starting worker $WORKER..."
         WORKER_IP=$(ssh $WORKER $'ifconfig | grep inet | grep -o \'10\.149\.\S*\' | awk -F . \'$NF !~ /^255/\'')
         mv $DPS2_DIR/$EXPERIMENT_NAME/$i.trc $DPS2_DIR/$EXPERIMENT_NAME/${WORKER_IP}_${PEER_PORT}.trc
-	screen -d -m -S $WORKER ssh -t $WORKER 'exec bash -l < DPS2/run_peer.sh'
+	screen -d -m -S $WORKER ssh -t $WORKER 'exec bash -l < DPS2/run_peer_init.sh'
 	i=$((i+1))
 	echo "Waiting $DPS_NDISTANCE seconds..."
 	sleep $DPS_NDISTANCE
