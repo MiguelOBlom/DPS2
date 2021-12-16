@@ -12,7 +12,7 @@ module load python/3.6.0
 #DPS_NTRANSACTIONS=$3
 #DPS_TIME=$2
 #DPS_NNODES=$1
-DPS_NNODES=22 # 20 empty peers, a tracker and the peer with the data
+DPS_NNODES=3 # 20 empty peers, a tracker and the peer with the data
 DPS_TIME="00:15:00"
 
 TRACKER_PORT=8080
