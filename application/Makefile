@@ -34,7 +34,7 @@ pow/libpow.so: pow/hashcash.h pow/iproofofwork.h
 	$(CXX) $(CXXFLAGS) -I./sha256 -o $@ $^ -shared -fPIC -L./sha256 -lsha256 
 
 p2p/common.o: p2p/common.c p2p/common.h p2p/crc.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $< -fPIC
 	
 p2p/db.o: p2p/db.c p2p/db.h
 	$(CC) $(CFLAGS) -c -o $@ $<
