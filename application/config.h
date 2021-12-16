@@ -13,4 +13,4 @@
 #define MAX_TRANSACTIONS 5
 #define ID_TYPE char
 // Chance data gets mutated (on receive)
-#define BITFLIP_CHANCE 10
+#define BITFLIP_CHANCE 0

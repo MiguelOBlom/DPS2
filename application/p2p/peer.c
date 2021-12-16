@@ -283,7 +283,7 @@ void* tracker_communication(void * args) {
 
 	 				i = 0;
 	 			} else {
-	 				//printf("Coming online...\n");
+	 				printf("Coming online...\n");
 	 				*(p->netinfo_lock.is_online) = 1;
 	 			}
 	 		}
@@ -313,7 +313,7 @@ void init_peer(struct peer* p, char* c_tracker_addr, char* c_tracker_port, char*
 	p->network_info = NULL;
 	p->n_peers = 0;
 	p->was_offline = 1;
-	p->is_online = 1;
+	p->is_online = 0;
 
 	// Construct tracker peer_address struct
 	tracker_addr = inet_addr(c_tracker_addr);

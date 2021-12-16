@@ -1,7 +1,12 @@
 Early votes mean that it makes no sense to add the block
-If no message from tracker-> do not join network!
 
 
 memory leaks
-Comments
 warnings/errors
+Deployment
+Experimentation
+Comments
+
+export LD_LIBRARY_PATH=/home/miguel/DPS2/application/blockchain:/home/miguel/DPS2/application/p2p:/home/miguel/DPS2/application/pow:/home/miguel/DPS2/application/sha256:/home/miguel/DPS2/application/sqlite3
+
+valgrind --leak-check=full ./application 145.118.194.119 1234 145.118.194.119 1235 ../transaction_generator/1639509698/2.trc
