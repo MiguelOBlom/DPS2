@@ -198,9 +198,8 @@ private:
 
 	std::vector<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*> addblock_candidates = std::vector<Block<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>*>();
 
-public:
-
 	void initialize() {
+		std::cout << "Initializing " << transactions.size() << " transactions" << std::endl;
 		while (!transactions.empty()) {
 			size_t block_id = bc->Size();
 			log->LogBlockAddedStart(block_id);
@@ -212,6 +211,10 @@ public:
 		
 		log->WriteBack(log_filename);
 	}
+
+public:
+
+
 
 
 	Application (char* tracker_addr, char* tracker_port, char* addr, char* port, std::vector<Transactions<ID_TYPE, MAX_TRANSACTIONS> > _transactions, char * _log_filename, char init) {
@@ -230,6 +233,8 @@ public:
 
 		if (init == '1') {
 			initialize();
+		} else {
+			std::cout << "Not initializing, we will be adding " << transactions.size() << " transactions" << std::endl;
 		}
 
 		struct inbox_thread_args* it_args = (struct inbox_thread_args*)malloc(sizeof(struct inbox_thread_args));
