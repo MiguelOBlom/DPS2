@@ -37,13 +37,13 @@ p2p/common.o: p2p/common.c p2p/common.h p2p/crc.h
 	$(CC) $(CFLAGS) -c -o $@ $< -fPIC
 	
 p2p/db.o: p2p/db.c p2p/db.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $< -fPIC
 	
 p2p/crc.o: p2p/crc.c p2p/crc.h config.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $< -fPIC
 	
 p2p/queue.o: p2p/queue.c p2p/queue.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $< -fPIC
 
 p2p/libpeer.so: p2p/peer.c p2p/common.o p2p/db.o p2p/crc.o p2p/queue.o p2p/common.h p2p/db.h p2p/crc.h p2p/queue.h p2p/peer.h
 	$(CC) $(CFLAGS) -I./sqlite3 -o $@ $^ -shared -fPIC -lsqlite3 -pthread -L./sqlite3
