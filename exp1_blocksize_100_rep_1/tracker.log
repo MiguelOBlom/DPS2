@@ -1,4 +1,4 @@
-sockaddr 2, 36895, 503354634
+sockaddr 2, 36895, 587240714
 SQLite version: 3.37.0
 &sockfd: 0xffefffb7c
 hm_args.sockfd : 0xffefffb7c
@@ -9,98 +9,97 @@ handle_heartbeat(sockfd, db);
 1
 There are 0 peers online!
 Sending netinfo
-Printing 24 bytes from 0x5996540.
+Printing 24 bytes from 0x59966c0.
 --- start bytes ---
 01 00 00 00 00 00 00 00 18 00 00 00 00 00 00 00 
 00 00 62 d8 00 00 00 00 
 --- end bytes ---
-Started proc!
 Started proc!
 handle_heartbeat(sockfd, db);
 2
+There are 0 peers online!
+Sending netinfo
+Printing 24 bytes from 0x59b0120.
+--- start bytes ---
+01 00 00 00 00 00 00 00 18 00 00 00 00 00 00 00 
+00 00 62 d8 00 00 00 00 
+--- end bytes ---
+Started proc!
+Started proc!
+handle_heartbeat(sockfd, db);
+3
 handle_acknowledge_netinfo(sockfd, db);
 There are 0 peers online!
 Sending netinfo
-Printing 24 bytes from 0x59b06d0.
+Printing 24 bytes from 0x59ca260.
 --- start bytes ---
 01 00 00 00 00 00 00 00 18 00 00 00 00 00 00 00 
 00 00 62 d8 00 00 00 00 
 --- end bytes ---
 Insterted!
 Started proc!
-handle_heartbeat(sockfd, db);
-3
-family: 2, port: 53764, addr: 536909066
-There are 1 peers online!
-Sending netinfo
-Printing 32 bytes from 0x59ca630.
---- start bytes ---
-01 00 00 00 00 00 00 00 20 00 00 00 00 00 00 00 
-2a 53 c0 34 00 00 00 00 02 00 04 d2 0a 95 00 20 
---- end bytes ---
-Started proc!
 handle_acknowledge_netinfo(sockfd, db);
+handle_acknowledge_netinfo(sockfd, db);
+Started proc!
+Insterted!
 Insterted!
 Started proc!
-handle_acknowledge_netinfo(sockfd, db);
 handle_heartbeat(sockfd, db);
 4
-Started proc!
-Insterted!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
 There are 3 peers online!
 Sending netinfo
-Printing 48 bytes from 0x59e4e90.
+Printing 48 bytes from 0x59e4dc0.
 --- start bytes ---
 01 00 00 00 00 00 00 00 30 00 00 00 00 00 00 00 
-c2 4d 74 c0 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
+92 c1 ba dd 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
 --- end bytes ---
 Started proc!
 handle_heartbeat(sockfd, db);
 5
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+There are 3 peers online!
+Sending netinfo
+Printing 48 bytes from 0x59fea60.
+--- start bytes ---
+01 00 00 00 00 00 00 00 30 00 00 00 00 00 00 00 
+92 c1 ba dd 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+--- end bytes ---
+Started proc!
+handle_acknowledge_netinfo(sockfd, db);
 handle_heartbeat(sockfd, db);
 6
 Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-There are 3 peers online!
-Sending netinfo
-Printing 48 bytes from 0x59fef10.
---- start bytes ---
-01 00 00 00 00 00 00 00 30 00 00 00 00 00 00 00 
-c2 4d 74 c0 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-There are 3 peers online!
-Sending netinfo
-Printing 48 bytes from 0x5a187d0.
---- start bytes ---
-01 00 00 00 00 00 00 00 30 00 00 00 00 00 00 00 
-c2 4d 74 c0 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
---- end bytes ---
 Started proc!
 handle_heartbeat(sockfd, db);
 7
-handle_acknowledge_netinfo(sockfd, db);
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
 There are 3 peers online!
 Sending netinfo
-Printing 48 bytes from 0x5a32a60.
+Printing 48 bytes from 0x5a19090.
 --- start bytes ---
 01 00 00 00 00 00 00 00 30 00 00 00 00 00 00 00 
-c2 4d 74 c0 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
+92 c1 ba dd 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+There are 3 peers online!
+Sending netinfo
+Printing 48 bytes from 0x5a32950.
+--- start bytes ---
+01 00 00 00 00 00 00 00 30 00 00 00 00 00 00 00 
+92 c1 ba dd 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
 --- end bytes ---
 Insterted!
 Started proc!
@@ -109,592 +108,595 @@ handle_heartbeat(sockfd, db);
 8
 Started proc!
 Started proc!
-handle_acknowledge_netinfo(sockfd, db);
-Insterted!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-There are 5 peers online!
-Sending netinfo
-Printing 64 bytes from 0x5a4d5e0.
---- start bytes ---
-01 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 
-9a 0e 16 d2 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
---- end bytes ---
-Insterted!
 Started proc!
 handle_heartbeat(sockfd, db);
 9
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+There are 4 peers online!
+Sending netinfo
+Printing 56 bytes from 0x5a4d830.
+--- start bytes ---
+01 00 00 00 00 00 00 00 38 00 00 00 00 00 00 00 
+4a 4c ae 2a 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+There are 4 peers online!
+Sending netinfo
+Printing 56 bytes from 0x5a67120.
+--- start bytes ---
+01 00 00 00 00 00 00 00 38 00 00 00 00 00 00 00 
+4a 4c ae 2a 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 
+--- end bytes ---
+handle_acknowledge_netinfo(sockfd, db);
+Insterted!
+Insterted!
+Started proc!
 handle_heartbeat(sockfd, db);
 10
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
 family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
 There are 6 peers online!
 Sending netinfo
-Printing 72 bytes from 0x5a67c10.
+Printing 72 bytes from 0x5a818d0.
 --- start bytes ---
 01 00 00 00 00 00 00 00 48 00 00 00 00 00 00 00 
-56 1f 7e 9a 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-There are 6 peers online!
-Sending netinfo
-Printing 72 bytes from 0x5a817f0.
---- start bytes ---
-01 00 00 00 00 00 00 00 48 00 00 00 00 00 00 00 
-56 1f 7e 9a 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 
+f8 9d dc f6 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 
 --- end bytes ---
 Started proc!
 handle_heartbeat(sockfd, db);
 11
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
 family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
 There are 6 peers online!
 Sending netinfo
-Printing 72 bytes from 0x5a9b500.
+Printing 72 bytes from 0x5a9b5e0.
 --- start bytes ---
 01 00 00 00 00 00 00 00 48 00 00 00 00 00 00 00 
-56 1f 7e 9a 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 
+f8 9d dc f6 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 
 --- end bytes ---
 Started proc!
 handle_acknowledge_netinfo(sockfd, db);
 handle_heartbeat(sockfd, db);
 12
 Started proc!
+Insterted!
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+There are 7 peers online!
+Sending netinfo
+Printing 80 bytes from 0x5ab58f0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 50 00 00 00 00 00 00 00 
+de ca 3a fe 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+--- end bytes ---
+Started proc!
 handle_heartbeat(sockfd, db);
 13
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-There are 6 peers online!
-Sending netinfo
-Printing 72 bytes from 0x5ab5c10.
---- start bytes ---
-01 00 00 00 00 00 00 00 48 00 00 00 00 00 00 00 
-56 1f 7e 9a 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-There are 6 peers online!
-Sending netinfo
-Printing 72 bytes from 0x5acf540.
---- start bytes ---
-01 00 00 00 00 00 00 00 48 00 00 00 00 00 00 00 
-56 1f 7e 9a 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 
---- end bytes ---
-Started proc!
-Started proc!
 handle_heartbeat(sockfd, db);
 14
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-There are 6 peers online!
-Sending netinfo
-Printing 72 bytes from 0x5ae9490.
---- start bytes ---
-01 00 00 00 00 00 00 00 48 00 00 00 00 00 00 00 
-56 1f 7e 9a 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 
---- end bytes ---
-Insterted!
 Started proc!
-handle_acknowledge_netinfo(sockfd, db);
+Started proc!
 handle_heartbeat(sockfd, db);
 15
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+There are 7 peers online!
+Sending netinfo
+Printing 80 bytes from 0x5ad06a0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 50 00 00 00 00 00 00 00 
+de ca 3a fe 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+--- end bytes ---
+handle_acknowledge_netinfo(sockfd, db);
+Started proc!
 Started proc!
 handle_heartbeat(sockfd, db);
 16
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-There are 7 peers online!
-Sending netinfo
-Printing 80 bytes from 0x5b04110.
---- start bytes ---
-01 00 00 00 00 00 00 00 50 00 00 00 00 00 00 00 
-54 92 04 b2 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-There are 7 peers online!
-Sending netinfo
-Printing 80 bytes from 0x5b1da50.
---- start bytes ---
-01 00 00 00 00 00 00 00 50 00 00 00 00 00 00 00 
-54 92 04 b2 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
---- end bytes ---
-Started proc!
-handle_acknowledge_netinfo(sockfd, db);
-Started proc!
 Insterted!
-Insterted!
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+There are 8 peers online!
+Sending netinfo
+Printing 88 bytes from 0x5aea8c0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 58 00 00 00 00 00 00 00 
+72 1a cc f7 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+There are 8 peers online!
+Sending netinfo
+Printing 88 bytes from 0x5b044e0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 58 00 00 00 00 00 00 00 
+72 1a cc f7 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+There are 8 peers online!
+Sending netinfo
+Printing 88 bytes from 0x5b1de50.
+--- start bytes ---
+01 00 00 00 00 00 00 00 58 00 00 00 00 00 00 00 
+72 1a cc f7 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 
+--- end bytes ---
 Started proc!
 handle_heartbeat(sockfd, db);
 17
 handle_heartbeat(sockfd, db);
 18
 Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-There are 9 peers online!
-Sending netinfo
-Printing 96 bytes from 0x5b38700.
---- start bytes ---
-01 00 00 00 00 00 00 00 60 00 00 00 00 00 00 00 
-aa 95 b0 59 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-There are 9 peers online!
-Sending netinfo
-Printing 96 bytes from 0x5b52080.
---- start bytes ---
-01 00 00 00 00 00 00 00 60 00 00 00 00 00 00 00 
-aa 95 b0 59 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
---- end bytes ---
 Started proc!
 handle_heartbeat(sockfd, db);
 19
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+There are 8 peers online!
+Sending netinfo
+Printing 88 bytes from 0x5b387c0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 58 00 00 00 00 00 00 00 
+72 1a cc f7 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+There are 8 peers online!
+Sending netinfo
+Printing 88 bytes from 0x5b52230.
+--- start bytes ---
+01 00 00 00 00 00 00 00 58 00 00 00 00 00 00 00 
+72 1a cc f7 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+There are 8 peers online!
+Sending netinfo
+Printing 88 bytes from 0x5b6be50.
+--- start bytes ---
+01 00 00 00 00 00 00 00 58 00 00 00 00 00 00 00 
+72 1a cc f7 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 
+--- end bytes ---
+Started proc!
 handle_heartbeat(sockfd, db);
 20
+handle_acknowledge_netinfo(sockfd, db);
 Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
 family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 637572362
 family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-There are 9 peers online!
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+There are 8 peers online!
 Sending netinfo
-Printing 96 bytes from 0x5b6c470.
+Printing 88 bytes from 0x5b85ee0.
 --- start bytes ---
-01 00 00 00 00 00 00 00 60 00 00 00 00 00 00 00 
-aa 95 b0 59 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
+01 00 00 00 00 00 00 00 58 00 00 00 00 00 00 00 
+72 1a cc f7 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 
 --- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-There are 9 peers online!
-Sending netinfo
-Printing 96 bytes from 0x5b85df0.
---- start bytes ---
-01 00 00 00 00 00 00 00 60 00 00 00 00 00 00 00 
-aa 95 b0 59 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
---- end bytes ---
+Insterted!
 Started proc!
 handle_acknowledge_netinfo(sockfd, db);
 handle_heartbeat(sockfd, db);
 21
 Started proc!
+Started proc!
+handle_acknowledge_netinfo(sockfd, db);
 Insterted!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
 family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 637572362
 family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
 There are 10 peers online!
 Sending netinfo
-Printing 104 bytes from 0x5ba0400.
+Printing 104 bytes from 0x5ba08a0.
 --- start bytes ---
 01 00 00 00 00 00 00 00 68 00 00 00 00 00 00 00 
-de 23 20 50 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 
+32 ee 3c 07 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 
 --- end bytes ---
+Insterted!
 Started proc!
 handle_heartbeat(sockfd, db);
 22
 handle_heartbeat(sockfd, db);
 23
 Started proc!
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5bbaf80.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5bd4bf0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
 Started proc!
 handle_heartbeat(sockfd, db);
 24
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-There are 10 peers online!
-Sending netinfo
-Printing 104 bytes from 0x5bbb220.
---- start bytes ---
-01 00 00 00 00 00 00 00 68 00 00 00 00 00 00 00 
-de 23 20 50 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 
---- end bytes ---
-Started proc!
-Started proc!
-handle_acknowledge_netinfo(sockfd, db);
 handle_heartbeat(sockfd, db);
 25
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-There are 10 peers online!
-Sending netinfo
-Printing 104 bytes from 0x5bd4f40.
---- start bytes ---
-01 00 00 00 00 00 00 00 68 00 00 00 00 00 00 00 
-de 23 20 50 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 
---- end bytes ---
-Insterted!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5beec20.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5c085e0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
 Started proc!
 handle_heartbeat(sockfd, db);
 26
+Started proc!
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5bef400.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5c09070.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5c22a30.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+Started proc!
 handle_heartbeat(sockfd, db);
 27
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5c233f0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5c3ce90.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
 handle_heartbeat(sockfd, db);
 28
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5c56ee0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
+Started proc!
 Started proc!
 handle_heartbeat(sockfd, db);
 29
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5c3d4f0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5c57160.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5c70dd0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+Started proc!
+Started proc!
 handle_heartbeat(sockfd, db);
 30
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5c71310.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5c8af80.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
 handle_heartbeat(sockfd, db);
 31
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5c8b200.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5ca4bc0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+Started proc!
 handle_heartbeat(sockfd, db);
 32
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
 family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 637572362
 family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5ca53b0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
 family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
+family: 2, port: 53764, addr: 889230602
 There are 11 peers online!
 Sending netinfo
-Printing 112 bytes from 0x5cbf020.
+Printing 112 bytes from 0x5cbeec0.
 --- start bytes ---
 01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
 --- end bytes ---
 Started proc!
 handle_heartbeat(sockfd, db);
@@ -702,706 +704,255 @@ handle_heartbeat(sockfd, db);
 handle_heartbeat(sockfd, db);
 34
 Started proc!
-handle_heartbeat(sockfd, db);
-35
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
 family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 637572362
 family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
 There are 11 peers online!
 Sending netinfo
-Printing 112 bytes from 0x5cd9b70.
+Printing 112 bytes from 0x5cd92f0.
 --- start bytes ---
 01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
 --- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5cf2f60.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+Started proc!
+handle_heartbeat(sockfd, db);
+35
 handle_heartbeat(sockfd, db);
 36
 Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5cf3880.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5d0d240.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5d26eb0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
 handle_heartbeat(sockfd, db);
 37
+Started proc!
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5d0d940.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5d275b0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5d41050.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+Started proc!
 handle_heartbeat(sockfd, db);
 38
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5d41590.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5d45d10.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
 handle_heartbeat(sockfd, db);
 39
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5d4a870.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
 Started proc!
 handle_heartbeat(sockfd, db);
 40
+Started proc!
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5d46370.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5d4aaf0.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 654349578
+family: 2, port: 53764, addr: 637572362
+family: 2, port: 53764, addr: 671126794
+family: 2, port: 53764, addr: 687904010
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
+There are 11 peers online!
+Sending netinfo
+Printing 112 bytes from 0x5d4e220.
+--- start bytes ---
+01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
+--- end bytes ---
+Started proc!
 handle_heartbeat(sockfd, db);
 41
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x5d4e760.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x69af330.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
 handle_heartbeat(sockfd, db);
 42
-handle_heartbeat(sockfd, db);
-43
 Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
 family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 637572362
 family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
+family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 889230602
 There are 11 peers online!
 Sending netinfo
-Printing 112 bytes from 0x69c9930.
+Printing 112 bytes from 0x69af590.
 --- start bytes ---
 01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 00 2c 02 00 04 d2 0a 95 00 2d 
+02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 35 
 --- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
 family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
+family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 637572362
 family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
 family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x69e3120.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
-handle_heartbeat(sockfd, db);
-44
-handle_heartbeat(sockfd, db);
-45
-Started proc!
-handle_heartbeat(sockfd, db);
-46
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
+family: 2, port: 53764, addr: 704681226
+family: 2, port: 53764, addr: 721458442
+family: 2, port: 53764, addr: 738235658
+family: 2, port: 53764, addr: 755012874
 family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
+family: 2, port: 53764, addr: 889230602
 There are 11 peers online!
 Sending netinfo
-Printing 112 bytes from 0x69fdf20.
+Printing 112 bytes from 0x69c9200.
 --- start bytes ---
 01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
-handle_heartbeat(sockfd, db);
-47
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6a17c30.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6a318a0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6a4bad0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
-handle_heartbeat(sockfd, db);
-48
-handle_heartbeat(sockfd, db);
-49
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6a65b10.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6a7f5b0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
-handle_heartbeat(sockfd, db);
-50
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6a99600.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
-handle_heartbeat(sockfd, db);
-51
-handle_heartbeat(sockfd, db);
-52
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6ab3a30.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6acd3f0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
-handle_heartbeat(sockfd, db);
-53
-handle_heartbeat(sockfd, db);
-54
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6ae7ad0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6b01740.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
-handle_heartbeat(sockfd, db);
-55
-handle_heartbeat(sockfd, db);
-56
-Started proc!
-handle_heartbeat(sockfd, db);
-57
-Started proc!
-Started proc!
-handle_heartbeat(sockfd, db);
-58
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6b1c6d0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6b36340.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6b503a0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6b69b90.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-Started proc!
-handle_heartbeat(sockfd, db);
-59
-handle_heartbeat(sockfd, db);
-60
-Started proc!
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
-family: 2, port: 53764, addr: 620795146
-family: 2, port: 53764, addr: 604017930
-family: 2, port: 53764, addr: 637572362
-family: 2, port: 53764, addr: 671126794
-family: 2, port: 53764, addr: 654349578
-family: 2, port: 53764, addr: 687904010
-family: 2, port: 53764, addr: 520131850
-There are 11 peers online!
-Sending netinfo
-Printing 112 bytes from 0x6b83cb0.
---- start bytes ---
-01 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 
-ec 10 70 c7 00 00 00 00 02 00 04 d2 0a 95 00 20 
-02 00 04 d2 0a 95 00 21 02 00 04 d2 0a 95 00 22 
-02 00 04 d2 0a 95 00 23 02 00 04 d2 0a 95 00 25 
-02 00 04 d2 0a 95 00 24 02 00 04 d2 0a 95 00 26 
-02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 27 
-02 00 04 d2 0a 95 00 29 02 00 04 d2 0a 95 00 1f 
---- end bytes ---
-family: 2, port: 53764, addr: 536909066
-family: 2, port: 53764, addr: 553686282
-family: 2, port: 53764, addr: 570463498
-family: 2, port: 53764, addr: 587240714
+b8 16 94 a5 00 00 00 00 02 00 04 d2 0a 95 00 25 
+02 00 04 d2 0a 95 00 27 02 00 04 d2 0a 95 00 26 
+02 00 04 d2 0a 95 00 28 02 00 04 d2 0a 95 00 29 
+02 00 04 d2 0a 95 00 2a 02 00 04 d2 0a 95 00 2b 
+02 00 04 d2 0a 95 
