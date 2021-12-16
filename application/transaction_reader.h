@@ -25,7 +25,8 @@ public:
 		while(!transaction_file.eof()) {
 			struct Transactions<ID, N> transactions;
 			memset(&transactions, 0, sizeof(transactions));
-			for (unsigned int i = 0; i < N && !transaction_file.eof(); ++i) {
+			unsigned int i = 0;
+			for (; i < N && !transaction_file.eof(); ++i) {
 				transaction_file >> sender >> receiver >> amount;
 
 				if (sender == 0 && receiver == 0 && amount == 0) {
