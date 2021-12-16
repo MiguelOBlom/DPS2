@@ -224,6 +224,14 @@ public:
 
 		transactions = _transactions;
 
+		for (auto transaction: transactions) {
+			std::cout << "-- Transaction -- "
+			for (size_t i = 0; i < MAX_TRANSACTIONS; i++) {
+				std::cout << transaction[i].sender << " to " << transaction[i].receiver << ": " << transaction[i].amount << std::endl; 
+			}
+			
+		}
+
 		bc = new Blockchain<Transactions<ID_TYPE, MAX_TRANSACTIONS>, std::string>(SHA256FromDataAndHash);
 		
 		peer = (struct peer*) malloc(sizeof(struct peer));
