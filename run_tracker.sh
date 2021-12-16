@@ -8,6 +8,6 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH":$DPS2_DIR/application/blockchain:$DPS2
 DB=$DPS2_DIR/p2p.db
 
 rm -f $DB
-echo $DPS2_DIR/application/build/tracker $TRACKER_IP $TRACKER_PORT $DB
+echo $DPS2_DIR/application/build/tracker $TRACKER_IP $TRACKER_PORT $DB >> out.txt
 $DPS2_DIR/application/build/tracker $TRACKER_IP $TRACKER_PORT $DB
 sleep infinity
