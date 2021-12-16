@@ -53,7 +53,7 @@ void Logger::LogBlockAddedStop(size_t block_id, bool success) {
 }
 
 void Logger::WriteBack(char* filename) {
-	std::cout << "Logging to" << filename << std::endl;
+	std::cout << "Logging to " << filename << std::endl;
 	std::ofstream outfile;
 
 	if (first_write) {

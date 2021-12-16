@@ -1137,6 +1137,7 @@ int main (int argc, char ** argv) {
 		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port> <transaction_trace> <output_file>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
+	std::cout << argv[6] << std::endl;
 
 	Application* a = new Application(argv[1], argv[2], argv[3], argv[4], TransactionReader<ID_TYPE, MAX_TRANSACTIONS>::ReadFile(argv[5]), argv[6]);
 	a->Run();
