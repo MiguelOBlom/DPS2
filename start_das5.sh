@@ -50,7 +50,7 @@ i=0
 for WORKER in $WORKERS;
 do
         WORKER_IP=$(ssh $WORKER $'ifconfig | grep inet | grep -o \'10\.149\.\S*\' | awk -F . \'$NF !~ /^255/\'')
-        mv $DPS2_DIR/application/transaction_generator/$EXPERIMENT_NAME/$i.trc $DPS2_DIR/application/transaction_generator/$EXPERIMENT_NAME/$WORKER_IP_$PEER_PORT.trc
+        mv $DPS2_DIR/$EXPERIMENT_NAME/$i.trc $DPS2_DIR/$EXPERIMENT_NAME/$WORKER_IP_$PEER_PORT.trc
 	screen -d -m -S $WORKER ssh -t $WORKER 'exec bash -l < DPS2/run_peer.sh'
 	i=$((i+1))
 	sleep $DPS_NDISTANCE
