@@ -1,5 +1,4 @@
-Early votes mean that it makes no sense to add the block
-
+Log for experiments
 
 memory leaks
 warnings/errors
@@ -7,6 +6,7 @@ Deployment
 Experimentation
 Comments
 
-export LD_LIBRARY_PATH=/home/miguel/DPS2/application/blockchain:/home/miguel/DPS2/application/p2p:/home/miguel/DPS2/application/pow:/home/miguel/DPS2/application/sha256:/home/miguel/DPS2/application/sqlite3
+export DPS2_DIR=/home/miguel/DPS2
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH":$DPS2_DIR/application/blockchain:$DPS2_DIR/application/p2p:$DPS2_DIR/application/pow:$DPS2_DIR/application/sha256:$DPS2_DIR/application/sqlite3
 
 valgrind --leak-check=full ./application 145.118.194.119 1234 145.118.194.119 1235 ../transaction_generator/1639509698/2.trc

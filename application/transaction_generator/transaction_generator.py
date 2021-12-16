@@ -43,3 +43,5 @@ for i in range(n_peers):
 	with open(os.path.join(name, str(i) + ".trc"), "w+") as f:
 		for transaction in trace[i]:
 			f.write("\t".join(transaction) + "\n")
+			
+print(name)
