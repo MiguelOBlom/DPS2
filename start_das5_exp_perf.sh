@@ -19,6 +19,8 @@ TRACKER_PORT=8080
 WORKER_PORT=1234
 PEER_PORT=1234
 
+rm exp_perf.res
+
 for BLOCK_SIZE in 1 2 5 10 20 50 100
 do
 	# Generate config
@@ -92,6 +94,7 @@ do
 
 		# Add worker seperately
 		echo "Starting seperate worker $SEP_WORKER..."
+		start=$(date +%s.%1N)
 		WORKER_IP=$(ssh $SEP_WORKER $'ifconfig | grep inet | grep -o \'10\.149\.\S*\' | awk -F . \'$NF !~ /^255/\'')
 		mv $DPS2_DIR/$EXPERIMENT_NAME/data.trc $DPS2_DIR/$EXPERIMENT_NAME/${WORKER_IP}_${PEER_PORT}.trc
 		screen -d -m -S $SEP_WORKER ssh -t $SEP_WORKER 'exec bash -l < DPS2/run_peer.sh'
@@ -100,6 +103,11 @@ do
 		do
 		  sleep 1
 		done
+
+		end=$(date +%s.%1N)
+		res=$(echo "scale=1; $end - $start" | bc)
+
+		echo $BLOCK_SIZE $REP $res >> exp_perf.res
 
 		# Change the experiment name
 		./stop_das5.sh
