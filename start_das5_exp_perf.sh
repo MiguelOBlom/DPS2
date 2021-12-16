@@ -91,9 +91,10 @@ do
 		done
 
 		# Add worker seperately
+		echo "Starting seperate worker $SEP_WORKER..."
 		WORKER_IP=$(ssh $SEP_WORKER $'ifconfig | grep inet | grep -o \'10\.149\.\S*\' | awk -F . \'$NF !~ /^255/\'')
 		mv $DPS2_DIR/$EXPERIMENT_NAME/data.trc $DPS2_DIR/$EXPERIMENT_NAME/${WORKER_IP}_${PEER_PORT}.trc
-		screen -d -m -S $SEP_WORKER ssh -t $SEP_WORKER 'exec bash -l < DPS2/run_peer_init.sh'
+		screen -d -m -S $SEP_WORKER ssh -t $SEP_WORKER 'exec bash -l < DPS2/run_peer.sh'
 
 		while [ ! -f $DPS2_DIR/$EXPERIMENT_NAME/out/${WORKER_IP}_${PEER_PORT}.out ]
 		do
