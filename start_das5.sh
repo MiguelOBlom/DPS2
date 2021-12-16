@@ -54,6 +54,7 @@ do
         mv $DPS2_DIR/$EXPERIMENT_NAME/$i.trc $DPS2_DIR/$EXPERIMENT_NAME/$WORKER_IP_$PEER_PORT.trc
 	screen -d -m -S $WORKER ssh -t $WORKER 'exec bash -l < DPS2/run_peer.sh'
 	i=$((i+1))
+	echo "Waiting $DPS_NDISTANCE seconds..."
 	sleep $DPS_NDISTANCE
 done
 
