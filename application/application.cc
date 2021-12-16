@@ -200,7 +200,21 @@ private:
 
 public:
 
-	Application (char* tracker_addr, char* tracker_port, char* addr, char* port, std::vector<Transactions<ID_TYPE, MAX_TRANSACTIONS> > _transactions, char * _log_filename) {
+	void initialize() {
+		while (!transactions.empty()) {
+			size_t block_id = bc->Size();
+			log->LogBlockAddedStart(block_id);
+			Transactions<ID_TYPE, MAX_TRANSACTIONS> ts = transactions.front(); 
+			bc->AddBlock(&ts);
+			transactions.erase(transactions.begin());
+			log->LogBlockAddedStop(block_id, true);
+		}
+		
+		log->WriteBack(log_filename);
+	}
+
+
+	Application (char* tracker_addr, char* tracker_port, char* addr, char* port, std::vector<Transactions<ID_TYPE, MAX_TRANSACTIONS> > _transactions, char * _log_filename, char init) {
 		std::cout << _log_filename << std::endl;
 		log = new Logger();
 		log_filename = _log_filename;
@@ -214,7 +228,9 @@ public:
 		init_peer(peer, tracker_addr, tracker_port, addr, port);
 		pow_group = new HashCash(DIFFICULTY);
 
-
+		if (init == '1') {
+			initialize();
+		}
 
 		struct inbox_thread_args* it_args = (struct inbox_thread_args*)malloc(sizeof(struct inbox_thread_args));
 		it_args->inbox = &inbox;
@@ -1134,13 +1150,13 @@ int blockchaintest1() {
 int main (int argc, char ** argv) {
 	srand(time(NULL));
 
-	if (argc != 7) {
-		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port> <transaction_trace> <output_file>\n", argv[0]);
+	if (argc != 8) {
+		printf("Usage: %s <tracker_addr> <tracker_port> <addr> <port> <transaction_trace> <output_file> <0/1 for initialization>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 	std::cout << argv[6] << std::endl;
 
-	Application* a = new Application(argv[1], argv[2], argv[3], argv[4], TransactionReader<ID_TYPE, MAX_TRANSACTIONS>::ReadFile(argv[5]), argv[6]);
+	Application* a = new Application(argv[1], argv[2], argv[3], argv[4], TransactionReader<ID_TYPE, MAX_TRANSACTIONS>::ReadFile(argv[5]), argv[6], argv[7][0]);
 	a->Run();
 
 
