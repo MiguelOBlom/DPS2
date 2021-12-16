@@ -10,7 +10,7 @@
 #define TRACKER_QUEUE_SIZE 20
 // Application configuration
 #define DIFFICULTY 24
-#define MAX_TRANSACTIONS 1
+#define MAX_TRANSACTIONS 100
 #define ID_TYPE char
 // Chance data gets mutated (on receive)
 #define BITFLIP_CHANCE 0

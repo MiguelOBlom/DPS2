@@ -19,7 +19,7 @@ TRACKER_PORT=8080
 WORKER_PORT=1234
 PEER_PORT=1234
 
-for BLOCK_SIZE in 1 #2 5 10 20 50 100
+for BLOCK_SIZE in 100 #2 5 10 20 50 100
 do
 	# Generate config
 	echo "// Socket family" > $DPS2_DIR/application/config.h

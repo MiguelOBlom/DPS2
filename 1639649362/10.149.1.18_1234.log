@@ -1,0 +1,2974 @@
+/home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+/home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+Started proc!
+sockaddr 2, 53764, 302093578
+Thread started!
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+0x6307b4
+We are offline...
+0x6307b4
+We are offline...
+[ receive_netinfo ] 0 peers online!
+Printing 0 bytes from 0x2aaab0000910.
+--- start bytes ---
+--- end bytes ---
+We are offline...
+We are offline...
+We are offline...
+We are offline...
+We are offline...
+We are offline...
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ RequestBlockchain ] --------- Start --------- 
+[ RequestBlockchain ] Requesting block 2
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+[ SendBlockchain ] Block 1 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ RequestBlockchain ] Majority found
+[ RequestBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash 5996d49a6cbf3e1e94b31746440ee59cedf92e76b1f3f17b7f1169e28ee3507f
+Blockchain is size 2 with top hash 5996d49a6cbf3e1e94b31746440ee59cedf92e76b1f3f17b7f1169e28ee3507f
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block 1 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash 5996d49a6cbf3e1e94b31746440ee59cedf92e76b1f3f17b7f1169e28ee3507f
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 2 with top hash 5996d49a6cbf3e1e94b31746440ee59cedf92e76b1f3f17b7f1169e28ee3507f
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash 5996d49a6cbf3e1e94b31746440ee59cedf92e76b1f3f17b7f1169e28ee3507f
+[ RequestBlockchain ] Requesting block 2
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 2 with hash 792e4214b40db41ae02cf0a8a4cc8f9dcf76a5fa6875e4208c9718a3d495bcc4
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 3
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 3 with top hash 792e4214b40db41ae02cf0a8a4cc8f9dcf76a5fa6875e4208c9718a3d495bcc4
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 3 with top hash 792e4214b40db41ae02cf0a8a4cc8f9dcf76a5fa6875e4208c9718a3d495bcc4
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 3 with top hash 792e4214b40db41ae02cf0a8a4cc8f9dcf76a5fa6875e4208c9718a3d495bcc4
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 3 with top hash 792e4214b40db41ae02cf0a8a4cc8f9dcf76a5fa6875e4208c9718a3d495bcc4
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 3 with hash d57ae3aa94d8d76c3f8894d1534168c9a8c7985e9dde23c7164f35fa67cb6ed6
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 4
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 4 with top hash d57ae3aa94d8d76c3f8894d1534168c9a8c7985e9dde23c7164f35fa67cb6ed6
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 4 with top hash d57ae3aa94d8d76c3f8894d1534168c9a8c7985e9dde23c7164f35fa67cb6ed6
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 4 with top hash d57ae3aa94d8d76c3f8894d1534168c9a8c7985e9dde23c7164f35fa67cb6ed6
+[ RequestBlockchain ] Requesting block 4
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 4 with hash 413783118ca40ca7babf5e8d76af36615019087a09894e770fddc1de704666c6
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Got vote for block 4
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 5
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 5 with top hash 413783118ca40ca7babf5e8d76af36615019087a09894e770fddc1de704666c6
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 5 with top hash 413783118ca40ca7babf5e8d76af36615019087a09894e770fddc1de704666c6
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 5 with top hash 413783118ca40ca7babf5e8d76af36615019087a09894e770fddc1de704666c6
+[ RequestBlockchain ] Requesting block 5
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 5 with hash bdc61c37ced4c48b42b6da122f1873ecb5adb1d7e0ae9fa2ea7d4411580c92cc
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 5
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 6
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 6 with top hash bdc61c37ced4c48b42b6da122f1873ecb5adb1d7e0ae9fa2ea7d4411580c92cc
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 6 with top hash bdc61c37ced4c48b42b6da122f1873ecb5adb1d7e0ae9fa2ea7d4411580c92cc
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 6 with top hash bdc61c37ced4c48b42b6da122f1873ecb5adb1d7e0ae9fa2ea7d4411580c92cc
+[ RequestBlockchain ] Requesting block 6
+Broadcast to 2, 53764, 285316362
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 6 with hash 1bfe2c1e10c44a493e0f06d7ddf5b3739e550333eb6340c0fb0f4ca3174799e8
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 6
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 7
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 7 with top hash 1bfe2c1e10c44a493e0f06d7ddf5b3739e550333eb6340c0fb0f4ca3174799e8
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 7 with top hash 1bfe2c1e10c44a493e0f06d7ddf5b3739e550333eb6340c0fb0f4ca3174799e8
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 7 with top hash 1bfe2c1e10c44a493e0f06d7ddf5b3739e550333eb6340c0fb0f4ca3174799e8
+[ RequestBlockchain ] Requesting block 7
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 7 with hash b433796fd48e09e3da80fcbb1b39f993640ec0f63d84e073dbb496142c5b8a6b
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Got vote for block 7
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 8
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 8 with top hash b433796fd48e09e3da80fcbb1b39f993640ec0f63d84e073dbb496142c5b8a6b
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 8 with top hash b433796fd48e09e3da80fcbb1b39f993640ec0f63d84e073dbb496142c5b8a6b
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 8 with top hash b433796fd48e09e3da80fcbb1b39f993640ec0f63d84e073dbb496142c5b8a6b
+[ RequestBlockchain ] Requesting block 8
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 8 with hash a02f2d83f56ddbf4f277b26c06d3a4a214ab411aba970d0a9adae27a019f3a87
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 8
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 9
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 9 with top hash a02f2d83f56ddbf4f277b26c06d3a4a214ab411aba970d0a9adae27a019f3a87
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 9 with top hash a02f2d83f56ddbf4f277b26c06d3a4a214ab411aba970d0a9adae27a019f3a87
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 9 with top hash a02f2d83f56ddbf4f277b26c06d3a4a214ab411aba970d0a9adae27a019f3a87
+[ RequestBlockchain ] Requesting block 9
+Broadcast to 2, 53764, 285316362
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 9 with hash a42f8312605ac8662cb7b83488b520c6ed5c6be6f39d96376e53310053caec7d
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 9
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 10
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 10 with top hash a42f8312605ac8662cb7b83488b520c6ed5c6be6f39d96376e53310053caec7d
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 10 with top hash a42f8312605ac8662cb7b83488b520c6ed5c6be6f39d96376e53310053caec7d
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 10 with top hash a42f8312605ac8662cb7b83488b520c6ed5c6be6f39d96376e53310053caec7d
+[ RequestBlockchain ] Requesting block 10
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 10 with hash 595b89f59b4332b474af3e3a7b93c8aff31c66e8184f93ad593de74ed3e87601
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Got vote for block 10
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 11
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 11 with top hash 595b89f59b4332b474af3e3a7b93c8aff31c66e8184f93ad593de74ed3e87601
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 11 with top hash 595b89f59b4332b474af3e3a7b93c8aff31c66e8184f93ad593de74ed3e87601
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 11 with top hash 595b89f59b4332b474af3e3a7b93c8aff31c66e8184f93ad593de74ed3e87601
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 11 with top hash 595b89f59b4332b474af3e3a7b93c8aff31c66e8184f93ad593de74ed3e87601
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 11 with top hash 595b89f59b4332b474af3e3a7b93c8aff31c66e8184f93ad593de74ed3e87601
+[ RequestBlockchain ] Requesting block 11
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 11 with hash fcd2bffee4f7361fc69dabc6b9bedf32320a250337af0799aefa827aebd36657
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 11
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 12
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 12 with top hash fcd2bffee4f7361fc69dabc6b9bedf32320a250337af0799aefa827aebd36657
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 12 with top hash fcd2bffee4f7361fc69dabc6b9bedf32320a250337af0799aefa827aebd36657
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 12 with top hash fcd2bffee4f7361fc69dabc6b9bedf32320a250337af0799aefa827aebd36657
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 12 with top hash fcd2bffee4f7361fc69dabc6b9bedf32320a250337af0799aefa827aebd36657
+[ RequestBlockchain ] Requesting block 12
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 12 with hash 9d19b5edc49bac79ab9d9c937d903f593dd3364b816d0af0e11fbf24313e83f9
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 12
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 13
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 13 with top hash 9d19b5edc49bac79ab9d9c937d903f593dd3364b816d0af0e11fbf24313e83f9
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 13 with top hash 9d19b5edc49bac79ab9d9c937d903f593dd3364b816d0af0e11fbf24313e83f9
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 13 with top hash 9d19b5edc49bac79ab9d9c937d903f593dd3364b816d0af0e11fbf24313e83f9
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 13 with top hash 9d19b5edc49bac79ab9d9c937d903f593dd3364b816d0af0e11fbf24313e83f9
+[ RequestBlockchain ] Requesting block 13
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 13 with hash a9e27c72c402d489009805ddbd8e07ab90de43fd6ba559c7f931522e6a739a68
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Got vote for block 13
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 14
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 14 with top hash a9e27c72c402d489009805ddbd8e07ab90de43fd6ba559c7f931522e6a739a68
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 14 with top hash a9e27c72c402d489009805ddbd8e07ab90de43fd6ba559c7f931522e6a739a68
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 14 with top hash a9e27c72c402d489009805ddbd8e07ab90de43fd6ba559c7f931522e6a739a68
+[ RequestBlockchain ] Requesting block 14
+Broadcast to 2, 53764, 285316362
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 14 with hash 063265b7deb0cd9780e24cee74e649e3f88d9b1f505c2aee94450a1007633152
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 14
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 15
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 15 with top hash 063265b7deb0cd9780e24cee74e649e3f88d9b1f505c2aee94450a1007633152
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 15 with top hash 063265b7deb0cd9780e24cee74e649e3f88d9b1f505c2aee94450a1007633152
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 15 with top hash 063265b7deb0cd9780e24cee74e649e3f88d9b1f505c2aee94450a1007633152
+[ RequestBlockchain ] Requesting block 15
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 15 with hash bde903fd41c3f8f3b56177568e3c07db2d068f50be1997a9e7460a617fc7fa27
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ CheckVotesForBlock ] Got vote for block 15
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 16
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 16 with top hash bde903fd41c3f8f3b56177568e3c07db2d068f50be1997a9e7460a617fc7fa27
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 16 with top hash bde903fd41c3f8f3b56177568e3c07db2d068f50be1997a9e7460a617fc7fa27
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 16 with top hash bde903fd41c3f8f3b56177568e3c07db2d068f50be1997a9e7460a617fc7fa27
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 16 with top hash bde903fd41c3f8f3b56177568e3c07db2d068f50be1997a9e7460a617fc7fa27
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 16 with top hash bde903fd41c3f8f3b56177568e3c07db2d068f50be1997a9e7460a617fc7fa27
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 16 with top hash bde903fd41c3f8f3b56177568e3c07db2d068f50be1997a9e7460a617fc7fa27
+[ RequestBlockchain ] Requesting block 16
+Broadcast to 2, 53764, 285316362
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 285316362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 16 with hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Broadcast to 2, 53764, 285316362
+[ HandleBlockAdditionRequest ] Sent vote 1 to 1 peers
+[ receive_netinfo ] 2 peers online!
+Coming online...
+[ CheckVotesForBlock ] Got vote for block 16
+[ CheckVotesForBlock ] Handling vote 
+2 53764 285316362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 2 agree vs. 0 disagree, out of 2
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 17
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 2 peers online!
+Coming online...
+Blockchain is size 17 with top hash 10f243c67ea5c860769d5b5c0e004eca23021190a22735120cb3685880114723
+Logging to /home/ddps2001/DPS2/1639649362/out/10.149.1.18_1234.out
+[ Run ] No messages... 
