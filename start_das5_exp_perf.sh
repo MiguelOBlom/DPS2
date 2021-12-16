@@ -34,7 +34,7 @@ do
 	echo "#define TRACKER_QUEUE_SIZE 20" >> $DPS2_DIR/application/config.h
 	echo "// Application configuration" >> $DPS2_DIR/application/config.h
 	echo "#define DIFFICULTY 24" >> $DPS2_DIR/application/config.h
-	echo "#define MAX_TRANSACTIONS 5" >> $DPS2_DIR/application/config.h
+	echo "#define MAX_TRANSACTIONS $BLOCK_SIZE" >> $DPS2_DIR/application/config.h
 	echo "#define ID_TYPE char" >> $DPS2_DIR/application/config.h
 	echo "// Chance data gets mutated (on receive)" >> $DPS2_DIR/application/config.h
 	echo "#define BITFLIP_CHANCE 0" >> $DPS2_DIR/application/config.h
