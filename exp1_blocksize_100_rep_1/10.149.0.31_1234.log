@@ -1,0 +1,404 @@
+/home/ddps2001/DPS2/1639654817/out/10.149.0.31_1234.out
+/home/ddps2001/DPS2/1639654817/out/10.149.0.31_1234.out
+Started proc!
+sockaddr 2, 53764, 520131850
+0x631a24
+Thread started!
+We are offline...
+0x631a24
+We are offline...
+We are offline...
+[ receive_netinfo ] 9 peers online!
+Printing 72 bytes from 0x2aaab0000a40.
+--- start bytes ---
+02 00 04 d2 0a 95 00 20 02 00 04 d2 0a 95 00 21 
+02 00 04 d2 0a 95 00 22 02 00 04 d2 0a 95 00 23 
+02 00 04 d2 0a 95 00 25 02 00 04 d2 0a 95 00 24 
+02 00 04 d2 0a 95 00 26 02 00 04 d2 0a 95 00 28 
+02 00 04 d2 0a 95 00 27 
+--- end bytes ---
+We are offline...
+We are offline...
+We are offline...
+We are offline...
+We are offline...
+We are offline...
+[ receive_netinfo ] 11 peers online!
+Coming online...
+[ RequestBlockchain ] --------- Start --------- 
+[ RequestBlockchain ] Requesting block 1
+Broadcast to 2, 53764, 536909066
+Broadcast to 2, 53764, 553686282
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 620795146
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 687904010
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 570463498
+[ RequestBlockchain ] Received BLOCK 
+[ RequestBlockchain ] BLOCK is new
+[ RequestBlockchain ] Found f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a with count 1
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 620795146
+[ RequestBlockchain ] Received BLOCK 
+[ RequestBlockchain ] known BLOCK
+[ RequestBlockchain ] Found f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a with count 2
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 637572362
+[ RequestBlockchain ] Received BLOCK 
+[ RequestBlockchain ] known BLOCK
+[ RequestBlockchain ] Found f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a with count 3
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 687904010
+[ RequestBlockchain ] Received BLOCK 
+[ RequestBlockchain ] known BLOCK
+[ RequestBlockchain ] Found f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a with count 4
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 604017930
+[ RequestBlockchain ] Received BLOCK 
+[ RequestBlockchain ] known BLOCK
+[ RequestBlockchain ] Found f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a with count 5
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 671126794
+[ RequestBlockchain ] Received BLOCK 
+[ RequestBlockchain ] known BLOCK
+[ RequestBlockchain ] Found f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a with count 6
+[ RequestBlockchain ] Majority found
+[ RequestBlockchain ] Requesting block 2
+Broadcast to 2, 53764, 536909066
+Broadcast to 2, 53764, 553686282
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 620795146
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 687904010
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 587240714
+[ RequestBlockchain ] Received BLOCK 
+[ RequestBlockchain ] Malformed BLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 654349578
+[ RequestBlockchain ] Received BLOCK 
+[ RequestBlockchain ] Malformed BLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 671126794
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 654349578
+[ RequestBlockchain ] Client requesting same block and already seen... 
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 687904010
+[ RequestBlockchain ] Peer is requesting same block
+[ receive_netinfo ] 11 peers online!
+Coming online...
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 536909066
+[ RequestBlockchain ] Received BLOCK 
+[ RequestBlockchain ] Malformed BLOCK
+[ RequestBlockchain ] Majority found
+[ RequestBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ RequestBlockchain ] Requesting block 2
+Broadcast to 2, 53764, 536909066
+Broadcast to 2, 53764, 553686282
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 620795146
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 687904010
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 671126794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 637572362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 536909066
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 687904010
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 604017930
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc9002
+Broadcast to 2, 53764, 536909066
+Broadcast to 2, 53764, 553686282
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 620795146
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 687904010
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 620795146
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 671126794
+[ CheckVotesForBlock ] Block hash matches!
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 587240714
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 637572362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 536909066
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 6 agree vs. 0 disagree, out of 11
+Broadcast to 2, 53764, 536909066
+Broadcast to 2, 53764, 553686282
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 620795146
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 687904010
+[ AddBlockToBlockchain ] Added as candidate 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] Our block got added 3
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block 2 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block 2 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+Blockchain is size 3 with top hash e8985e9921f07a94c96fe1b9b2ed36bb3388fd254e05316ad7aa0b82b53fc900
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 536909066
+Broadcast to 2, 53764, 553686282
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 620795146
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 687904010
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+[ RequestBlockchain ] Not NOBLOCK nor BLOCK nor REQUESTBLOCK
+[ RequestBlockchain ] Is a vote for block 2
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 620795146
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 671126794
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 587240714
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 637572362
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 536909066
+[ RequestBlockchain ] Received NOBLOCK
+[ RequestBlockchain ] Majority found
+[ AddBlockToBlockchain ] --------- Start --------- 
+[ AddBlockToBlockchain ] Trying to add block with hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb239133
+Broadcast to 2, 53764, 536909066
+Broadcast to 2, 53764, 553686282
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 620795146
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 687904010
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ receive_netinfo ] 11 peers online!
+Coming online...
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 553686282
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 604017930
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 570463498
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 620795146
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 671126794
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 6 agree vs. 0 disagree, out of 11
+Broadcast to 2, 53764, 536909066
+Broadcast to 2, 53764, 553686282
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 620795146
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 687904010
+[ AddBlockToBlockchain ] Added as candidate 
+Handling all block addition requests...
+[ AddBlockToBlockchain ] Our block got added 4
+
+[ AddBlockToBlockchain ] --------- Stop --------- 
+
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block 3 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block 3 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block 3 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+Blockchain is size 4 with top hash c5cc6158b54e006b49516a2c6e3b0e7683cf5d4c9956bff2e8424f0a1bb23913
+Logging to /home/ddps2001/DPS2/1639654817/out/10.149.0.31_1234.out
+[ Run ] No messages... 

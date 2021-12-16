@@ -1,0 +1,344 @@
+/home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+/home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+Started proc!
+sockaddr 2, 53764, 620795146
+Thread started!
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+0x6313e4
+We are offline...
+0x6313e4
+[ receive_netinfo ] 0 peers online!
+Printing 0 bytes from 0x2aaab0000910.
+--- start bytes ---
+--- end bytes ---
+We are offline...
+We are offline...
+We are offline...
+We are offline...
+We are offline...
+[ receive_netinfo ] 5 peers online!
+Coming online...
+[ RequestBlockchain ] --------- Start --------- 
+[ RequestBlockchain ] Requesting block 2
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 654349578
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 587240714
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 604017930
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Majority found
+[ RequestBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 8 peers online!
+Coming online...
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 11 peers online!
+Coming online...
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block 1 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 11 peers online!
+Coming online...
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 2 with top hash f2d1218e317d353271633c2e24d1ff2d857e6cd71aa8a9aa7b55048320ff160a
+[ RequestBlockchain ] Requesting block 2
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 687904010
+Broadcast to 2, 53764, 704681226
+Broadcast to 2, 53764, 721458442
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 738235658
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 671126794
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 721458442
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 687904010
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 738235658
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+[ RequestBlockchain ] Not NOBLOCK nor BLOCK nor REQUESTBLOCK
+[ RequestBlockchain ] Is a vote for block 2
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+[ RequestBlockchain ] Not NOBLOCK nor BLOCK nor REQUESTBLOCK
+[ RequestBlockchain ] Is a vote for block 2
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 637572362
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 2 with hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 687904010
+Broadcast to 2, 53764, 704681226
+Broadcast to 2, 53764, 721458442
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 738235658
+[ HandleBlockAdditionRequest ] Sent vote 1 to 10 peers
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 637572362
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 687904010
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 738235658
+[ CheckVotesForBlock ] Block hash matches!
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 604017930
+[ CheckVotesForBlock ] Block hash matches!
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 2
+[ CheckVotesForBlock ] Handling vote 
+2 53764 654349578
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 6 agree vs. 0 disagree, out of 11
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 3
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block 2 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 
+[ receive_netinfo ] 11 peers online!
+Coming online...
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+[ SendBlockchain ] --------- Start --------- 
+[ SendBlockchain ] Block 2 is available 
+[ SendBlockchain ] BLOCK sent! 
+[ SendBlockchain ] --------- Stop  --------- 
+
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+Blockchain is size 3 with top hash fb47e6638adb44a802c59a5184e91e6fbb8e6c6df7e170863faf2a908c546dd9
+[ RequestBlockchain ] Requesting block 3
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 687904010
+Broadcast to 2, 53764, 704681226
+Broadcast to 2, 53764, 721458442
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 738235658
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 587240714
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 604017930
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 671126794
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 704681226
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+[ RequestBlockchain ] Not NOBLOCK nor BLOCK nor REQUESTBLOCK
+[ RequestBlockchain ] Is a vote for block 3
+[ RequestBlockchain ] Message available! 
+[ RequestBlockchain ] Handling block...
+2 53764 721458442
+[ RequestBlockchain ] Peer is requesting same block
+[ RequestBlockchain ] Majority found
+[ HandleBlockAdditionRequest ] --------- Start --------- 
+[ HandleBlockAdditionRequest ] Handling BlockchainAdditionRequest 3 with hash cb90b9017ff339de004aee9f8cad50a3c79af7a4b7e079d23a25b3828ec6c41d
+Broadcast to 2, 53764, 587240714
+Broadcast to 2, 53764, 604017930
+Broadcast to 2, 53764, 637572362
+Broadcast to 2, 53764, 654349578
+Broadcast to 2, 53764, 671126794
+Broadcast to 2, 53764, 687904010
+Broadcast to 2, 53764, 704681226
+Broadcast to 2, 53764, 721458442
+Broadcast to 2, 53764, 570463498
+Broadcast to 2, 53764, 738235658
+[ HandleBlockAdditionRequest ] Sent vote 1 to 10 peers
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 721458442
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 587240714
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Not a VOTE
+[ CheckVotesForBlock ] Is a noblock
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 637572362
+[ CheckVotesForBlock ] Block hash matches!
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 687904010
+[ CheckVotesForBlock ] Block hash matches!
+[ SendBlockchain ] Block does not exist 
+[ SendBlockchain ] NOBLOCK sent! 
+[ CheckVotesForBlock ] Got vote for block 3
+[ CheckVotesForBlock ] Handling vote 
+2 53764 738235658
+[ CheckVotesForBlock ] Block hash matches!
+[ CheckVotesForBlock ] Majority agrees! 6 agree vs. 0 disagree, out of 11
+[ HandleBlockAdditionRequest ] Block added to candidates
+Handling all block addition requests...
+[ HandleBlockAdditionRequest ] Some block got added 4
+
+[ HandleBlockAdditionRequest ] --------- Stop  --------- 
+
+Blockchain is size 4 with top hash cb90b9017ff339de004aee9f8cad50a3c79af7a4b7e079d23a25b3828ec6c41d
+Blockchain is size 4 with top hash cb90b9017ff339de004aee9f8cad50a3c79af7a4b7e079d23a25b3828ec6c41d
+Logging to /home/ddps2001/DPS2/1639654476/out/10.149.0.37_1234.out
+[ Run ] No messages... 

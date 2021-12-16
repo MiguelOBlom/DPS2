@@ -1,0 +1,55 @@
+==13876== Memcheck, a memory error detector
+==13876== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==13876== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==13876== Command: /home/ddps2001/DPS2/application/build/tracker 10.149.0.32 8080 /home/ddps2001/DPS2/p2p.db
+==13876== Parent PID: 13806
+==13876== 
+==13876== Thread 4:
+==13876== Invalid write of size 2
+==13876==    at 0x402681: _fill_peeraddress_table (db.c:36)
+==13876==    by 0x4EEF735: sqlite3_exec (sqlite3.c:127218)
+==13876==    by 0x40306E: db_get_all_peer_addresses (db.c:313)
+==13876==    by 0x4015DC: handle_heartbeat (tracker.c:77)
+==13876==    by 0x4017E2: handle_request_thread (tracker.c:151)
+==13876==    by 0x5173E24: start_thread (in /usr/lib64/libpthread-2.17.so)
+==13876==    by 0x548034C: clone (in /usr/lib64/libc-2.17.so)
+==13876==  Address 0x5a1a5c0 is 0 bytes after a block of size 32 alloc'd
+==13876==    at 0x4C29BE3: malloc (vg_replace_malloc.c:299)
+==13876==    by 0x402F6C: db_get_all_peer_addresses (db.c:295)
+==13876==    by 0x4015DC: handle_heartbeat (tracker.c:77)
+==13876==    by 0x4017E2: handle_request_thread (tracker.c:151)
+==13876==    by 0x5173E24: start_thread (in /usr/lib64/libpthread-2.17.so)
+==13876==    by 0x548034C: clone (in /usr/lib64/libc-2.17.so)
+==13876== 
+==13876== Invalid write of size 2
+==13876==    at 0x4026AA: _fill_peeraddress_table (db.c:37)
+==13876==    by 0x4EEF735: sqlite3_exec (sqlite3.c:127218)
+==13876==    by 0x40306E: db_get_all_peer_addresses (db.c:313)
+==13876==    by 0x4015DC: handle_heartbeat (tracker.c:77)
+==13876==    by 0x4017E2: handle_request_thread (tracker.c:151)
+==13876==    by 0x5173E24: start_thread (in /usr/lib64/libpthread-2.17.so)
+==13876==    by 0x548034C: clone (in /usr/lib64/libc-2.17.so)
+==13876==  Address 0x5a1a5c2 is 2 bytes after a block of size 32 alloc'd
+==13876==    at 0x4C29BE3: malloc (vg_replace_malloc.c:299)
+==13876==    by 0x402F6C: db_get_all_peer_addresses (db.c:295)
+==13876==    by 0x4015DC: handle_heartbeat (tracker.c:77)
+==13876==    by 0x4017E2: handle_request_thread (tracker.c:151)
+==13876==    by 0x5173E24: start_thread (in /usr/lib64/libpthread-2.17.so)
+==13876==    by 0x548034C: clone (in /usr/lib64/libc-2.17.so)
+==13876== 
+==13876== Invalid write of size 4
+==13876==    at 0x4026D4: _fill_peeraddress_table (db.c:38)
+==13876==    by 0x4EEF735: sqlite3_exec (sqlite3.c:127218)
+==13876==    by 0x40306E: db_get_all_peer_addresses (db.c:313)
+==13876==    by 0x4015DC: handle_heartbeat (tracker.c:77)
+==13876==    by 0x4017E2: handle_request_thread (tracker.c:151)
+==13876==    by 0x5173E24: start_thread (in /usr/lib64/libpthread-2.17.so)
+==13876==    by 0x548034C: clone (in /usr/lib64/libc-2.17.so)
+==13876==  Address 0x5a1a5c4 is 4 bytes after a block of size 32 alloc'd
+==13876==    at 0x4C29BE3: malloc (vg_replace_malloc.c:299)
+==13876==    by 0x402F6C: db_get_all_peer_addresses (db.c:295)
+==13876==    by 0x4015DC: handle_heartbeat (tracker.c:77)
+==13876==    by 0x4017E2: handle_request_thread (tracker.c:151)
+==13876==    by 0x5173E24: start_thread (in /usr/lib64/libpthread-2.17.so)
+==13876==    by 0x548034C: clone (in /usr/lib64/libc-2.17.so)
+==13876== 
