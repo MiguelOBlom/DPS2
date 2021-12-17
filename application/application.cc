@@ -161,15 +161,6 @@ Application::Application (char* tracker_addr, char* tracker_port, char* addr, ch
 	// Get the transactions
 	transactions = _transactions;
 
-	// Output the transactions that will be processed
-	for (auto transaction: transactions) {
-		std::cout << "-- Transaction -- " << std::endl;
-		for (size_t i = 0; i < MAX_TRANSACTIONS; i++) {
-			std::cout << transaction.transaction[i].sender << " to " << transaction.transaction[i].receiver << ": " << transaction.transaction[i].amount << std::endl; 
-		}
-		
-	}
-
 	// Create the blockchain
 	bc = new Blockchain<T_TYPE, std::string>(SHA256FromDataAndHash);
 	
