@@ -310,9 +310,6 @@ bool Application::RequestBlockchainBlock(B_TYPE* & largest_block) {
 
 	// If majority sent LASTBLOCK message, we are done
 	void * msg;
-	size_t msg_len;
-	struct sockaddr_in clntaddr;
-
 
 	int tries = 0;
 

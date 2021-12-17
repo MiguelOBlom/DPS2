@@ -26,7 +26,7 @@ sqlite3/libsqlite3.so: sqlite3/shell.c sqlite3/sqlite3.c sqlite3/sqlite3.h sqlit
 sha256/libsha256.so: sha256/sha256.cc sha256/sha256.h
 	$(CXX) $(CXXFLAGS) -o $@ $^ -shared -fPIC
 
-pow/libpow.so: pow/hashcash.h pow/iproofofwork.h
+pow/libpow.so: pow/hashcash.cc pow/hashcash.h pow/iproofofwork.h
 	$(CXX) $(CXXFLAGS) -I./sha256 -o $@ $^ -shared -fPIC -L./sha256 -lsha256 
 
 p2p/common.o: p2p/common.c p2p/common.h p2p/crc.h
