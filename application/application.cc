@@ -333,7 +333,6 @@ bool Application::RequestBlockchainBlock(B_TYPE* & largest_block) {
 				inbox.Unlock();
 
 				msg = std::get<0>(inbox_item);
-				msg_len = std::get<1>(inbox_item);
 				
 				std::cout << "[ RequestBlockchain ] Handling block..." << std::endl;
 				if (((struct BlockchainMessageHeader*) msg)->type == NOBLOCK) {
