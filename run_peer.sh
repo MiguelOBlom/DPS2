@@ -1,4 +1,4 @@
-# Miguel Blom
+# Author: Miguel Blom
 
 DPS2_DIR=/home/$(whoami)/DPS2
 

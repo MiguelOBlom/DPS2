@@ -33,6 +33,7 @@ public:
 
 };
 
+template <typename ID, unsigned int N>
 static std::vector<Transactions<ID, N> > TransactionReader<ID, N>::ReadFile(char* filename) {
 	struct Transactions<ID, N> transactions;
 	std::vector<Transactions<ID, N> > vec = std::vector<Transactions<ID, N> >();

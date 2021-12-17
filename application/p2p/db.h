@@ -1,11 +1,12 @@
 /*
-	Author: Miguel Blom
 
 	This adapter code was created for abstracting the interaction between 
 	a peer to peer tracker with the sqlite3 library. The code could easily be
 	switched out for any other adapter, as long as the global definitions
 	present in this header (API) file persists (and ofcourse the functionality
 	must be correct).
+
+	Author: Miguel Blom
 
 */
 

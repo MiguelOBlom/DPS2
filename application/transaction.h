@@ -1,3 +1,9 @@
+/*
+	This code defines the datastructures used for the transactions
+	that are stored in the blocks in our blockchain.
+	
+	Author: Miguel Blom
+*/
 
 #ifndef _TRANSACTION_
 #define _TRANSACTION_

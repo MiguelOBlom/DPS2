@@ -1,3 +1,4 @@
+// Author: Miguel Blom
 #include "db.h"
 
 // Convert bytes to a short unsigned integer
@@ -118,11 +119,14 @@ void _bind_sqlite3_peeraddress(sqlite3* db, char * partial_stmt, const struct pe
 }
 
 // Return the number of peers that are present in the database
+// They are considered disconnected if the timeout_threshold has been reached for the heartbeat
+// If so, they are not included in the selection process
 size_t _get_number_of_peers (sqlite3* db, int timeout_threshold) {
 	size_t n_items;
 	char * errmsg;
 	char * stmt = "SELECT COUNT(*) FROM PeerInfo WHERE ((strftime('%s', 'now') - peer_heartbeat)) < ";
 
+	// Construct the statement
 	size_t stmt_len = strlen(stmt);
 	size_t var_len = snprintf(NULL, 0, "%d", timeout_threshold);
 	size_t len = stmt_len + var_len + 2;
@@ -132,15 +136,9 @@ size_t _get_number_of_peers (sqlite3* db, int timeout_threshold) {
 	str[stmt_len + var_len] = ';';
 	str[stmt_len + var_len + 1] = '\0';
 
-	//printf("%s\n", str);
-
 	int sqlite3_retval = sqlite3_exec(db, str, _get_single_integer, &n_items, &errmsg);
-	//sqlite3_retval = sqlite3_exec(db, str, _fill_peerinfo_table, data, &errmsg);
 
 	free(str);
-
-
-
 
 	if (sqlite3_retval != SQLITE_OK) {
 		printf("Error while counting rows: %s\n", errmsg);
@@ -286,6 +284,8 @@ void db_remove_peer (sqlite3 * db, const struct peer_address* pa) {
 }
 
 // Provide a list of all peer addresses in data, the size is provided in n_items
+// The peers are considered disconnected if the timeout_threshold has been reached for the heartbeat
+// If so, they are not included in the selection process
 void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t* n_items, int timeout_threshold) {
 	char * errmsg;
 	char * stmt;
@@ -296,19 +296,15 @@ void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t*
 
 	stmt = "SELECT ROW_NUMBER() OVER() AS num_row, peer_family, peer_port, peer_addr FROM PeerInfo WHERE ((strftime('%s', 'now') - peer_heartbeat)) < ";
 
-
+	// Construct the statement
 	size_t stmt_len = strlen(stmt);
 	size_t var_len = snprintf(NULL, 0, "%d", timeout_threshold);
-
 	size_t len = stmt_len + var_len + 2;
 	char * str = malloc(len);
 	strncpy(str, stmt, stmt_len);
 	snprintf(str + stmt_len, var_len + 1, "%d", timeout_threshold);
-	//printf("%s\n", str);
 	str[stmt_len + var_len] = ';';
 	str[stmt_len + var_len + 1] = '\0';
-
-	//printf("%lu %s\n", var_len, str);
 
 	sqlite3_retval = sqlite3_exec(db, str, _fill_peeraddress_table, data, &errmsg);
 
@@ -326,6 +322,8 @@ void db_get_all_peer_addresses (sqlite3* db, struct peer_address** data, size_t*
 }
 
 // Provide a list of all peer info in data, the size is provided in n_items
+// The peers are considered disconnected if the timeout_threshold has been reached for the heartbeat
+// If so, they are not included in the selection process
 void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items, int timeout_threshold) {
 	char * errmsg;
 	char * stmt;
@@ -336,6 +334,7 @@ void db_get_all_peer_info (sqlite3* db, struct peer_info** data, size_t* n_items
 
 	stmt = "SELECT ROW_NUMBER() OVER() AS num_row, * FROM PeerInfo WHERE ((strftime('%s', 'now') - peer_heartbeat)) < ";
 
+	// Construct the statement
 	size_t stmt_len = strlen(stmt);
 	size_t var_len = snprintf(NULL, 0, "%d", timeout_threshold);
 	size_t len = stmt_len + var_len + 2;

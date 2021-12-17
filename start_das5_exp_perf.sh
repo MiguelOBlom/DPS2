@@ -1,4 +1,4 @@
-# Miguel Blom
+# Author: Miguel Blom
 # In this experiment we want to measure the time it takes to add 100 transactions given different block sizes to a network of 20 peers
 
 DPS2_DIR=/home/$(whoami)/DPS2

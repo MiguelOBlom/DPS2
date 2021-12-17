@@ -3,29 +3,11 @@
 
 
 
-memory leaks
 warnings/errors
-Experimentation
-
-
 
 Comments
-[x] Blockchain
-[ ] P2P
-[ ] P2P/common
-[ ] P2P/crc
-[ ] P2P/db
-[ ] P2P/peer
-[ ] P2P/queue
-[ ] P2P/tracker
-[x] POW
-[x] sha256
-[x] sqlite3
-[x] transaction_generator
+
 [ ] application
-[x] config
-[ ] lock_vector
-[x] logger
-[ ] transaction
-[x] transaction_reader
-[x] makefile
+
+en dan alles vanaf sectie 4 doorlezen
+en de requirements

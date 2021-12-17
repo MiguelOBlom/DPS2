@@ -1,5 +1,5 @@
-# Miguel Blom
-# In this experiment we want to measure the time it takes to add 100 transactions given different block sizes to a network of 20 peers
+# Author: Miguel Blom
+# In this experiment we want to measure the time it takes to join a network of different numbers of peers that all have the 20 same blocks
 
 DPS2_DIR=/home/$(whoami)/DPS2
 
@@ -45,7 +45,7 @@ echo "#define BITFLIP_CHANCE 0" >> $DPS2_DIR/application/config.h
 
 for DPS_NNODES in 4 7 12 17 22 27 32
 do
-	for REP in 1 {1..20}
+	for REP in {1..20}
 	do		
 		# Generate 100 transactions and distribute over our peers 
 		echo "Generating transactions..."

@@ -1,5 +1,5 @@
-# Miguel Blom
-# In this experiment we want to measure the time it takes to add 100 transactions given different block sizes to a network of 20 peers
+# Author: Miguel Blom
+# In this experiment we want to measure the time it takes to add 2 blocks network of 3 peers for different probabilities of network unreliability (probability to flip a bit in a sent message
 
 DPS2_DIR=/home/$(whoami)/DPS2
 
@@ -117,7 +117,7 @@ do
 		touch $DPS2_DIR/$EXPERIMENT_NAME/${WORKER_IP}_${PEER_PORT}.trc # Empty trace
 		screen -d -m -S $SEP_WORKER ssh -t $SEP_WORKER 'exec bash -l < DPS2/run_peer.sh'
 
-		# While block 20 has not been received, the peer is not updated
+		# While block 2 has not been received, the peer is not updated
 		while [ ! -f $DPS2_DIR/$EXPERIMENT_NAME/out/${WORKER_IP}_${PEER_PORT}.out ]
 		do
 			end=$(date +%s)

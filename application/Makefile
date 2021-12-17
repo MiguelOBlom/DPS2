@@ -11,22 +11,13 @@ all: builddir sha256/libsha256.so sqlite3/libsqlite3.so pow/libpow.so p2p/libpee
 builddir:
 	mkdir -p build
 
-#transaction_reader.o: transaction_reader.cc transaction_reader.h transaction.h
-#	$(CXX) $(CXXFLAGS) -c -o $@ $<	
-
-#lock_vector.o: lock_vector.h
-#	$(CXX) $(CXXFLAGS) -c -o $@ $< -pthread
-
-#transaction.o: transaction.h
-#	$(CXX) $(CXXFLAGS) -c -o $@ $<	
-
-application.o: application.cc
+application.o: application.cc application.h
 	$(CXX) $(CXXFLAGS) -I./blockchain -I./sha256 -I./pow -I./p2p -c -o $@ $< -L./blockchain -L./sha256 -L./pow -L./p2p -lblockchain -lsha256 -lpow -lpeer
 
 logger.o: logger.cc logger.h
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-build/application: application.o logger.o lock_vector.h transaction.h transaction_reader.h 
+build/application: main.cc application.o logger.o lock_vector.h transaction.h transaction_reader.h application.h 
 	$(CXX) $(CXXFLAGS) -I./blockchain -I./sha256 -I./pow -I./p2p -o $@ $^ -L./blockchain -L./sha256 -L./pow -L./p2p -lblockchain -lsha256 -lpow -lpeer -pthread
 
 sqlite3/libsqlite3.so: sqlite3/shell.c sqlite3/sqlite3.c sqlite3/sqlite3.h sqlite3/sqlite3ext.h

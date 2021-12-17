@@ -1,4 +1,4 @@
-# Miguel Blom
+# Author: Miguel Blom
 # Call this script with ./start_das5.sh DPS_NNODES DPS_TIME DPS_NTRANSACTIONS DPS_NDISTANCE
 # e.g.                  ./start_das5.sh 10 00:10:00 100 30
 # To process 100 transactions using 10 nodes which are allocated for 00:10:00 and 30 seconds apart

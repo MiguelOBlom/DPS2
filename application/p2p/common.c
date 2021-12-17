@@ -1,5 +1,6 @@
-#include "common.h"
+// Author: Miguel Blom
 
+#include "common.h"
 
 // Constructs a message_header with the type and length of the full dataframe
 // NOTE: the message_header_checksum depends on the data_checksum
@@ -29,7 +30,6 @@ struct peer_address init_peer_address(short unsigned int family, short unsigned 
 struct peer_address_header init_peer_address_header (const struct peer_address* pa, enum message_type mtype) {
 	POLY_TYPE data_checksum;
 	struct peer_address_header peer_address_header;
-	//printf("common initpeeraddressheader: %p\n", pa);
 	peer_address_header.peer_address = *pa;
 	data_checksum = get_crc(pa, sizeof(struct peer_address));
 	peer_address_header.message_header = init_message_header(mtype, sizeof(peer_address_header), data_checksum);
@@ -117,7 +117,6 @@ int convert_port(char* chport, short unsigned int* port) {
 // Requires a domain and initialized socket address
 void initialize_srvr(int* sockfd, const struct peer_address* pa) {
 	struct sockaddr_in sockaddr = _create_sockaddr_in(pa);
-	printf("sockaddr %d, %u, %u\n", sockaddr.sin_family, sockaddr.sin_port, sockaddr.sin_addr.s_addr);
 	_create_udp_socket(sockfd, pa->family);
 	_bind_socket(sockfd, &sockaddr);
 }
@@ -129,10 +128,13 @@ void initialize_clnt(int* sockfd, const struct peer_address* pa, struct sockaddr
 	_create_udp_socket(sockfd, pa->family);
 }
 
-
+// Flips a random bit in the data specified by the pointer data of length data_len
 void _flip_random_bit(void * data, const size_t data_len) {
+	// Random bit in byte
 	size_t e = rand() % 8;
+	// Random byte in the data
 	size_t r = rand() % data_len;
+	// Flip the bit
 	((char*)data)[r] ^= 1 << e;
 }
 
@@ -144,15 +146,12 @@ void _flip_random_bit(void * data, const size_t data_len) {
 // in these values the information about the sender is stored
 ssize_t recv_message(const int* sockfd, void* data, const size_t data_len, int flags, struct sockaddr_in* sockaddr, socklen_t* sockaddr_len) {
 	*sockaddr_len = sizeof(*sockaddr);
-	//printf("recv: %p, %p, %p, %p\n", sockfd, data, sockaddr, sockaddr_len);
 	ssize_t msg_len = recvfrom(*sockfd, data, data_len, flags, (struct sockaddr*) sockaddr, sockaddr_len);
-	//printf("recv sockaddr %d, %u, %u\n", sockaddr->sin_family, sockaddr->sin_port, sockaddr->sin_addr.s_addr);
 	if (msg_len < 0) {
 		perror("Failed receiving message");
 	} else {
 		//perror("Successfully received message");
 	}
-
 
 	return msg_len;
 }
@@ -188,18 +187,20 @@ ssize_t send_message(const int* sockfd, const void* data, const size_t data_len,
 	return msg_len;
 }
 
+// Checks whether the socket file descriptor has data available
+// If so, return true, otherwise false
 int is_data_available(const int* sockfd) {
 	int size;
 	int ret = ioctl(*sockfd, FIONREAD, &size);
+
 	if (ret == 0) {
-		//printf("%d %d\n", ret, size);
 		return size > 0;
 	}
 	
 	return 0;
 }
 
-
+// Print some data with specified length data_len as bytes
 void print_bytes(void * data, size_t data_len) {
 	printf("Printing %lu bytes from %p.\n", data_len, data);
 	printf("--- start bytes ---");
