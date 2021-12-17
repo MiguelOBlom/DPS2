@@ -498,7 +498,7 @@ void Application::SendBlockchain(struct BlockchainMessageHeader& bmh) {
 		memcpy(response, &response_bmh, sizeof(response_bmh));
 		memcpy((char *)response + sizeof(response_bmh), block_data, block_size);
 
-		respond(peer, response, response_len, &bmh.peer_address);
+		respond(response, response_len, &bmh.peer_address);
 		log->LogSendingBlock(bmh.index);
 		std::cout << "[ SendBlockchain ] BLOCK sent! " << std::endl;
 		free(block_data);
@@ -508,7 +508,7 @@ void Application::SendBlockchain(struct BlockchainMessageHeader& bmh) {
 		std::cout << "[ SendBlockchain ] Block does not exist " << std::endl;
 		response_bmh.type = NOBLOCK;
 
-		respond(peer, &response_bmh, sizeof(response_bmh), &bmh.peer_address);
+		respond(&response_bmh, sizeof(response_bmh), &bmh.peer_address);
 		log->LogSendingBlock(bmh.index);
 		std::cout << "[ SendBlockchain ] NOBLOCK sent! " << std::endl;
 	}

@@ -48,7 +48,7 @@ size_t broadcast(struct peer* p, void * data, size_t data_len);
 void receive(struct peer* p, void ** message, size_t* message_len, struct sockaddr_in* clntaddr);
 
 // Respond with a message of message_len length to a peer with address pa
-void respond(struct peer* p, void * message, size_t message_len, struct peer_address* pa);
+void respond(void * message, size_t message_len, struct peer_address* pa);
 
 // Checks whether the peer has been offline, if so, we should refresh
 // The flag to check whether we should refresh is reset
