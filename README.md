@@ -22,6 +22,10 @@ For our second experiment, we can run the script:
 `start_das5_exp_scalab.sh`
 Which measures the time it takes for a peer that joins the network to be fully updated with the state of the blockchain, as a function of the number of peers in the network.
 
+For our third experiment, we can run the script:
+`start_das5_exp_fault.sh`
+Which simulates an unreliable network by flipping random bits in the sent messages.
+
 # Draw.io Pictures
 To edit the images, go to draw.io and load them.
 
