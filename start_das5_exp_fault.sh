@@ -12,16 +12,22 @@ module load python/3.6.0
 #DPS_NTRANSACTIONS=$3
 #DPS_TIME=$2
 #DPS_NNODES=$1
-DPS_NNODES=12 # 20 empty peers, a tracker and the peer with the data
+DPS_NNODES=4 # 20 empty peers, a tracker and the peer with the data
 DPS_TIME="00:15:00"
+MAX_WAIT=900 # 15 minutes
 
 TRACKER_PORT=8080
 WORKER_PORT=1234
 PEER_PORT=1234
 
-rm -f exp_perf.res
+rm -f exp_fault.res
 
-for BLOCK_SIZE in 100 50 20 10 5 2 1
+
+
+#for DPS_NNODES in 4 7 12 17 22 27 32
+#do
+
+for UNRELIAB_PERCENT in 0 1 2 5 10 20 50 75 
 do
 	# Generate config
 	echo "// Socket family" > $DPS2_DIR/application/config.h
@@ -36,22 +42,30 @@ do
 	echo "#define TRACKER_QUEUE_SIZE 20" >> $DPS2_DIR/application/config.h
 	echo "// Application configuration" >> $DPS2_DIR/application/config.h
 	echo "#define DIFFICULTY 24" >> $DPS2_DIR/application/config.h
-	echo "#define MAX_TRANSACTIONS $BLOCK_SIZE" >> $DPS2_DIR/application/config.h
+	echo "#define MAX_TRANSACTIONS 50" >> $DPS2_DIR/application/config.h
 	echo "#define ID_TYPE char" >> $DPS2_DIR/application/config.h
 	echo "// Chance data gets mutated (on receive)" >> $DPS2_DIR/application/config.h
-	echo "#define BITFLIP_CHANCE 0" >> $DPS2_DIR/application/config.h
+	echo "#define BITFLIP_CHANCE $UNRELIAB_PERCENT" >> $DPS2_DIR/application/config.h
 
 	# Build the project
 	(cd application; make clean; make)
 
+
 	for REP in 1 {1..20}
-	do
-		
-		# Generate 100 transactions for our single peer (we need 2 peers, a sender and a receiver, but we can join these files)
+	do		
+		# Generate 100 transactions and distribute over our peers 
 		echo "Generating transactions..."
-		EXPERIMENT_NAME=$(python3 $DPS2_DIR/application/transaction_generator/transaction_generator.py 2 100)
-		cat $DPS2_DIR/$EXPERIMENT_NAME/0.trc $DPS2_DIR/$EXPERIMENT_NAME/1.trc > $DPS2_DIR/$EXPERIMENT_NAME/data.trc
-		rm $DPS2_DIR/$EXPERIMENT_NAME/0.trc $DPS2_DIR/$EXPERIMENT_NAME/1.trc
+		EXPERIMENT_NAME=$(python3 $DPS2_DIR/application/transaction_generator/transaction_generator.py $((DPS_NNODES - 1)) 100)
+		cat $DPS2_DIR/$EXPERIMENT_NAME/*.trc > $DPS2_DIR/$EXPERIMENT_NAME/data.trc.temp
+		rm $DPS2_DIR/$EXPERIMENT_NAME/*.trc
+		
+		for i in $(seq 0 $((DPS_NNODES - 2)))
+		do 
+			cp $DPS2_DIR/$EXPERIMENT_NAME/data.trc.temp $DPS2_DIR/$EXPERIMENT_NAME/$i.trc
+		done
+		
+		rm $DPS2_DIR/$EXPERIMENT_NAME/data.trc.temp
+		
 		# Reserve nodes and get their names
 		echo "Reserving nodes..."
 		NODES=$(./reserve_nodes.sh $DPS_NNODES $DPS_TIME)
@@ -79,11 +93,12 @@ do
 
 		# Set up the rest of the network
 		echo "Starting peers..."
+		i=0
 		for WORKER in $WORKERS;
 		do
 			echo "Starting worker $WORKER..."
 			WORKER_IP=$(ssh $WORKER $'ifconfig | grep inet | grep -o \'10\.149\.\S*\' | awk -F . \'$NF !~ /^255/\'')
-			touch $DPS2_DIR/$EXPERIMENT_NAME/${WORKER_IP}_${PEER_PORT}.trc # Empty trace
+			mv $DPS2_DIR/$EXPERIMENT_NAME/$i.trc $DPS2_DIR/$EXPERIMENT_NAME/${WORKER_IP}_${PEER_PORT}.trc
 			screen -d -m -S $WORKER ssh -t $WORKER 'exec bash -l < DPS2/run_peer_init.sh'
 			
 			# Make sure the worker is ready
@@ -91,30 +106,61 @@ do
 			do
 			  sleep 1
 			done
+			i=$((i+1))
 		done
-
+		
 		# Add worker seperately
 		echo "Starting seperate worker $SEP_WORKER..."
 		start=$(date +%s.%1N)
+		start_h=$(date +%s)
 		WORKER_IP=$(ssh $SEP_WORKER $'ifconfig | grep inet | grep -o \'10\.149\.\S*\' | awk -F . \'$NF !~ /^255/\'')
-		mv $DPS2_DIR/$EXPERIMENT_NAME/data.trc $DPS2_DIR/$EXPERIMENT_NAME/${WORKER_IP}_${PEER_PORT}.trc
+		touch $DPS2_DIR/$EXPERIMENT_NAME/${WORKER_IP}_${PEER_PORT}.trc # Empty trace
 		screen -d -m -S $SEP_WORKER ssh -t $SEP_WORKER 'exec bash -l < DPS2/run_peer.sh'
 
-		# While it has not logged its file, not all transactions have been performed
+		# While block 20 has not been received, the peer is not updated
 		while [ ! -f $DPS2_DIR/$EXPERIMENT_NAME/out/${WORKER_IP}_${PEER_PORT}.out ]
 		do
-		  sleep 1
+			end=$(date +%s)
+			res=$(echo "scale=0; $end - $start_h" | bc)
+
+			if (( res > MAX_WAIT ))
+			then
+				echo $UNRELIAB_PERCENT $REP timeout >> exp_fault.res
+				./stop_das5.sh
+				rm -rf $DPS2_DIR/exp3_unreliab_percent_${DPS_NNODES}_rep_${REP}
+				mv $DPS2_DIR/$EXPERIMENT_NAME $DPS2_DIR/exp3_unreliab_percent_${DPS_NNODES}_rep_${REP}
+				continue 2
+			fi
+			sleep 1
 		done
+		
+		while ! $(cat $DPS2_DIR/$EXPERIMENT_NAME/out/${WORKER_IP}_${PEER_PORT}.out | grep RECEIVED_BLOCK | grep SUCCESS | awk '{print $4}' | grep -q 2)
+		do
+			end=$(date +%s)
+			res=$(echo "scale=0; $end - $start_h" | bc)
+
+			if (( res > MAX_WAIT ))
+			then
+				echo $UNRELIAB_PERCENT $REP timeout >> exp_fault.res
+				./stop_das5.sh
+				rm -rf $DPS2_DIR/exp3_unreliab_percent_${DPS_NNODES}_rep_${REP}
+				mv $DPS2_DIR/$EXPERIMENT_NAME $DPS2_DIR/exp3_unreliab_percent_${DPS_NNODES}_rep_${REP}
+				continue 2
+			fi
+		
+			sleep 1
+		done 
+		
 
 		end=$(date +%s.%1N)
 		res=$(echo "scale=1; $end - $start" | bc)
 
-		echo $BLOCK_SIZE $REP $res >> exp_perf.res
+		echo $UNRELIAB_PERCENT $REP $res >> exp_fault.res
 
 		# Change the experiment name
 		./stop_das5.sh
-		rm -rf $DPS2_DIR/exp1_blocksize_${BLOCK_SIZE}_rep_${REP}
-		mv $DPS2_DIR/$EXPERIMENT_NAME $DPS2_DIR/exp1_blocksize_${BLOCK_SIZE}_rep_${REP}
+		rm -rf $DPS2_DIR/exp3_unreliab_percent_${DPS_NNODES}_rep_${REP}
+		mv $DPS2_DIR/$EXPERIMENT_NAME $DPS2_DIR/exp3_unreliab_percent_${DPS_NNODES}_rep_${REP}
 
 	done
 done

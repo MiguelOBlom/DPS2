@@ -1,15 +1,3 @@
-Add transactions straight to the blockchain with option
-
-Log for experiments when all transactions have been added
-START_TIME\t<TIME>
-
-SENDING_BLOCK\t<TIME>\t<BLOCK_NUMBER>
-
-REQUEST_BLOCK\t<TIME>\t<BLOCK_NUMBER>
-RECEIVED_BLOCK\t<TIME>\t<BLOCK_NUMBER>\t[FAIL/SUCCESS]
-
-BLOCK_ADDED_START\t<TIME>\t<BLOCK_NUMBER>
-BLOCK_ADDED_STOP\t<TIME>\t<BLOCK_NUMBER>\t[FAIL/SUCCESS]
 
 
 
@@ -17,11 +5,27 @@ BLOCK_ADDED_STOP\t<TIME>\t<BLOCK_NUMBER>\t[FAIL/SUCCESS]
 
 memory leaks
 warnings/errors
-Deployment
 Experimentation
+
+
+
 Comments
-
-export DPS2_DIR=/home/miguel/DPS2
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH":$DPS2_DIR/application/blockchain:$DPS2_DIR/application/p2p:$DPS2_DIR/application/pow:$DPS2_DIR/application/sha256:$DPS2_DIR/application/sqlite3
-
-valgrind --leak-check=full ./application 145.118.194.119 1234 145.118.194.119 1235 ../transaction_generator/1639509698/2.trc
+[x] Blockchain
+[ ] P2P
+[ ] P2P/common
+[ ] P2P/crc
+[ ] P2P/db
+[ ] P2P/peer
+[ ] P2P/queue
+[ ] P2P/tracker
+[x] POW
+[x] sha256
+[x] sqlite3
+[x] transaction_generator
+[ ] application
+[x] config
+[ ] lock_vector
+[x] logger
+[ ] transaction
+[x] transaction_reader
+[x] makefile

@@ -1,3 +1,7 @@
+/*
+	Author: Miguel
+*/
+
 #include "logger.h"
 
 Logger::Logger(){
@@ -60,6 +64,7 @@ void Logger::WriteBack(char* filename) {
 		outfile.open(filename);
 		first_write = false;
 	} else {
+		// Otherwise append
 		outfile.open(filename, std::ios_base::app);
 	}
 

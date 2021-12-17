@@ -1,5 +1,10 @@
+/*
+	Author: Miguel Blom
+*/
+
 #include "transaction_reader.h"
 
+// The following code can be uncommented to test out this class
 /*
 int main(int argc, char**argv) {
 	std::vector<Transactions<char, 5> > vec = TransactionReader<char, 5>::ReadFile(argv[1]);

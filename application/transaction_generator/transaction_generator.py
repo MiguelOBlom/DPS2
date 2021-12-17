@@ -1,3 +1,6 @@
+# Generates transaction data as traces
+# Author: Miguel Blom
+
 import random
 import sys
 import numpy
@@ -39,6 +42,7 @@ for i in range(n_transactions):
 name = str(int(time.time()))
 os.mkdir(name)
 
+# Write to files, grouped by the sender id
 for i in range(n_peers):
 	with open(os.path.join(name, str(i) + ".trc"), "w+") as f:
 		for transaction in trace[i]:

@@ -1,3 +1,5 @@
+# Authors: Miguel Blom and Matt van den Nieuwenhuijzen
+
 CC=gcc
 CXX=g++
 CFLAGS=-Wall -Wextra -ggdb

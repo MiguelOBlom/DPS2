@@ -1125,6 +1125,7 @@ public:
 								}
 								std::cout << "[ AddBlockToBlockchain ] --------- Stop --------- " << std::endl << std::endl;
 							} else {
+								RequestBlockchain();
 								log->WriteBack(log_filename);
 								std::cout << "[ Run ] No messages... "<< std::endl;
 								//place_back(inbox, read_messages);
