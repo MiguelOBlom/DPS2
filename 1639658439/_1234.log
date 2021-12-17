@@ -1,0 +1,1 @@
+Usage: /home/ddps2001/DPS2/application/build/application <tracker_addr> <tracker_port> <addr> <port> <transaction_trace> <output_file> <0/1 for initialization>

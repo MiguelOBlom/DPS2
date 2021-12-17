@@ -3,6 +3,7 @@
 #include <vector>
 #include <string.h>
 
+#include "config.h"
 #include "transaction.h"
 
 #ifndef _TRANSACTIONREADER_
@@ -17,7 +18,7 @@ public:
 	static std::vector<Transactions<ID, N> > ReadFile(char* filename) {
 		std::vector<Transactions<ID, N> > vec = std::vector<Transactions<ID, N> >();
 		std::ifstream transaction_file;
-		uint32_t sender, receiver;
+		ID_TYPE sender, receiver;
 		double amount;
 		
 		transaction_file.open(filename);
@@ -25,10 +26,25 @@ public:
 		while(!transaction_file.eof()) {
 			struct Transactions<ID, N> transactions;
 			memset(&transactions, 0, sizeof(transactions));
-			for (unsigned int i = 0; i < N && !transaction_file.eof(); ++i) {
-				transaction_file >> transactions.transaction[i].sender >> transactions.transaction[i].receiver >> transactions.transaction[i].amount;
+			
+			unsigned int i = 0;
+
+			for (; i < N && !transaction_file.eof(); ++i) {
+				transaction_file >> sender >> receiver >> amount;
+
+				if (sender == 0 && receiver == 0 && amount == 0) {
+					i--; // yes, but we ++i right after
+				} else {
+					sender = transactions.transaction[i].sender;
+					receiver = transactions.transaction[i].receiver;
+					amount = transactions.transaction[i].amount;
+				}
+
 			}
-			vec.push_back(transactions);
+
+			if (i != 0) {
+				vec.push_back(transactions);
+			}
 
 		}
 		return vec;
