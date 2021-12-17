@@ -112,7 +112,7 @@ void receive(struct peer* p, void ** message, size_t* message_len, struct sockad
 	}
 }
 
-void respond(struct peer* p, void * message, size_t message_len, struct peer_address* pa) {
+void respond(void * message, size_t message_len, struct peer_address* pa) {
 	int sockfd;
 	struct sockaddr_in clntaddr;
 	POLY_TYPE data_checksum = get_crc(message, message_len);
@@ -181,7 +181,7 @@ void receive_netinfo(struct netinfo_lock* netinfo_lock, const int* sockfd, struc
 		recv_message(sockfd, &message_header, sizeof(message_header), MSG_WAITALL, srvraddr, &srvraddr_len);
 	}
 
-	printf("[ receive_netinfo ] %u peers online!\n", *(netinfo_lock->n_peers));
+	printf("[ receive_netinfo ] %lu peers online!\n", *(netinfo_lock->n_peers));
 }
 
 

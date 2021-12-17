@@ -200,7 +200,7 @@ Application::~Application () {
 	// and mailbox thread
 	delete bc;
 	delete pow_group;
-	delete log
+	delete log;
 	exit_peer(peer);
 	free(peer);
 	pthread_cancel(inbox_thread_id);
@@ -310,6 +310,7 @@ bool Application::RequestBlockchainBlock(B_TYPE* & largest_block) {
 
 	// If majority sent LASTBLOCK message, we are done
 	void * msg;
+	size_t msg_len;
 	struct sockaddr_in clntaddr;
 
 

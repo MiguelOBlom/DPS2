@@ -29,47 +29,44 @@ template <typename ID, unsigned int N>
 class TransactionReader {
 public:
 	// Read a set of transaction batches from a file specified by the filename
-	static std::vector<Transactions<ID, N> > ReadFile(char* filename);
+	static std::vector<Transactions<ID, N> > ReadFile(char* filename){
+		struct Transactions<ID, N> transactions;
+		std::vector<Transactions<ID, N> > vec = std::vector<Transactions<ID, N> >();
+		std::ifstream transaction_file;
+		ID_TYPE sender, receiver;
+		double amount;
+		unsigned int i;
+		
+		transaction_file.open(filename);
+
+		while(!transaction_file.eof()) {
+			// Initialize the transactions to zero
+			memset(&transactions, 0, sizeof(transactions));
+			
+			for (i = 0; i < N && !transaction_file.eof(); ++i) {
+				// Read the contents
+				transaction_file >> sender >> receiver >> amount;
+
+				// Check if valid data
+				if (sender == 0 && receiver == 0 && amount == 0) {
+					i--; // yes, this is hacky, but we ++i right after
+				} else {
+					sender = transactions.transaction[i].sender;
+					receiver = transactions.transaction[i].receiver;
+					amount = transactions.transaction[i].amount;
+				}
+			}
+
+			// If any valid transactions have been read
+			if (i != 0) {
+				// Add it to our list of transactions
+				vec.push_back(transactions);
+			}
+
+		}
+		return vec;
+	}
 
 };
-
-template <typename ID, unsigned int N>
-static std::vector<Transactions<ID, N> > TransactionReader<ID, N>::ReadFile(char* filename) {
-	struct Transactions<ID, N> transactions;
-	std::vector<Transactions<ID, N> > vec = std::vector<Transactions<ID, N> >();
-	std::ifstream transaction_file;
-	ID_TYPE sender, receiver;
-	double amount;
-	unsigned int i;
-	
-	transaction_file.open(filename);
-
-	while(!transaction_file.eof()) {
-		// Initialize the transactions to zero
-		memset(&transactions, 0, sizeof(transactions));
-		
-		for (i = 0; i < N && !transaction_file.eof(); ++i) {
-			// Read the contents
-			transaction_file >> sender >> receiver >> amount;
-
-			// Check if valid data
-			if (sender == 0 && receiver == 0 && amount == 0) {
-				i--; // yes, this is hacky, but we ++i right after
-			} else {
-				sender = transactions.transaction[i].sender;
-				receiver = transactions.transaction[i].receiver;
-				amount = transactions.transaction[i].amount;
-			}
-		}
-
-		// If any valid transactions have been read
-		if (i != 0) {
-			// Add it to our list of transactions
-			vec.push_back(transactions);
-		}
-
-	}
-	return vec;
-}
 
 #endif
